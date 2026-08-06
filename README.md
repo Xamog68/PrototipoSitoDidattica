@@ -1,26 +1,9 @@
-# Prototipo Didattica — fotografia dell’esistente
+# Prototipo del sito Didattica
 
-Copia statica non ufficiale della struttura della sezione Didattica del Dipartimento di Matematica dell’Università di Pisa.
+Fotografia navigabile della sezione Didattica del Dipartimento di Matematica.
 
-## Scopo
+- Prima importazione strutturale: 5 agosto 2026.
+- Secondo livello dell’albero: 6 agosto 2026.
+- Pagine HTML presenti: 57.
 
-- riprodurre il menu attuale;
-- riprodurre le pagine-indice alfabetiche, comprese le voci non visibili nelle tendine;
-- creare una base GitHub Pages sulla quale confrontare in seguito struttura attuale e proposta;
-- non sostituire il sito ufficiale.
-
-## Uso locale
-
-Aprire `index.html` nel browser oppure avviare un server statico:
-
-```bash
-python3 -m http.server 8000
-```
-
-## Pubblicazione su GitHub Pages
-
-Caricare i file nella radice del repository e attivare Pages da `Settings > Pages`, scegliendo il branch principale e la cartella `/ (root)`.
-
-## Stato
-
-Prima versione: struttura principale e schede segnaposto. I contenuti completi verranno importati o riscritti progressivamente.
+Il prototipo riproduce volutamente menu, ordini e incoerenze dell’esistente. I documenti PDF e i portali esterni restano collegati alle fonti ufficiali. Alcune pagine molto estese sono rappresentate da una scheda strutturale e dal collegamento ufficiale, in attesa dell’importazione editoriale completa.
