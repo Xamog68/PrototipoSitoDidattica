@@ -1,5 +1,49 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Il Corso di Laurea in Matematica - Prototipo Didattica</title><link rel="stylesheet" href="assets/style.css"></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button class="menu-toggle" aria-expanded="false">Menu</button><ul class="menu"><li><a href="index.html">Didattica</a></li><li class="item has-sub"><a href="laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="laurea-triennale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="laurea-triennale/regolamento.html">Regolamento</a></li><li><a href="laurea-triennale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="lezioni-esami/esami.html">Esami</a></li><li><a href="lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="info-utili/borse.html">Borse di studio</a></li><li><a href="info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="bandi.html">Bandi</a></li><li class="item"><a href="news.html">News</a></li></ul></nav></header><main><div class="breadcrumb">Home Didattica</div><h1>Il Corso di Laurea in Matematica</h1>
-<p>Il <a href="laurea-triennale/index.html">Corso di Laurea Triennale</a> e il <a href="laurea-magistrale/index.html">Corso di Laurea Magistrale</a> in Matematica (biennale) offerti dall’Università di Pisa si inseriscono nella antica e solida tradizione della matematica pisana, fondata sulla attività di ricerca avanzata condotta in tutti i campi della matematica pura e applicata dai docenti del Dipartimento di Matematica dell’Ateneo, anche in sinergia con la Scuola Normale Superiore.</p>
-<p>In accordo con questa tradizione e con gli elevati standard della ricerca pisana i Corsi di Studio in Matematica dell’Università di Pisa si propongono di mantenere e migliorare il livello di eccellenza qualitativa che li ha sempre contraddistinti.</p>
-<p>Tutti gli avvisi e le news per gli studenti possono essere consultati nell’<a href="news.html">apposita pagina</a>.</p>
-</main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prototipo del sito Didattica</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17212b; background: #f4f6f8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    header { background: #7a1825; color: white; padding: 2.5rem 1.25rem; }
+    header div, main { max-width: 1050px; margin: 0 auto; }
+    h1 { margin: 0 0 .6rem; font-size: clamp(2rem, 5vw, 3.4rem); }
+    header p { max-width: 760px; margin: 0; font-size: 1.08rem; line-height: 1.6; }
+    main { padding: 2.5rem 1.25rem 4rem; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.4rem; }
+    .card { background: white; border-radius: 12px; padding: 1.6rem; box-shadow: 0 3px 16px rgba(0,0,0,.08); border-top: 6px solid #7a1825; }
+    .card h2 { margin-top: 0; }
+    .card p { line-height: 1.55; min-height: 5em; }
+    .card a { display: inline-block; background: #7a1825; color: white; text-decoration: none; font-weight: 700; padding: .75rem 1rem; border-radius: 6px; }
+    .card a:hover, .card a:focus { background: #55101a; }
+    .nota { margin-top: 2rem; padding: 1rem 1.2rem; background: #fff7df; border-left: 5px solid #d59b00; line-height: 1.55; }
+    code { background: #e9edf1; padding: .1em .35em; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Prototipo del sito Didattica</h1>
+      <p>Spazio di lavoro per confrontare la struttura attuale del sottosito con una proposta di riorganizzazione. Le due copie partono dallo stesso contenuto.</p>
+    </div>
+  </header>
+  <main>
+    <div class="cards">
+      <section class="card">
+        <h2>Struttura attuale</h2>
+        <p>Fotografia navigabile del sito esistente. Questa copia serve come riferimento e non dovrebbe essere modificata durante la progettazione.</p>
+        <a href="attuale/index.html">Apri il sito attuale</a>
+      </section>
+      <section class="card">
+        <h2>Proposta di riorganizzazione</h2>
+        <p>Copia di lavoro sulla quale sperimentare nuovi menu, percorsi, titoli e contenuti. All’inizio coincide con la struttura attuale.</p>
+        <a href="proposta/index.html">Apri la proposta</a>
+      </section>
+    </div>
+    <div class="nota"><strong>Regola di lavoro:</strong> conservare <code>attuale/</code> come fotografia dell’esistente e applicare le modifiche soltanto dentro <code>proposta/</code>.</div>
+  </main>
+</body>
+</html>

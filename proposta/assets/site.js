@@ -1,0 +1,2 @@
+
+const btn=document.querySelector('.menu-toggle');const menu=document.querySelector('.menu');if(btn){btn.addEventListener('click',()=>{const o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)});}document.querySelectorAll('.has-sub > a,.has-sub > span').forEach(el=>el.addEventListener('click',e=>{if(innerWidth<=900){const li=el.parentElement;if(el.tagName==='SPAN')e.preventDefault();li.classList.toggle('open')}}));
