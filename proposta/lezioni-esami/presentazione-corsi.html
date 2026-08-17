@@ -1,1 +1,141 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Presentazione Corsi - Prototipo Didattica</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button class="menu-toggle" aria-expanded="false">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li><li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni & Esami</a> <span>›</span> Presentazione Corsi</div><h1>Presentazione Corsi</h1><p>Pagina presente nella struttura attuale. In questa prima fotografia il contenuto completo non è ancora stato importato.</p><p><a class="official" href="https://www.dm.unipi.it/didattica/lezioni-esami/presentazione-corsi-di-matematica-della-magistrale-e-del-terzo-anno-triennale/">Apri la pagina ufficiale</a></p><aside><strong>Nota di lavoro.</strong> Questa scheda serve a verificare posizione, nome e raggiungibilità della pagina prima della revisione dei contenuti.</aside></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Presentazione degli insegnamenti non obbligatori</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.course-wrap{max-width:960px}
+.event-box{margin:1.5rem 0 2rem;padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:10px;background:#f7f8f9}
+.event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.session-card{padding:1rem 1.05rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.session-kicker{font-size:.9rem;color:#666;margin-bottom:.25rem}
+.session-card h3{margin:.1rem 0 .2rem;font-size:1.12rem}
+.session-time{font-weight:700;margin-bottom:.7rem}
+.session-card ul{margin-bottom:0}
+.web-intro{margin:.4rem 0 1.1rem;max-width:850px}
+.course-areas details,.course-archive details{margin-bottom:.8rem;border:1px solid #d6d9dd;border-radius:8px;background:#fff;overflow:hidden}
+.course-areas summary,.course-archive summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
+.area-content,.archive-content{padding:1rem 1.15rem 1.15rem}
+.wip{padding:.9rem 1rem;border-left:4px solid #b26a00;border-radius:4px;background:#fff7e8}
+.small-code{font-weight:400;color:#666;font-size:.9em}
+@media (max-width:760px){.event-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e prova iniziale</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
+<li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+</ul></li>
+<li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li></ul></li>
+</ul>
+</nav>
+</header>
+<main class="course-wrap">
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Presentazione degli insegnamenti</div>
+<h1>Presentazione degli insegnamenti non obbligatori</h1>
+<p>A partire dal terzo anno della Laurea Triennale e soprattutto durante la Laurea Magistrale, una parte importante del percorso consiste nella scelta degli insegnamenti non obbligatori.</p>
+<p>Per aiutare studenti e studentesse a orientarsi, il Corso di Studio organizza ogni anno una <strong>presentazione in presenza degli insegnamenti</strong> e raccoglie in questa pagina una <strong>presentazione web permanente</strong>, suddivisa per gruppi disciplinari.</p>
+<p>L'obiettivo non è sostituire i programmi ufficiali dei singoli insegnamenti, ma offrire una prima guida: quali argomenti si studiano, quali conoscenze sono utili per affrontare un corso, come gli insegnamenti si collegano tra loro e quali possibili percorsi possono suggerire.</p>
+<section class="event-box">
+<h2>Presentazione in presenza 2026/27</h2>
+<p>La presentazione si svolgerà in due giornate, articolate in quattro sessioni. <strong>Il programma riportato qui sotto è fittizio</strong> e serve soltanto a sperimentare l'impaginazione della pagina.</p>
+<div class="event-grid">
+<article class="session-card">
+<div class="session-kicker">Lunedì 21 settembre · mattina</div>
+<h3>Algebra, Geometria e Logica matematica</h3>
+<div class="session-time">9:00–12:15</div>
+<ul>
+<li>9:00 — Introduzione alla sessione</li>
+<li>9:10 — Algebra: corsi del terzo anno e della Laurea Magistrale</li>
+<li>10:00 — Geometria: corsi del terzo anno e della Laurea Magistrale</li>
+<li>11:10 — Logica matematica</li>
+<li>11:40 — Domande e confronto con i docenti</li>
+</ul>
+</article>
+<article class="session-card">
+<div class="session-kicker">Lunedì 21 settembre · pomeriggio</div>
+<h3>Analisi matematica, Probabilità e statistica matematica</h3>
+<div class="session-time">14:00–17:30</div>
+<ul>
+<li>14:00 — Analisi Matematica 3 e corsi di base per il percorso avanzato</li>
+<li>14:30 — Istituzioni e corsi avanzati di Analisi matematica</li>
+<li>15:40 — Probabilità e Statistica matematica</li>
+<li>16:35 — Corsi specialistici e possibili percorsi</li>
+<li>17:10 — Domande e confronto con i docenti</li>
+</ul>
+</article>
+<article class="session-card">
+<div class="session-kicker">Martedì 22 settembre · mattina</div>
+<h3>Fisica matematica, Analisi numerica e Ricerca operativa</h3>
+<div class="session-time">9:00–12:15</div>
+<ul>
+<li>9:00 — Fisica matematica: istituzioni, sistemi dinamici e meccanica</li>
+<li>10:00 — Analisi numerica e calcolo scientifico</li>
+<li>10:55 — Ricerca operativa e ottimizzazione</li>
+<li>11:30 — Collegamenti fra modellistica, calcolo scientifico e applicazioni</li>
+<li>11:55 — Domande e confronto con i docenti</li>
+</ul>
+</article>
+<article class="session-card">
+<div class="session-kicker">Martedì 22 settembre · pomeriggio</div>
+<h3>Didattica e storia della matematica, opportunità trasversali</h3>
+<div class="session-time">14:00–17:00</div>
+<ul>
+<li>14:00 — Presentazione del percorso didattico</li>
+<li>14:20 — Didattica della matematica</li>
+<li>14:55 — Storia della matematica</li>
+<li>15:30 — Mobilità internazionale</li>
+<li>15:50 — Tirocini e altre opportunità formative</li>
+<li>16:15 — Come orientarsi nella scelta degli insegnamenti</li>
+<li>16:40 — Domande finali</li>
+</ul>
+</article>
+</div>
+</section>
+<section class="course-areas">
+<h2>Presentazione web per area disciplinare</h2>
+<div class="web-intro">
+<p>Le schede che seguono offrono una panoramica dei diversi ambiti della matematica presenti nella nostra offerta formativa. L'idea è aiutare a capire non solo <strong>quali corsi esistono</strong>, ma anche <strong>come si collegano tra loro</strong>, quali conoscenze richiedono e quali percorsi possono suggerire.</p>
+<p>I contenuti sono in corso di preparazione e saranno completati progressivamente dai docenti delle diverse aree.</p>
+</div>
+<details><summary>Logica matematica <span class="small-code">(MATH-01/A · ex MAT/01)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Algebra <span class="small-code">(MATH-02/A · ex MAT/02)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Geometria <span class="small-code">(MATH-02/B · ex MAT/03)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Didattica e storia della matematica <span class="small-code">(MATH-01/B · ex MAT/04)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Analisi matematica <span class="small-code">(MATH-03/A · ex MAT/05)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Probabilità e statistica matematica <span class="small-code">(MATH-03/B · ex MAT/06)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Fisica matematica <span class="small-code">(MATH-04/A · ex MAT/07)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Analisi numerica <span class="small-code">(MATH-05/A · ex MAT/08)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+<details><summary>Ricerca operativa <span class="small-code">(MATH-06/A · ex MAT/09)</span></summary><div class="area-content"><div class="wip"><strong>🚧 Work in progress.</strong><br/>La presentazione di questa area è in preparazione.</div></div></details>
+</section>
+<section class="course-archive">
+<h2>Archivio delle presentazioni</h2>
+<details>
+<summary>Presentazioni degli anni precedenti</summary>
+<div class="archive-content">
+<p>Qui raccoglieremo programmi, slide, eventuali registrazioni e altri materiali delle presentazioni degli anni precedenti.</p>
+<ul>
+<li>2025/26 — da collegare</li>
+<li>2024/25 — da collegare</li>
+<li>2023/24 — da collegare</li>
+</ul>
+</div>
+</details>
+</section>
+</main>
+<footer>Prototipo non ufficiale · proposta di revisione</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
