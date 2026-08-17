@@ -1,5 +1,293 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Iscrizione - Prototipo Didattica</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button class="menu-toggle" aria-expanded="false">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscrizione</a></li><li><a href="piano-di-studi.html">Piano di studi</a></li><li><a href="conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="regolamento.html">Regolamento</a></li><li><a href="ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> Iscrizione</div><h1>Iscrizione</h1>
-<h2>Come ci si iscrive</h2><p>Per procedure e termini relativi a immatricolazione, iscrizione, trasferimenti, passaggi e ricongiunzioni di carriera è necessario rivolgersi alle Segreterie Studenti dell’Università di Pisa.</p>
-<h2>Requisiti di accesso</h2><p>Per l’accesso sono richieste una buona capacità di comunicazione scritta e orale e conoscenze di matematica elementare: frazioni e numeri reali, espressioni algebriche, equazioni e disequazioni di primo e secondo grado, elementi di geometria euclidea e analitica, funzioni elementari.</p>
-<p>Il possesso di tali conoscenze è verificato tramite il <a href="test-ingresso.html">test di verifica delle conoscenze iniziali</a>. Chi non sostiene il test o non raggiunge la sufficienza può comunque iscriversi, ma riceve un <a href="ofa.html">Obbligo Formativo Aggiuntivo</a>.</p>
-<p><a class="official" href="https://www.dm.unipi.it/didattica/laurea-triennale/iscrizione/">Apri la pagina ufficiale</a></p></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iscrizione alla Laurea Triennale - Prototipo Didattica</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.enrol-wrap{max-width:920px}
+.enrol-lead{font-size:1.05rem;max-width:850px}
+.enrol-note{margin:1.4rem 0;padding:1rem 1.1rem;border-left:5px solid #555;background:#f3f6f8}
+.link-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.5rem 0 2rem}
+.link-card{display:block;padding:1.1rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff;text-decoration:none}
+.link-card strong{display:block;font-size:1.05rem;margin-bottom:.35rem}
+.link-card span{display:block;color:#555}
+.link-card.sibylla{background:#f7f3ff;border-color:#cfc3ea}
+.scenario-section{margin:2rem 0}
+.scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.scenario-card{padding:1.05rem 1.1rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.scenario-card h3{margin-top:0;margin-bottom:.45rem;font-size:1.08rem}
+.scenario-card p:last-child{margin-bottom:0}
+.scenario-label{font-size:.88rem;color:#666;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.glossary{margin-top:2rem}
+.glossary details{border:1px solid #d6d9dd;border-radius:8px;margin-bottom:.8rem;background:#fff;overflow:hidden}
+.glossary summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
+.glossary .answer{padding:1rem 1.15rem 1.15rem}
+.help-box{margin:1.8rem 0;padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:9px;background:#fafafa}
+.help-box h2{margin-top:0}
+@media(max-width:760px){.link-grid,.scenario-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav">
+<button class="menu-toggle" aria-expanded="false">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="presentazione.html">Presentazione</a></li>
+<li><a href="iscrizione.html">Iscrizione</a></li>
+<li><a href="ofa.html">OFA</a></li>
+<li><a href="test-ingresso.html">Precorso e prova iniziale</a></li>
+<li><a href="piano-di-studi.html">Piano di studi</a></li>
+<li><a href="conseguimento-del-titolo.html">Laurearsi</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
+<li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+<li><a href="../lezioni-esami/esami.html">Esami</a></li>
+<li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+</ul></li>
+</ul>
+</nav>
+</header>
+
+<main class="enrol-wrap">
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> Iscrizione</div>
+
+<h1>Iscrizione alla Laurea Triennale</h1>
+
+<p class="enrol-lead">
+La Laurea Triennale in Matematica è un corso <strong>ad accesso libero</strong>:
+non è previsto un numero programmato di posti e non occorre superare un concorso di ammissione per immatricolarsi.
+</p>
+
+<p>
+Questo non significa che non venga verificata la preparazione iniziale.
+La verifica esiste, ma è distinta dall'ammissione al corso e il suo esito non impedisce l'immatricolazione.
+Per capire come funziona puoi consultare le pagine dedicate agli <a href="ofa.html">OFA</a>
+e al <a href="test-ingresso.html">Precorso e alla prova iniziale</a>.
+</p>
+
+<section class="scenario-section">
+<h2>Da dove arrivi?</h2>
+<p>
+La procedura cambia a seconda della tua situazione di partenza. Qui trovi una prima mappa orientativa:
+per gli adempimenti amministrativi veri e propri rimandiamo sempre alle pagine dell'Università di Pisa
+e alla Segreteria studenti.
+</p>
+
+<div class="scenario-grid">
+
+<article class="scenario-card">
+<div class="scenario-label">Caso 1</div>
+<h3>Dalla scuola superiore</h3>
+<p>
+È il percorso ordinario: fai una <strong>nuova immatricolazione</strong> alla Laurea Triennale in Matematica.
+Il corso è ad accesso libero, quindi non c'è un numero chiuso.
+</p>
+<p>
+La procedura amministrativa si svolge secondo le istruzioni dell'Ateneo. Dopo l'immatricolazione,
+per la parte didattica entrano in gioco la verifica della preparazione iniziale, gli eventuali
+<a href="ofa.html">OFA</a> e il <a href="test-ingresso.html">Precorso con la prova iniziale</a>.
+</p>
+<p><strong>Come procedere:</strong>
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-i-livello-e-ciclo-unico/" target="_blank" rel="noopener">
+consulta la pagina UniPi per le immatricolazioni ai corsi di laurea</a>.
+</p>
+</article>
+
+<article class="scenario-card">
+<div class="scenario-label">Caso 2</div>
+<h3>Da un altro corso dell'Università di Pisa</h3>
+<p>
+Se sei già iscritto a un altro Corso di Studio di UniPi, la procedura è un
+<strong>passaggio di corso</strong>, non una nuova immatricolazione ordinaria.
+</p>
+<p>
+Se hai già sostenuto esami, la nuova carriera può richiedere una valutazione del Corso di Studio
+per stabilire quali attività possano essere convalidate. Se non ci sono esami da convalidare,
+la procedura è più semplice.
+</p>
+<p><strong>Come procedere:</strong>
+<a href="https://www.unipi.it/didattica/segreterie/gestione-della-carriera/passaggi-da-un-corso-a-un-altro/corsi-ad-accesso-libero/" target="_blank" rel="noopener">
+consulta la pagina UniPi sui passaggi verso corsi ad accesso libero</a>.
+</p>
+</article>
+
+<article class="scenario-card">
+<div class="scenario-label">Caso 3</div>
+<h3>Da un'altra università italiana</h3>
+<p>
+Se sei iscritto in un altro Ateneo italiano e vuoi proseguire gli studi a Pisa,
+la procedura è un <strong>trasferimento verso l'Università di Pisa</strong>.
+</p>
+<p>
+L'Ateneo di provenienza trasmette la documentazione della carriera a Pisa; successivamente
+gli esami già sostenuti possono essere valutati per stabilire quali attività e crediti
+possano essere riconosciuti nella Laurea Triennale in Matematica.
+</p>
+<p><strong>Come procedere:</strong>
+<a href="https://www.unipi.it/didattica/segreterie/gestione-della-carriera/trasferimenti-da-o-ad-altri-atenei/trasferimenti-da-un-altro-ateneo/" target="_blank" rel="noopener">
+consulta la pagina UniPi sui trasferimenti da un altro Ateneo</a>.
+</p>
+</article>
+
+<article class="scenario-card">
+<div class="scenario-label">Caso 4</div>
+<h3>Dall'estero</h3>
+<p>
+Se hai un titolo di scuola secondaria estero, oppure una precedente carriera universitaria svolta all'estero,
+devi seguire le procedure previste dall'Ateneo per <strong>studenti internazionali e titoli esteri</strong>.
+</p>
+<p>
+Una precedente iscrizione presso un'università straniera non viene trattata come un normale
+trasferimento da un Ateneo italiano. L'Ateneo verifica i titoli necessari per l'accesso e,
+se hai già svolto studi universitari, gli esami precedenti potranno essere valutati separatamente
+ai fini di un eventuale riconoscimento.
+</p>
+<p><strong>Come procedere:</strong>
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/iscrizioni-per-studenti-internazionali/" target="_blank" rel="noopener">
+consulta la pagina UniPi per studenti internazionali e titoli esteri</a>.
+</p>
+</article>
+
+</div>
+</section>
+
+<div class="enrol-note">
+<strong>Per procedure, scadenze, tasse e documenti fa fede il sito dell'Università di Pisa.</strong>
+Queste informazioni sono gestite centralmente e possono cambiare da un anno accademico all'altro:
+preferiamo quindi rimandare direttamente alle pagine che vengono aggiornate dagli uffici competenti.
+</div>
+
+<div class="link-grid">
+<a class="link-card" href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-i-livello-e-ciclo-unico/" target="_blank" rel="noopener">
+<strong>Immatricolazioni e iscrizioni</strong>
+<span>Procedure e informazioni aggiornate dell'Università di Pisa.</span>
+</a>
+
+<a class="link-card" href="https://www.unipi.it/didattica/segreterie/sedi-e-contatti/segreteria-studenti-amministrativa/" target="_blank" rel="noopener">
+<strong>Segreteria studenti</strong>
+<span>Carriera amministrativa, iscrizioni, tasse, certificazioni e altre pratiche.</span>
+</a>
+
+<a class="link-card sibylla" href="https://chatgpt.com/g/g-6a0abc8175748191a2fd90e91e668674-sibylla-carriera-e-contribuzione" target="_blank" rel="noopener">
+<strong>Chiedi a Sibylla</strong>
+<span>L'assistente dell'Ateneo per pratiche di segreteria e contribuzione studentesca.</span>
+</a>
+</div>
+
+<section class="help-box">
+<h2>Un dubbio amministrativo?</h2>
+<p>
+Per domande su immatricolazione, iscrizioni, tasse, scadenze e pratiche di carriera puoi partire da
+<strong>Sibylla – Carriera e contribuzione</strong>, l'assistente dell'Università di Pisa dedicato proprio a questi temi.
+È disponibile online senza orari di ricevimento.
+</p>
+<p>
+Se invece la questione riguarda la tua posizione personale o richiede un intervento sulla carriera,
+il riferimento resta la <strong>Segreteria studenti</strong>.
+</p>
+</section>
+
+<section class="glossary">
+<h2>Piccolo glossario</h2>
+
+<details>
+<summary>Immatricolazione</summary>
+<div class="answer">
+<p>È la prima iscrizione a un corso di studio universitario. Con l'immatricolazione viene aperta la tua carriera in quel corso e ti viene assegnato un numero di matricola.</p>
+</div>
+</details>
+
+<details>
+<summary>Iscrizione</summary>
+<div class="answer">
+<p>Dopo il primo anno non ci si immatricola di nuovo: si rinnova l'iscrizione all'anno accademico successivo, secondo le modalità previste dall'Ateneo.</p>
+</div>
+</details>
+
+<details>
+<summary>Corso ad accesso libero</summary>
+<div class="answer">
+<p>Significa che non esiste un numero massimo prestabilito di posti e che l'accesso non dipende dal superamento di un concorso per entrare in graduatoria. La Laurea Triennale in Matematica a Pisa è un corso ad accesso libero.</p>
+<p>Questo non va confuso con la <strong>verifica della preparazione iniziale</strong>, che è prevista anche nei corsi ad accesso libero e può comportare l'attribuzione di OFA senza impedire l'immatricolazione.</p>
+</div>
+</details>
+
+<details>
+<summary>Corso ad accesso programmato</summary>
+<div class="answer">
+<p>È un corso per il quale il numero dei posti disponibili è stabilito in anticipo e l'accesso richiede una procedura di selezione. La Laurea Triennale in Matematica a Pisa non è ad accesso programmato.</p>
+</div>
+</details>
+
+<details>
+<summary>Passaggio di corso</summary>
+<div class="answer">
+<p>È il passaggio da un Corso di Studio dell'Università di Pisa a un altro Corso di Studio dello stesso Ateneo. Se sei già studente UniPi e vuoi passare a Matematica, questa è la situazione amministrativa di riferimento.</p>
+</div>
+</details>
+
+<details>
+<summary>Trasferimento da un altro Ateneo</summary>
+<div class="answer">
+<p>È la procedura utilizzata quando provieni da un'altra università italiana e vuoi proseguire gli studi all'Università di Pisa. La carriera già svolta viene trasferita e può essere sottoposta a valutazione per il riconoscimento degli esami.</p>
+</div>
+</details>
+
+<details>
+<summary>Titolo di studio o carriera estera</summary>
+<div class="answer">
+<p>Chi arriva dall'estero deve seguire le procedure specifiche previste dall'Università di Pisa per studenti internazionali e titoli esteri. Un'eventuale carriera universitaria precedente svolta all'estero può essere esaminata ai fini del riconoscimento, ma non costituisce un normale trasferimento da un Ateneo italiano.</p>
+</div>
+</details>
+
+<details>
+<summary>Riconoscimento di esami e CFU</summary>
+<div class="answer">
+<p>Se hai già sostenuto esami universitari, il Corso di Studio può valutare se e in quale misura possano essere riconosciuti nella Laurea Triennale in Matematica. Il riconoscimento non è automatico: dipende dai contenuti, dai crediti e dalla coerenza degli insegnamenti con il percorso di studio.</p>
+</div>
+</details>
+
+<details>
+<summary>Abbreviazione di carriera</summary>
+<div class="answer">
+<p>È l'espressione tradizionalmente usata per indicare una carriera universitaria che può essere accorciata grazie al riconoscimento di attività formative già svolte in precedenza. Le modalità concrete dipendono dalla situazione personale e dalle procedure amministrative dell'Ateneo.</p>
+</div>
+</details>
+
+<details>
+<summary>Segreteria studenti</summary>
+<div class="answer">
+<p>È l'ufficio che gestisce gli aspetti <strong>amministrativi della carriera universitaria</strong>, dall'immatricolazione fino al conseguimento del titolo: iscrizioni, tasse, certificazioni, pratiche di carriera e altri adempimenti amministrativi.</p>
+</div>
+</details>
+
+<details>
+<summary>Segreteria didattica</summary>
+<div class="answer">
+<p>La Segreteria didattica del Dipartimento e del Corso di Studio si occupa invece delle questioni legate alla <strong>didattica e all'organizzazione del corso</strong>. Non sostituisce la Segreteria studenti per le pratiche amministrative sulla carriera.</p>
+</div>
+</details>
+
+</section>
+
+</main>
+
+<footer>Prototipo non ufficiale · proposta di revisione</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

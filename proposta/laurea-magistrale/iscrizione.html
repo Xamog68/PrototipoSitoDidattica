@@ -1,1 +1,494 @@
-<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Iscrizione - Prototipo Didattica</title><link rel="stylesheet" href="../assets/style.css"></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button class="menu-toggle" aria-expanded="false">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li><li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscriversi</a></li><li><a href="piano-di-studi.html">Piani di studio</a></li><li><a href="conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="regolamento.html">Regolamento</a></li><li><a href="ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Magistrale</a> <span>›</span> Iscrizione</div><h1>Iscrizione</h1><p>Pagina presente nella struttura attuale. In questa prima fotografia il contenuto completo non è ancora stato importato.</p><p><a class="official" href="https://www.dm.unipi.it/didattica/laurea-magistrale/iscrizione-alla-laurea-magistrale/">Apri la pagina ufficiale</a></p><aside><strong>Nota di lavoro.</strong> Questa scheda serve a verificare posizione, nome e raggiungibilità della pagina prima della revisione dei contenuti.</aside></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iscrizione alla Laurea Magistrale - Prototipo Didattica</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.lm-wrap{max-width:940px}
+.lm-lead{font-size:1.06rem;max-width:880px}
+.lm-alert{margin:1.35rem 0 1.8rem;padding:1.1rem 1.2rem;border-left:5px solid #555;background:#f3f6f8}
+.route-intro{margin-top:2rem}
+.routes details,.glossary details{border:1px solid #d6d9dd;border-radius:8px;margin-bottom:.8rem;background:#fff;overflow:hidden}
+.routes summary,.glossary summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
+.routes .answer,.glossary .answer{padding:1rem 1.15rem 1.15rem}
+.route-note{margin:.9rem 0;padding:.85rem 1rem;border-left:4px solid #777;background:#fafafa}
+.action{margin-top:1rem;font-weight:700}
+.link-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.7rem 0 2rem}
+.link-card{display:block;padding:1.05rem 1.1rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff;text-decoration:none}
+.link-card strong{display:block;font-size:1.04rem;margin-bottom:.35rem}
+.link-card span{display:block;color:#555}
+.special{margin:2rem 0;padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:9px;background:#f8f5ff}
+.special h2{margin-top:0}
+.glossary{margin-top:2rem}
+@media(max-width:760px){.link-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav">
+<button class="menu-toggle" aria-expanded="false">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-triennale/ofa.html">OFA</a></li>
+<li><a href="../laurea-triennale/test-ingresso.html">Precorso e prova iniziale</a></li>
+<li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li>
+<li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li>
+</ul></li>
+
+<li class="item has-sub"><a href="index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="presentazione.html">Presentazione</a></li>
+<li><a href="iscrizione.html">Iscriversi</a></li>
+<li><a href="piano-di-studi.html">Piani di studio</a></li>
+<li><a href="conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+</ul></li>
+
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+<li><a href="../lezioni-esami/esami.html">Esami</a></li>
+<li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+</ul></li>
+</ul>
+</nav>
+</header>
+
+<main class="lm-wrap">
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Magistrale</a> <span>›</span> Iscrizione</div>
+
+<h1>Iscrizione alla Laurea Magistrale</h1>
+
+<p class="lm-lead">
+A differenza della Laurea Triennale, l'accesso alla Laurea Magistrale in Matematica
+<strong>deve sempre essere valutato dal Corso di Studio</strong>.
+</p>
+
+<div class="lm-alert">
+<p>
+Il Corso di Studio verifica due cose: il possesso dei <strong>requisiti curriculari</strong>
+e l'adeguatezza della <strong>preparazione personale</strong>.
+</p>
+<p>
+In alcuni casi — per esempio per chi proviene da una Laurea L-35 in Matematica —
+la verifica dei requisiti curriculari è quasi immediata. In altri casi richiede invece
+un esame sostanziale della carriera precedente. Il passaggio di valutazione da parte del Corso di Studio
+resta comunque necessario per tutti.
+</p>
+</div>
+
+<section class="route-intro">
+<h2>Da dove arrivi?</h2>
+<p>
+La documentazione da esaminare e il tipo di verifica dipendono soprattutto dal titolo con cui chiedi
+l'accesso. Apri la situazione che ti riguarda.
+</p>
+</section>
+
+<section class="routes">
+
+<details>
+<summary>Hai una Laurea L-35 in Matematica conseguita a Pisa</summary>
+<div class="answer">
+<p>
+È il caso più lineare. La Laurea L-35 soddisfa il requisito curriculare previsto per l'accesso,
+ma la domanda deve comunque passare attraverso la verifica del Corso di Studio.
+</p>
+<p>
+Il CdS verifica la preparazione personale e stabilisce le eventuali prescrizioni che dovranno essere
+rispettate nel piano di studi magistrale.
+</p>
+<div class="route-note">
+<strong>Cosa succede di solito:</strong> per chi arriva dalla L-35 in Matematica di Pisa,
+l'ammissione è normalmente quasi scontata e non richiede Corsi di Transizione.
+Resta però la prescrizione relativa al cosiddetto <strong>gruppo dei cinque</strong>:
+fra Laurea Triennale e Laurea Magistrale devono essere sostenuti almeno tre esami fra
+Elementi di teoria degli insiemi, Algebra 2, Analisi Matematica 3, Probabilità,
+Geometria e topologia differenziale.
+Per il curriculum Applicativo si aggiunge inoltre Calcolo scientifico; per il curriculum Teorico
+valgono anche le ulteriori prescrizioni previste dal Regolamento.
+</div>
+<p class="action">
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/procedure-termini/" target="_blank" rel="noopener">
+Procedure e termini UniPi per l'ammissione alle Lauree Magistrali
+</a>
+</p>
+</div>
+</details>
+
+<details>
+<summary>Hai una Laurea L-35 in Matematica conseguita in un altro Ateneo italiano</summary>
+<div class="answer">
+<p>
+Anche in questo caso il requisito curriculare è quello più naturale per l'accesso alla Laurea Magistrale
+in Matematica: possiedi già una <strong>Laurea L-35</strong>.
+</p>
+<p>
+La domanda deve comunque essere valutata dal Corso di Studio, che verifica formalmente i requisiti
+e la preparazione personale sulla base della carriera presentata.
+</p>
+<div class="route-note">
+<strong>Cosa succede di solito:</strong> se arrivi con una L-35 in Matematica, l'ammissione è normalmente
+molto lineare e, salvo situazioni particolari, non sono necessari Corsi di Transizione.
+Per coerenza con il percorso pisano, il CdS verifica però quali insegnamenti del
+<strong>gruppo dei cinque</strong> risultino già presenti nella carriera triennale e può prescrivere
+di completare nella Laurea Magistrale il numero richiesto, inserendo nel piano di studi gli esami mancanti.
+La valutazione resta individuale e tiene conto della carriera effettivamente svolta.
+</div>
+<p class="action">
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/procedure-termini/" target="_blank" rel="noopener">
+Procedure e termini UniPi per l'ammissione alle Lauree Magistrali
+</a>
+</p>
+</div>
+</details>
+
+<details>
+<summary>Hai un'altra Laurea italiana</summary>
+<div class="answer">
+<p>
+L'accesso è possibile anche con una Laurea Triennale di un'altra classe, purché siano stati acquisiti
+almeno <strong>30 CFU nei settori matematici MAT/*</strong>.
+Lo stesso criterio è previsto, nei casi indicati dal Regolamento, per chi possiede già una Laurea Specialistica
+o Magistrale di altra classe.
+</p>
+<p>
+Qui la valutazione è più sostanziale: il Corso di Studio guarda soprattutto a come è costruita
+la preparazione di base in <strong>Analisi, Algebra e Geometria</strong>, esaminando gli insegnamenti
+sostenuti, i programmi, i CFU e il livello effettivo degli esami.
+</p>
+
+<div class="route-note">
+<strong>Cosa succede normalmente a Matematica:</strong> quando la preparazione di base non risulta già
+chiaramente acquisita, il CdS può indicare <strong>Corsi di Transizione fino a un massimo di 40 CFU</strong>.
+Nella prassi consolidata, le integrazioni più frequenti sono
+<strong>Analisi Matematica 2, Geometria 2, Aritmetica e Algebra 1</strong>.
+</div>
+
+<p>
+Una parte di questi Corsi di Transizione può non essere richiesta se dalla carriera precedente emerge
+in modo convincente che gli stessi contenuti sono già stati affrontati
+<strong>con un numero di CFU e di ore adeguato</strong> e attraverso un esame sufficientemente approfondito,
+che comprenda sia gli aspetti teorici sia la capacità di svolgere esercizi e problemi.
+</p>
+
+<p>
+In particolare, per chi proviene da Fisica o da alcuni corsi di Ingegneria è
+<strong>possibile</strong> che venga riconosciuta una preparazione equivalente ad Analisi Matematica 2,
+quando il percorso precedente presenta contenuti, carico didattico e modalità d'esame comparabili.
+</p>
+
+<p>
+Queste indicazioni descrivono la <strong>prassi orientativa del CdS</strong> e non costituiscono una promessa
+di ammissione o di riconoscimento: ogni carriera viene valutata individualmente.
+</p>
+
+<div class="route-note">
+<strong>Valutazioni preliminari:</strong> non è normalmente necessario chiedere via e-mail una previsione
+informale dell'esito. La valutazione ufficiale viene effettuata dal Corso di Studio nell'ambito della domanda
+di ammissione, sulla base della carriera e della documentazione presentata. Le indicazioni sopra servono proprio
+a dare un'idea realistica di ciò che viene richiesto più spesso.
+</div>
+
+<p class="action">
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/requisiti/" target="_blank" rel="noopener">
+Requisiti di ammissione alle Lauree Magistrali – UniPi
+</a>
+</p>
+</div>
+</details>
+
+<details>
+<summary>Hai già iniziato una Laurea Magistrale, a Pisa o in un altro Ateneo</summary>
+<div class="answer">
+<p>
+Se sei già iscritto a una Laurea Magistrale e vuoi proseguire gli studi nella Laurea Magistrale
+in Matematica a Pisa, il primo passaggio resta lo stesso: il Corso di Studio deve verificare
+i <strong>requisiti curriculari</strong> e la <strong>preparazione personale</strong>.
+</p>
+<p>
+Se provieni da un'altra Laurea Magistrale dell'Università di Pisa si parla di
+<strong>passaggio di corso</strong>; se provieni da un'altra università italiana si parla invece di
+<strong>trasferimento da altro Ateneo</strong>.
+</p>
+<p>
+Una volta verificata l'ammissibilità, la carriera magistrale già svolta viene esaminata per stabilire
+quali attività possano essere riconosciute nel nuovo percorso. Non conta soltanto il numero dei CFU:
+si guarda anche alla coerenza dei contenuti con la Laurea Magistrale in Matematica e con il piano di studi
+che verrà approvato.
+</p>
+<div class="route-note">
+<strong>Cosa succede di solito:</strong> è utile presentare una documentazione sufficientemente dettagliata
+degli insegnamenti già sostenuti, in modo che il CdS possa valutare contenuti, CFU, programmi e modalità d'esame.
+Il riconoscimento degli esami già fatti è distinto dalla verifica dei requisiti necessari per essere ammessi.
+</div>
+<p class="action">
+<a href="https://www.unipi.it/didattica/segreterie/gestione-della-carriera/trasferimenti-da-o-ad-altri-atenei/trasferimenti-da-un-altro-ateneo/corsi-di-laurea-magistrale-ad-accesso-libero/" target="_blank" rel="noopener">
+Trasferimento da altro Ateneo verso una Laurea Magistrale ad accesso libero – UniPi
+</a>
+</p>
+</div>
+</details>
+
+<details>
+<summary>Hai un titolo di un ordinamento precedente</summary>
+<div class="answer">
+<p>
+Fra i titoli esplicitamente ammessi dal Regolamento rientrano anche la
+<strong>Laurea Triennale della vecchia classe 32 in Scienze Matematiche</strong>
+e, per gli ordinamenti ancora precedenti, un
+<strong>Diploma triennale o una Laurea quadriennale in Matematica, Fisica o Informatica</strong>.
+</p>
+<p>
+Anche per questi titoli la domanda viene valutata dal Corso di Studio.
+Per una vecchia classe 32 in Matematica il percorso è normalmente molto vicino a quello di una L-35;
+per gli altri titoli storici la valutazione dipende invece dalla carriera effettivamente svolta.
+</p>
+<div class="route-note">
+<strong>Cosa succede di solito:</strong> se il titolo è matematico e la preparazione di base è chiaramente
+coerente con quella richiesta oggi, la valutazione tende a essere lineare.
+Negli altri casi il CdS esamina gli esami sostenuti e può indicare eventuali integrazioni.
+</div>
+<p class="action">
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/requisiti/" target="_blank" rel="noopener">
+Requisiti di ammissione alle Lauree Magistrali – UniPi
+</a>
+</p>
+</div>
+</details>
+
+<details>
+<summary>Hai un titolo di studio conseguito all'estero</summary>
+<div class="answer">
+<p>
+L'accesso è possibile con un titolo estero che venga <strong>riconosciuto idoneo dal Consiglio di Corso di Studio</strong>.
+La valutazione accademica del titolo e della preparazione è quindi una parte essenziale della procedura.
+</p>
+
+<p>
+Per permettere una valutazione seria non basta, in generale, il solo elenco degli esami sostenuti.
+È importante allegare una documentazione accademica il più possibile completa, comprendente
+<strong>transcript, numero di crediti o carico didattico e syllabus dettagliati degli insegnamenti</strong>,
+con indicazione degli argomenti svolti e, quando disponibile, delle modalità d'esame.
+Se i documenti non sono in italiano o in inglese, possono essere necessarie le traduzioni richieste
+dalle procedure di Ateneo.
+</p>
+
+<div class="route-note">
+<strong>Perché servono i syllabus?</strong> Il CdS deve capire non soltanto se hai sostenuto un corso
+che si chiama “Algebra”, “Analysis” o “Geometry”, ma quali contenuti hai realmente studiato,
+con quale ampiezza e profondità e con quale tipo di verifica.
+Una documentazione incompleta può rendere impossibile riconoscere una preparazione che in realtà possiedi.
+</div>
+
+<p>
+A questa valutazione accademica si aggiungono gli adempimenti amministrativi previsti dall'Università di Pisa
+per i titoli esteri, che dipendono anche dalla cittadinanza e dall'eventuale necessità di visto.
+</p>
+
+<p>
+In particolare, i candidati <strong>non UE richiedenti visto per studio</strong> che si iscrivono a un corso
+di laurea magistrale in lingua italiana devono dimostrare una conoscenza dell'<strong>italiano almeno di livello B2</strong>,
+secondo le regole di Ateneo vigenti.
+Questo requisito di italiano è distinto dal requisito di conoscenza della lingua inglese previsto
+dal Regolamento della Laurea Magistrale in Matematica.
+</p>
+
+<div class="route-note">
+<strong>In pratica:</strong> prepara fin dall'inizio una documentazione completa della carriera.
+Più chiaramente risultano contenuti, carico didattico e modalità degli esami, più il CdS può effettuare
+una valutazione accurata senza dover chiedere integrazioni successive.
+</div>
+
+<p class="action">
+<a href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/iscrizioni-per-studenti-internazionali/" target="_blank" rel="noopener">
+Iscrizioni per studenti internazionali – UniPi
+</a>
+</p>
+</div>
+</details>
+
+</section>
+
+<section class="special">
+<h2>Ti laurei in Matematica a Pisa fra gennaio e luglio?</h2>
+<p>
+Per chi consegue la Laurea L-35 all'Università di Pisa dopo la chiusura delle immatricolazioni
+dell'anno accademico in corso e prima dell'apertura di quelle dell'anno successivo,
+è prevista una procedura particolare di <strong>preiscrizione</strong>.
+</p>
+<p>
+La richiesta viene presentata in fase di domanda di laurea; successivamente si viene iscritti
+ai <strong>Corsi Singoli di Transizione</strong>. Lo scopo pratico è evitare di perdere i mesi
+fra la laurea triennale e l'apertura ufficiale delle nuove immatricolazioni: puoi già seguire
+gli insegnamenti magistrali e <strong>sostenere alcuni esami, mettendoli per così dire “in cassetta”</strong>.
+</p>
+<p>
+Quando si aprono le immatricolazioni del nuovo anno accademico — normalmente fra fine luglio e agosto —
+si perfeziona l'iscrizione alla Laurea Magistrale. Gli esami superati durante la fase di transizione
+vengono poi inseriti nella carriera magistrale dalla Segreteria Studenti.
+</p>
+<p>
+Poiché la procedura è gestita dagli uffici centrali e può cambiare, conviene verificare sempre
+le istruzioni aggiornate dell'Ateneo.
+</p>
+<p class="action">
+<a href="indicazioni-laureati-l35-unipi-fra-gennaio-e-luglio.html">
+Indicazioni per chi consegue la L-35 a Pisa fra gennaio e luglio
+</a>
+</p>
+</section>
+
+<div class="link-grid">
+<a class="link-card" href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/procedure-termini/" target="_blank" rel="noopener">
+<strong>Procedure e termini UniPi</strong>
+<span>Domanda di ammissione, immatricolazione e scadenze.</span>
+</a>
+
+<a class="link-card" href="https://www.unipi.it/didattica/iscrizioni/immatricolazioni-e-iscrizioni/corsi-di-laurea-magistrale-ii-livello/requisiti/" target="_blank" rel="noopener">
+<strong>Requisiti UniPi</strong>
+<span>Regole generali di Ateneo per l'ammissione alle Lauree Magistrali.</span>
+</a>
+
+<a class="link-card" href="../organizzazione/segreteria.html">
+<strong>Segreteria didattica</strong>
+<span>Per questioni relative alla valutazione accademica per l'accesso a Matematica.</span>
+</a>
+</div>
+
+<section class="glossary">
+<h2>Piccolo glossario</h2>
+
+<details>
+<summary>Requisiti curriculari</summary>
+<div class="answer">
+<p>
+Sono i requisiti legati al titolo posseduto e alla carriera precedente. Per Matematica possono essere
+soddisfatti, a seconda dei casi, dalla classe di laurea, da un certo numero di CFU matematici,
+da specifici titoli del vecchio ordinamento oppure da un titolo estero riconosciuto idoneo.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Preparazione personale</summary>
+<div class="answer">
+<p>
+È la valutazione, effettuata dal Consiglio di Corso di Studio, dell'adeguatezza della preparazione
+del candidato rispetto al percorso magistrale. Viene verificata anche quando i requisiti curriculari
+sono già chiaramente soddisfatti.
+</p>
+</div>
+</details>
+
+<details>
+<summary>L-35</summary>
+<div class="answer">
+<p>
+L-35 è la classe attuale delle Lauree in Scienze Matematiche.
+Una Laurea L-35 è il titolo di accesso più naturale alla Laurea Magistrale in Matematica,
+ferma restando la valutazione formale del Corso di Studio.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Classe 32 e titoli del vecchio ordinamento</summary>
+<div class="answer">
+<p>
+La classe 32 è la precedente classe delle Lauree in Scienze Matematiche prevista dal D.M. 509/99.
+Il Regolamento contempla inoltre alcuni titoli ancora più risalenti, fra cui Diploma triennale
+o Laurea quadriennale in Matematica, Fisica o Informatica.
+</p>
+</div>
+</details>
+
+<details>
+<summary>30 CFU MAT/*</summary>
+<div class="answer">
+<p>
+Per chi proviene da determinate classi di laurea diverse da Matematica, il Regolamento richiede
+almeno 30 CFU acquisiti nei settori scientifico-disciplinari matematici indicati con la vecchia
+sigla MAT/*. La carriera viene comunque esaminata dal Corso di Studio.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Corsi di Transizione</summary>
+<div class="answer">
+<p>
+I <strong>Corsi di Transizione</strong> sono insegnamenti che il Corso di Studio può chiederti di superare
+quando, al momento della domanda di ammissione, mancano alcuni requisiti curriculari oppure la preparazione
+personale non è ancora ritenuta sufficiente. Le attività richieste possono arrivare complessivamente
+fino a un massimo di <strong>40 CFU</strong>.
+</p>
+
+<p>
+In questo caso <strong>non sei ancora immatricolato alla Laurea Magistrale</strong>.
+Se accetti la valutazione del CdS, vieni iscritto ai Corsi di Transizione indicati e sostieni i relativi esami.
+Una volta acquisita la preparazione richiesta, l'iter di ammissione alla Laurea Magistrale può essere completato,
+secondo le procedure e i termini stabiliti dall'Ateneo.
+</p>
+
+<p>
+Per chi proviene da una laurea diversa dalla L-35 in Matematica, nella prassi del nostro CdS i Corsi di Transizione
+più frequenti sono <strong>Analisi Matematica 2, Geometria 2, Aritmetica e Algebra 1</strong>,
+tutti insegnamenti della Laurea Triennale. Possono esserne richiesti tutti o soltanto alcuni,
+in base alla carriera precedente.
+</p>
+
+<div class="route-note">
+<strong>Attenzione alla differenza fra transizione e prescrizione.</strong>
+Un Corso di Transizione deve essere superato per acquisire la preparazione necessaria all'ammissione
+e resta quindi fuori dai 120 CFU della Laurea Magistrale.
+Una <strong>prescrizione</strong>, invece, riguarda un insegnamento che dovrà comparire nel piano di studi
+della Laurea Magistrale e rientra nel percorso dei 120 CFU.
+</div>
+
+<p>
+Esiste poi un uso particolare dei Corsi di Transizione per i laureati triennali di Pisa che conseguono il titolo
+fra gennaio e luglio: in quel caso non servono a colmare lacune, ma permettono di sostenere anticipatamente
+esami magistrali in attesa dell'apertura ufficiale delle nuove immatricolazioni.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Conoscenza dell'inglese B2</summary>
+<div class="answer">
+<p>
+Il livello B2 non deve necessariamente essere già certificato al momento dell'accesso.
+Chi non possiede una certificazione B2 in ingresso dovrà però dimostrare di aver raggiunto
+almeno tale livello prima di conseguire la Laurea Magistrale.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Segreteria studenti e Segreteria didattica</summary>
+<div class="answer">
+<p>
+La <strong>Segreteria studenti</strong> gestisce gli aspetti amministrativi della carriera:
+domanda, immatricolazione, tasse, trasferimenti e altre pratiche.
+La <strong>Segreteria didattica</strong> è invece il riferimento per le questioni legate
+alla valutazione accademica dell'accesso al Corso di Laurea Magistrale in Matematica.
+</p>
+</div>
+</details>
+
+</section>
+
+</main>
+
+<footer>Prototipo non ufficiale · proposta di revisione</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
