@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="it">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Precorso e prova iniziale - Prototipo Didattica</title>
-<link href="../assets/style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css">
 <style>
 .pre-wrap{max-width:940px}
 .pre-lead{font-size:1.05rem;max-width:880px}
@@ -19,9 +18,15 @@
 .info-label{display:inline-block;min-width:7rem;font-weight:700}
 .recommend{margin:2rem 0;padding:1.15rem 1.25rem;border:1px solid #c9d8c9;border-radius:9px;background:#f3f8f3}
 .recommend h2{margin-top:0}
-.future{margin:2rem 0;padding:1.15rem 1.25rem;border:1px solid #e0c990;border-radius:9px;background:#fff8e8}
+.future{margin:2rem 0;padding:1.15rem 1.25rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
 .future h2{margin-top:0}
-.future .wip{font-weight:700}
+.results-note{margin:1rem 0;padding:1rem 1.05rem;border-left:4px solid #666;background:#f6f7f8}
+.results-table-wrap{overflow-x:auto;margin:1rem 0}
+.results-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.results-table th,.results-table td{padding:.65rem .7rem;border:1px solid #d9dde1;text-align:center;white-space:nowrap}
+.results-table th{background:#f3f4f5}.results-table th:first-child,.results-table td:first-child{text-align:left}
+.results-table tr:nth-child(even) td{background:#fafafa}.results-table .strong{font-weight:700}
+.results-legend{font-size:.92rem;color:#555}.results-caution{margin-top:1rem;padding:.9rem 1rem;border-left:4px solid #b26a00;background:#fff7e8}
 details.topic{border:1px solid #d6d9dd;border-radius:8px;margin-top:1rem;background:#fff;overflow:hidden}
 details.topic summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
 details.topic .answer{padding:1rem 1.15rem 1.15rem}
@@ -29,26 +34,44 @@ details.topic .answer{padding:1rem 1.15rem 1.15rem}
 </style>
 </head>
 <body>
+
 <header>
 <div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
 <nav class="mainnav">
-<button aria-expanded="false" class="menu-toggle">Menu</button>
+<button class="menu-toggle" aria-expanded="false">Menu</button>
 <ul class="menu">
 <li><a href="../index.html">Didattica</a></li>
-<li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscrizione</a></li><li><a href="ofa.html">OFA</a></li><li><a href="precorso.html">Precorso e prova iniziale</a></li><li><a href="piano-di-studi.html">Piano di studi</a></li><li><a href="conseguimento-del-titolo.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="presentazione.html">Presentazione</a></li>
+<li><a href="iscrizione.html">Iscrizione</a></li>
+<li><a href="ofa.html">OFA</a></li>
+<li><a href="test-ingresso.html">Precorso e prova iniziale</a></li>
+<li><a href="piano-di-studi.html">Piano di studi</a></li>
+<li><a href="conseguimento-del-titolo.html">Laurearsi</a></li>
+</ul></li>
 <li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
 <li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
 <li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
 <li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
 <li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
 </ul></li>
-<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+<li><a href="../lezioni-esami/esami.html">Esami</a></li>
+<li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+</ul></li>
 </ul>
 </nav>
 </header>
+
 <main class="pre-wrap">
 <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> Precorso e prova iniziale</div>
+
 <h1>Precorso e prova iniziale</h1>
+
 <section class="pre-provocazione">
 <p>
 I corsi del primo anno sembrano partire da zero. Si definiscono con cura gli oggetti fondamentali,
@@ -72,7 +95,9 @@ il raggiungimento di un requisito amministrativo minimo: non equivale a una cert
 della preparazione necessaria per affrontare senza difficoltà i corsi del primo anno.
 </p>
 </section>
+
 <div class="pre-grid">
+
 <section class="pre-card">
 <h2>Precorso 2026/27</h2>
 <p>
@@ -80,16 +105,19 @@ Il Precorso è pensato soprattutto per chi sta per iniziare la Laurea Triennale 
 ma <strong>sono benvenuti anche studenti e studentesse di altri Corsi di Studio o di anni successivi</strong>
 che vogliano ripassare o consolidare i prerequisiti di base.
 </p>
+
 <ul class="info-list">
 <li><span class="info-label">Quando</span> da definire</li>
 <li><span class="info-label">Dove</span> da definire</li>
 <li><span class="info-label">Orario</span> da definire</li>
 <li><span class="info-label">Iscrizione</span> da definire, se necessaria</li>
 </ul>
+
 <p>
 Non si tratta di anticipare Analisi, Aritmetica o Geometria, ma di assicurarsi di avere a disposizione
 gli strumenti elementari che quei corsi utilizzeranno fin dalle prime settimane.
 </p>
+
 <details class="topic">
 <summary>Che cosa si ripassa?</summary>
 <div class="answer">
@@ -100,12 +128,14 @@ durante il Precorso e, se disponibili, materiali ed esercizi.
 </div>
 </details>
 </section>
+
 <section class="pre-card">
 <h2>Prova di Verifica delle Conoscenze in Ingresso</h2>
 <p>
 Alla conclusione del Precorso viene organizzata la prova iniziale. La prova può essere sostenuta
 <strong>anche da chi non ha frequentato il Precorso</strong>.
 </p>
+
 <ul class="info-list">
 <li><span class="info-label">Quando</span> da definire</li>
 <li><span class="info-label">Dove</span> da definire</li>
@@ -114,6 +144,7 @@ Alla conclusione del Precorso viene organizzata la prova iniziale. La prova può
 <li><span class="info-label">Punteggio</span> da definire</li>
 <li><span class="info-label">Soglia OFA</span> da definire</li>
 </ul>
+
 <p>
 Il superamento della soglia prevista ha un effetto amministrativo preciso:
 <strong>assolve gli OFA</strong>.
@@ -124,7 +155,9 @@ un risultato appena sopra la soglia e un risultato molto alto non raccontano nec
 la stessa storia sulla preparazione iniziale.
 </p>
 </section>
+
 </div>
+
 <section class="recommend">
 <h2>Hai già assolto gli OFA? Fai comunque la prova</h2>
 <p>
@@ -139,21 +172,38 @@ e intervenire subito che accorgersene durante le prime prove di Analisi Matemati
 Aritmetica o Geometria 1.
 </p>
 </section>
+
 <section class="future">
 <h2>Cosa ci dice davvero la prova iniziale?</h2>
-<p>
-La prova non serve soltanto a stabilire se gli OFA sono assolti.
-Il Corso di Studio intende utilizzare i risultati, in forma aggregata,
-anche per capire meglio il rapporto tra preparazione iniziale e andamento degli studi nel primo anno.
-</p>
-<p class="wip">🚧 Dati in preparazione.</p>
-<p>
-In questa sezione saranno pubblicati i risultati relativi alla coorte precedente,
-mettendo in relazione l'esito della prova iniziale con il successivo andamento
-negli esami del primo anno.
-</p>
+<p>La prova non serve soltanto a stabilire se gli OFA sono assolti. Il punteggio iniziale può essere utile anche per capire quanto siano solide le basi con cui si affrontano i primi insegnamenti universitari.</p>
+
+<div class="results-note">
+<p>I risultati della coorte precedente mostrano una relazione molto marcata tra punteggio ottenuto nella prova iniziale e andamento negli esami fondamentali del primo anno. In particolare, le fasce di punteggio più basse incontrano difficoltà molto maggiori nel superamento di <strong>Analisi Matematica 1, Aritmetica e Geometria 1</strong>.</p>
+<p>La soglia amministrativa degli OFA non va quindi interpretata come una soglia di “preparazione sicura”: il punteggio della prova contiene informazioni molto più ricche.</p>
+</div>
+
+<div class="results-table-wrap">
+<table class="results-table">
+<thead><tr><th>Precorso</th><th>N</th><th>AM1</th><th>Aritmetica</th><th>Geo 1</th><th>≥1 dei 3</th><th>≥2 dei 3</th><th>Tutti e 3</th></tr></thead>
+<tbody>
+<tr><td><strong>&lt;85</strong></td><td>21</td><td>0% · —</td><td>0% · —</td><td>0% · —</td><td class="strong">0%</td><td class="strong">0%</td><td>0%</td></tr>
+<tr><td><strong>85–89</strong></td><td>4</td><td>0% · —</td><td>0% · —</td><td>0% · —</td><td class="strong">0%</td><td class="strong">0%</td><td>0%</td></tr>
+<tr><td><strong>90–94</strong></td><td>4</td><td>0% · —</td><td>0% · —</td><td>0% · —</td><td class="strong">0%</td><td class="strong">0%</td><td>0%</td></tr>
+<tr><td><strong>95–99</strong></td><td>2</td><td>0% · —</td><td><strong>50% · 21,0</strong></td><td>0% · —</td><td class="strong">50%</td><td class="strong">0%</td><td>0%</td></tr>
+<tr><td><strong>100–109</strong></td><td>11</td><td><strong>27% · 20,7</strong></td><td><strong>36% · 21,5</strong></td><td><strong>45% · 22,6</strong></td><td class="strong">64%</td><td class="strong">36%</td><td>9%</td></tr>
+<tr><td><strong>110–119</strong></td><td>18</td><td><strong>22% · 23,0</strong></td><td><strong>50% · 24,3</strong></td><td><strong>61% · 25,2</strong></td><td class="strong">72%</td><td class="strong">50%</td><td>11%</td></tr>
+<tr><td><strong>120</strong></td><td>11</td><td><strong>91% · 27,7</strong></td><td><strong>82% · 26,0</strong></td><td><strong>73% · 27,8</strong></td><td class="strong">91%</td><td class="strong">91%</td><td class="strong">64%</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="results-legend"><strong>Come leggere la tabella.</strong> Nelle colonne dei singoli esami è indicata la percentuale di studenti che hanno superato l'esame, seguita dal voto medio fra chi lo ha superato. La lode è conteggiata come 33.</p>
+
+<div class="results-caution"><strong>Da leggere con cautela.</strong> I dati riguardano una singola coorte e non dimostrano da soli un rapporto causale. Sono però abbastanza netti da rendere utile la prova iniziale anche per chi ha già assolto formalmente gli OFA.</div>
 </section>
+
 </main>
+
 <footer>Prototipo non ufficiale · proposta di revisione</footer>
 <script src="../assets/site.js"></script>
 </body>
