@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Laurearsi - Laurea Magistrale - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.grad-intro,.grad-before,.thesis-box,.grad-timeline-section,.grad-day,.grad-score,.grad-glossary{max-width:960px}
+.grad-before{margin:1.7rem 0}
+.grad-check{display:grid;gap:.55rem;margin:1rem 0}
+.grad-check>div{padding:.75rem .9rem;border:1px solid #d6d9dd;border-radius:7px;background:#fff}
+.grad-note{padding:.9rem 1rem;border-left:4px solid #666;background:#f5f6f7}
+.thesis-box{margin:1.8rem 0;padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.thesis-box h2{margin-top:0}
+.thesis-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1rem}
+.thesis-grid article{padding:1rem;border:1px solid #e0e2e5;border-radius:8px}
+.thesis-grid h3{margin-top:0}
+.grad-timeline{margin:1.4rem 0 2rem}
+.grad-step{display:grid;grid-template-columns:180px 1fr;gap:1.2rem;margin-bottom:1rem;padding:1rem 1.1rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.grad-date{font-weight:700}
+.grad-step-content h3{margin-top:0}
+.grad-step-alert{background:#fff7f1;border-color:#e2c1aa}
+.grad-score details,.grad-glossary details{border:1px solid #d6d9dd;border-radius:8px;margin-bottom:.8rem;background:#fff;overflow:hidden}
+.grad-score summary,.grad-glossary summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
+.grad-answer{padding:1rem 1.15rem 1.15rem}
+.score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.score-card{padding:1rem;border:1px solid #d6d9dd;border-radius:8px}
+.score-card h3{margin-top:0;font-size:1.05rem}
+.grad-after-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:960px;margin:2rem 0}
+.grad-box{padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.grad-box h2{margin-top:0}
+.grad-box-special{background:#f7f3ff;border-color:#cfc3ea}
+.internal-note{margin:1.1rem 0;padding:.9rem 1rem;border:1px dashed #8a5a9b;border-radius:7px;background:#faf6fc;color:#6a3f78;font-size:.94rem}
+.internal-note strong{color:#5b2f69}
+@media(max-width:760px){.grad-step,.score-grid,.grad-after-grid,.thesis-grid{grid-template-columns:1fr}}
+</style>
+
+</head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e prova iniziale</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscriversi</a></li><li><a href="piano-di-studi.html">Piani di studio</a></li><li><a href="conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="regolamento.html">Regolamento</a></li><li><a href="ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Magistrale</a> <span>›</span> Laurearsi</div>
+<h1>Laurearsi</h1>
+
+<section class="grad-intro">
+<p>
+La conclusione della Laurea Magistrale richiede qualche passaggio in più rispetto alla Triennale:
+oltre alla domanda di laurea ci sono la gestione della <strong>tesi elettronica su ETD</strong>,
+la proposta dei <strong>controrelatori</strong> e, in alcuni casi, la documentazione relativa
+alla conoscenza dell'inglese B2.
+</p>
+<p>
+Conviene quindi iniziare a controllare la propria situazione con un certo anticipo,
+senza aspettare gli ultimi giorni prima delle scadenze.
+</p>
+</section>
+
+<section class="grad-before">
+<h2>Prima di presentare la domanda</h2>
+<div class="grad-check">
+<div>✓ Controlla che il tuo ultimo <strong>piano di studi CAPS</strong> sia approvato e coerente con gli esami effettivamente sostenuti.</div>
+<div>✓ Concorda con il/la <strong>relatore/trice</strong> titolo, contenuto e tempi della tesi.</div>
+<div>✓ Concorda con il/la relatore/trice una <strong>terna di possibili controrelatori</strong>, che dovrà essere indicata nella domanda CAPS.</div>
+<div>✓ Se non hai conseguito la Laurea Triennale in Matematica a Pisa, verifica per tempo di poter documentare il livello <strong>B2 di inglese</strong>.</div>
+<div>✓ Individua l'<strong>appello di laurea</strong> nel quale intendi discutere la tesi.</div>
+</div>
+
+<p class="grad-note">
+La tesi magistrale deve essere presentata in formato elettronico tramite il portale <strong>ETD</strong>.
+È bene familiarizzare con la procedura con anticipo, perché il frontespizio generato da ETD
+entra poi negli adempimenti finali su Alice.
+</p>
+</section>
+
+<section class="thesis-box">
+<h2>Tesi, relatore e controrelatore</h2>
+<p>
+La prova finale consiste nella stesura di una tesi in italiano o in inglese, elaborata in modo originale
+con l'assistenza di almeno un docente relatore, e nella successiva esposizione orale del lavoro.
+La tesi viene esaminata anche da un <strong>controrelatore</strong>, che presenta un proprio parere
+in occasione della discussione.
+</p>
+
+<div class="thesis-grid">
+<article>
+<h3>Relatore</h3>
+<p>
+Il Regolamento consente che il relatore sia anche esterno al Corso di Studio.
+Se nessuno dei relatori afferisce all'Università di Pisa o ad altri istituti universitari pisani,
+la pagina operativa del CdS chiede di contattare il Presidente prima della presentazione della domanda.
+</p>
+</article>
+
+<article>
+<h3>Controrelatore</h3>
+<p>
+La nomina spetta al Presidente del Corso di Studio. Nella domanda CAPS devi indicare
+una <strong>terna di possibili nominativi concordata con il/la relatore/trice</strong>;
+la scelta finale non è però vincolata a quella terna.
+</p>
+<p>
+Il Regolamento stabilisce inoltre che, se il relatore è esterno all'Università di Pisa
+o appartiene a un settore diverso da quelli matematici indicati dal Regolamento,
+il controrelatore deve essere scelto fra i docenti del Dipartimento di Matematica di Pisa.
+</p>
+</article>
+</div>
+
+<aside class="internal-note">
+<strong>Nota interna — da verificare.</strong>
+La pagina operativa parla di relatori che non afferiscono né a UniPi né ad «altri istituti universitari pisani»,
+mentre il Regolamento usa, per la regola sul controrelatore, la soglia «esterno all'Università di Pisa».
+Conviene chiarire se le due formulazioni corrispondano a due questioni diverse o se vadano armonizzate.
+</aside>
+</section>
+
+<section class="grad-timeline-section">
+<h2>Le scadenze</h2>
+<p>
+Le indicazioni qui sotto riassumono la procedura attuale. Per gli adempimenti gestiti dalla
+Segreteria Studenti e da ETD è comunque opportuno controllare le istruzioni aggiornate di Ateneo.
+</p>
+
+<div class="grad-timeline">
+
+<article class="grad-step">
+<div class="grad-date">Entro 30 giorni<br>prima dell'inizio dell'appello</div>
+<div class="grad-step-content">
+<h3>Presenta le domande</h3>
+<p>
+<strong>Su Alice, per la Segreteria Studenti:</strong> presenta la domanda di laurea
+e segui le istruzioni aggiornate relative al piano di studi e alla documentazione amministrativa.
+</p>
+<p>
+<strong>Su CAPS, per la Segreteria Didattica:</strong> compila
+<em>Laurea Magistrale: domanda di esame finale</em>. Dovrai indicare anche la terna
+dei possibili controrelatori e allegare l'abstract della tesi e la ricevuta del questionario laureandi.
+</p>
+<p>
+Se non hai conseguito la Laurea in Matematica a Pisa, allega anche la documentazione richiesta
+per attestare il livello <strong>B2 di inglese</strong>. Se hai ottenuto l'idoneità B2 presso il CLI di Pisa,
+indicalo nel modulo CAPS secondo le istruzioni vigenti.
+</p>
+</div>
+</article>
+
+<article class="grad-step grad-step-alert">
+<div class="grad-date">Entro 15 giorni<br>prima dell'inizio dell'appello</div>
+<div class="grad-step-content">
+<h3>Completa ETD e gli adempimenti su Alice</h3>
+<p>
+Carica su Alice il <strong>frontespizio generato da ETD</strong>,
+firmato digitalmente dal primo relatore accademico, insieme agli altri documenti richiesti
+dalla Segreteria Studenti, fra cui la ricevuta del questionario laureandi.
+</p>
+<p>
+Poiché questa parte della procedura è gestita centralmente dall'Ateneo,
+controlla sempre le istruzioni aggiornate della Segreteria Studenti e del portale ETD.
+</p>
+</div>
+</article>
+
+<article class="grad-step">
+<div class="grad-date">Appena è nota<br>la commissione</div>
+<div class="grad-step-content">
+<h3>Prepara la discussione</h3>
+<p>
+Controlla data, orario, sede e composizione della commissione.
+Concorda con il/la relatore/trice e, se necessario, con il/la Presidente della commissione
+gli aspetti pratici della presentazione: durata, eventuali slide, computer e videoproiettore.
+</p>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="grad-day">
+<h2>Il giorno della laurea</h2>
+<p>
+Commissione, orario e sede vengono pubblicati nella pagina degli
+<a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a>.
+La prova finale comprende l'esposizione orale del lavoro di tesi e la successiva valutazione della Commissione,
+tenendo conto anche del parere del controrelatore.
+</p>
+</section>
+
+<section class="grad-score">
+<details>
+<summary>Come viene calcolato il voto di laurea?</summary>
+<div class="grad-answer">
+<p>
+Anche per la Laurea Magistrale il voto finale è ottenuto sommando tre componenti:
+<strong>B + L + T</strong>, cioè punteggio di base, punteggio di lodi e punteggio di tesi.
+La somma viene poi arrotondata all'intero più vicino.
+</p>
+
+<div class="score-grid">
+<article class="score-card">
+<h3>B — Punteggio di base</h3>
+<p>
+Per ogni attività con voto si considera il voto ottenuto per ciascun CFU.
+Si scartano i <strong>9 CFU con i valori più bassi</strong> e si calcola la media sui CFU rimanenti.
+La media viene convertita in centodecimi e approssimata per eccesso al secondo decimale.
+</p>
+</article>
+
+<article class="score-card">
+<h3>L — Punteggio di lodi</h3>
+<p>
+Ogni lode vale <strong>0,25 punti</strong> se ottenuta in un'attività fino a 6 CFU
+e <strong>0,50 punti</strong> se ottenuta in un'attività da almeno 7 CFU.
+Il bonus complessivo non può superare <strong>2,00 punti</strong>.
+</p>
+</article>
+
+<article class="score-card">
+<h3>T — Punteggio di tesi</h3>
+<p>
+È attribuito dalla Commissione da un minimo di <strong>4</strong> a un massimo ordinario di
+<strong>10 punti</strong>, secondo lo schema di riferimento:
+4 sufficiente, 6 discreta, 8 buona, 10 ottima.
+</p>
+</article>
+</div>
+
+<p class="grad-note">
+Se la somma arrotondata raggiunge almeno 110/110, la Commissione può attribuire la lode,
+con decisione unanime. In casi eccezionali il Regolamento consente anche un punteggio finale
+superiore a quello risultante dallo schema ordinario, secondo una procedura specifica
+che richiede una proposta motivata del relatore presentata con congruo anticipo.
+</p>
+
+<aside class="internal-note">
+<strong>Nota interna — da verificare.</strong>
+Valutare se nella pagina definitiva convenga spiegare anche la procedura concreta prevista dal CdS
+per i casi eccezionali oltre il massimo ordinario, oppure se sia preferibile limitarsi al rinvio al Regolamento.
+</aside>
+
+<p><a href="regolamento.html">Consulta i Regolamenti della Laurea Magistrale</a>.</p>
+</div>
+</details>
+</section>
+
+<section class="grad-after-grid">
+<article class="grad-box">
+<h2>Se rinunci all'appello</h2>
+<p>
+Annulla appena possibile la domanda su Alice e avvisa le segreterie secondo le istruzioni vigenti.
+Per laurearti in un appello successivo dovrai ripetere la procedura.
+</p>
+<p>
+Se hai già avviato la pratica della tesi elettronica, devi inoltre avvisare lo <strong>staff ETD</strong>:
+i dati della pratica devono essere cancellati per permettere di avviare successivamente un nuovo iter.
+</p>
+</article>
+
+<article class="grad-box grad-box-special">
+<h2>Hai il B2 di inglese?</h2>
+<p>
+Chi non possedeva già un livello B2 all'ingresso deve averlo acquisito prima della laurea.
+Per chi non ha conseguito la Laurea Triennale in Matematica a Pisa,
+la documentazione del B2 viene richiesta nella domanda CAPS secondo le modalità indicate dal CdS.
+</p>
+<p>
+Se il B2 è stato conseguito presso il CLI dell'Università di Pisa,
+la procedura attuale prevede di segnalarlo con un commento nel modulo CAPS.
+</p>
+</article>
+</section>
+
+<section class="grad-glossary">
+<h2>Piccolo glossario</h2>
+
+<details>
+<summary>ETD</summary>
+<div class="grad-answer">
+<p>
+È il portale dell'Università di Pisa per le tesi elettroniche.
+La tesi magistrale deve essere gestita attraverso ETD seguendo le istruzioni di Ateneo.
+Il frontespizio prodotto dal sistema, firmato digitalmente dal primo relatore accademico,
+fa parte della documentazione finale richiesta su Alice.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Controrelatore</summary>
+<div class="grad-answer">
+<p>
+È il docente incaricato di esaminare la tesi in aggiunta al relatore e di formulare un parere
+che viene presentato in occasione della discussione finale. La nomina spetta al Presidente del CdS;
+la terna indicata dal candidato su CAPS serve come proposta, non come scelta vincolante.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Alice e CAPS</summary>
+<div class="grad-answer">
+<p>
+<strong>Alice</strong> è il portale di Ateneo utilizzato per la carriera amministrativa e la domanda di laurea.
+<strong>CAPS</strong> è il sistema utilizzato dal Corso di Studio in Matematica per piani di studi
+e moduli didattici, compresa la domanda di esame finale magistrale.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Segreteria Studenti e Segreteria Didattica</summary>
+<div class="grad-answer">
+<p>
+La <strong>Segreteria Studenti</strong> gestisce gli aspetti amministrativi della carriera e della laurea.
+La <strong>Segreteria Didattica</strong> del Dipartimento segue invece gli aspetti didattici e organizzativi
+specifici del Corso di Studio.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Relatore esterno al Corso di Studio</summary>
+<div class="grad-answer">
+<p>
+Il Regolamento consente che la tesi sia preparata con l'assistenza di un docente relatore
+esterno al Corso di Studio. In presenza di relatori esterni possono però scattare regole specifiche
+sulla scelta del controrelatore e, in alcuni casi, è necessario contattare preventivamente il Presidente del CdS.
+</p>
+</div>
+</details>
+
+<details>
+<summary>Abstract</summary>
+<div class="grad-answer">
+<p>
+È una breve sintesi del contenuto della tesi. Viene richiesta fra i documenti da allegare
+alla domanda di esame finale su CAPS.
+</p>
+</div>
+</details>
+
+</section>
+</main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>

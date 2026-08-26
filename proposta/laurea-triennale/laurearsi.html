@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Laurearsi - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.grad-intro,.grad-before,.grad-timeline-section,.grad-day,.grad-score,.grad-glossary{max-width:960px}
+.grad-before{margin:1.7rem 0}
+.grad-check{display:grid;gap:.55rem;margin:1rem 0}
+.grad-check>div{padding:.75rem .9rem;border:1px solid #d6d9dd;border-radius:7px;background:#fff}
+.grad-note{padding:.9rem 1rem;border-left:4px solid #666;background:#f5f6f7}
+.grad-timeline{margin:1.4rem 0 2rem}
+.grad-step{display:grid;grid-template-columns:180px 1fr;gap:1.2rem;margin-bottom:1rem;padding:1rem 1.1rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.grad-date{font-weight:700}
+.grad-step-content h3{margin-top:0}
+.grad-step-alert{background:#fff7f1;border-color:#e2c1aa}
+.grad-score details,.grad-glossary details{border:1px solid #d6d9dd;border-radius:8px;margin-bottom:.8rem;background:#fff;overflow:hidden}
+.grad-score summary,.grad-glossary summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7}
+.grad-answer{padding:1rem 1.15rem 1.15rem}
+.score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1rem 0}
+.score-card{padding:1rem;border:1px solid #d6d9dd;border-radius:8px}
+.score-card h3{margin-top:0;font-size:1.05rem}
+.grad-after-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;max-width:960px;margin:2rem 0}
+.grad-box{padding:1.1rem 1.2rem;border:1px solid #d6d9dd;border-radius:9px;background:#fff}
+.grad-box h2{margin-top:0}
+.grad-box-special{background:#f7f3ff;border-color:#cfc3ea}
+.internal-note{
+  margin:1.1rem 0;
+  padding:.9rem 1rem;
+  border:1px dashed #8a5a9b;
+  border-radius:7px;
+  background:#faf6fc;
+  color:#6a3f78;
+  font-size:.94rem;
+}
+.internal-note strong{color:#5b2f69}
+@media(max-width:760px){.grad-step,.score-grid,.grad-after-grid{grid-template-columns:1fr}}
+</style>
+
+</head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscrizione</a></li><li><a href="ofa.html">OFA</a></li><li><a href="precorso.html">Precorso e prova iniziale</a></li><li><a href="piano-di-studi.html">Piano di studi</a></li><li><a href="conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> Laurearsi</div>
+<h1>Laurearsi</h1>
+
+<section class="grad-intro">
+<p>Sei arrivato alla fine del percorso: prima della discussione restano alcuni passaggi amministrativi e organizzativi da completare. La cosa più importante è muoversi per tempo e distinguere bene ciò che riguarda la <strong>Segreteria Studenti</strong> da ciò che riguarda la <strong>Segreteria Didattica</strong> del Dipartimento.</p>
+</section>
+
+<section class="grad-before">
+<h2>Prima di presentare la domanda</h2>
+<div class="grad-check">
+<div>✓ Controlla che il tuo ultimo <strong>piano di studi CAPS</strong> sia approvato.</div>
+<div>✓ Verifica quali esami devono ancora essere registrati e che siano compatibili con le scadenze dell'appello.</div>
+<div>✓ Concorda con il/la <strong>relatore/trice</strong> argomento e tempi della prova finale.</div>
+<div>✓ Individua l'<strong>appello di laurea</strong> nel quale intendi discutere la tesi.</div>
+</div>
+<p class="grad-note">Per il Corso di Studio in Matematica fa fede l'ultimo piano di studi presentato in CAPS e approvato. Eventuali incongruenze tra CAPS e Alice vengono normalmente allineate in prossimità dell'appello di laurea.</p>
+</section>
+
+<section class="grad-timeline-section">
+<h2>Le scadenze</h2>
+<p>Le indicazioni qui sotto riassumono la procedura attualmente prevista. Poiché gli adempimenti della Segreteria Studenti possono cambiare, è sempre opportuno controllare anche le istruzioni aggiornate di Ateneo.</p>
+
+<div class="grad-timeline">
+<article class="grad-step">
+<div class="grad-date">Entro 30 giorni<br>prima dell'inizio dell'appello</div>
+<div class="grad-step-content">
+<h3>Presenta le domande</h3>
+<p><strong>Su Alice, per la Segreteria Studenti:</strong> presenta la domanda di laurea e segui le istruzioni di Ateneo per la documentazione richiesta.</p>
+<p><strong>Su CAPS, per la Segreteria Didattica:</strong> entra in <em>Moduli</em> e compila <em>Laurea Triennale: domanda di esame finale</em>. Dovrai inserire i dati richiesti e allegare l'abstract della tesi e la ricevuta del questionario laureandi.</p>
+</div>
+</article>
+
+<article class="grad-step grad-step-alert">
+<div class="grad-date">Entro 15 giorni<br>prima dell'inizio dell'appello</div>
+<div class="grad-step-content">
+<h3>Completa gli ultimi adempimenti amministrativi</h3>
+<p>Carica su Alice i documenti richiesti dalla Segreteria Studenti, secondo le istruzioni aggiornate di Ateneo.</p>
+<p><strong>Attenzione:</strong> nei 15 giorni precedenti la discussione non possono essere registrati esami. Eventuali registrazioni effettuate in questo periodo vengono annullate.</p>
+</div>
+</article>
+
+<article class="grad-step">
+<div class="grad-date">Appena è nota<br>la commissione</div>
+<div class="grad-step-content">
+<h3>Contatta il/la Presidente</h3>
+<p>Invia al/alla Presidente della commissione una copia della tesi in PDF e concorda gli aspetti pratici della discussione: modalità della presentazione, eventuali slide, uso del videoproiettore e altri dettagli organizzativi.</p>
+</div>
+</article>
+</div>
+</section>
+
+<section class="grad-day">
+<h2>Il giorno della laurea</h2>
+<p>Commissione, orario e sede vengono pubblicati nella pagina degli <a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a>. Se prevedi una presentazione elettronica, verifica per tempo con il/la Presidente della commissione quale computer utilizzare e come gestire il collegamento al proiettore.</p>
+</section>
+
+<section class="grad-score">
+<details>
+<summary>Come viene calcolato il voto di laurea?</summary>
+<div class="grad-answer">
+<p>Il voto finale è ottenuto sommando tre componenti: <strong>B + L + T</strong>, cioè punteggio di base, punteggio di lodi e punteggio di tesi. La somma viene poi arrotondata all'intero più vicino.</p>
+
+<div class="score-grid">
+<article class="score-card">
+<h3>B — Punteggio di base</h3>
+<p>Per ogni attività del piano di studi con voto in trentesimi si considera il voto ottenuto per ciascun CFU. Si scartano quindi i <strong>15 CFU con i valori più bassi</strong> e si calcola la media sui CFU rimanenti. La media viene convertita in centodecimi e approssimata per eccesso al secondo decimale.</p>
+</article>
+
+<article class="score-card">
+<h3>L — Punteggio di lodi</h3>
+<p>Ogni lode vale <strong>0,25 punti</strong> se ottenuta in un'attività fino a 6 CFU e <strong>0,50 punti</strong> se ottenuta in un'attività da almeno 7 CFU. Il bonus complessivo non può superare <strong>1,50 punti</strong>.</p>
+</article>
+
+<article class="score-card">
+<h3>T — Punteggio di tesi</h3>
+<p>È attribuito dalla Commissione secondo questo schema di riferimento: <strong>4 punti</strong> per una tesi sufficiente, <strong>6</strong> per una tesi discreta, <strong>8</strong> per una tesi buona, <strong>10</strong> per una tesi ottima.</p>
+</article>
+</div>
+
+<p class="grad-note">Se la somma arrotondata raggiunge almeno 110/110, la Commissione può attribuire la lode, con decisione unanime. Le regole applicabili sono quelle del Regolamento relativo al tuo anno di immatricolazione.</p>
+<p><a href="regolamento.html">Consulta i Regolamenti della Laurea Triennale</a>.</p>
+</div>
+</details>
+</section>
+
+<section class="grad-after-grid">
+<article class="grad-box">
+<h2>Se rinunci all'appello</h2>
+<p>Annulla appena possibile la domanda di laurea su Alice e avvisa le segreterie secondo le istruzioni vigenti. Per laurearti in un appello successivo dovrai presentare nuovamente la domanda e ripetere gli adempimenti richiesti.</p>
+</article>
+
+<article class="grad-box grad-box-special">
+<h2>Ti laurei fra gennaio e luglio?</h2>
+<p>Se consegui la Laurea Triennale in Matematica a Pisa fra gennaio e luglio e vuoi proseguire con la nostra Laurea Magistrale, esiste una procedura di preiscrizione che permette di iniziare a sostenere esami magistrali prima dell'apertura ufficiale delle nuove immatricolazioni.</p>
+<p><a href="../laurea-magistrale/laureati-gennaio-luglio.html">Scopri come funziona la preiscrizione alla Magistrale</a>.</p>
+</article>
+</section>
+
+<section class="grad-glossary">
+<h2>Piccolo glossario</h2>
+
+<details><summary>Appello di laurea</summary><div class="grad-answer"><p>È il periodo nel quale si svolgono una o più sedute di laurea. Le scadenze amministrative sono normalmente calcolate rispetto all'inizio dell'appello, non rispetto all'orario individuale della discussione.</p></div></details>
+
+<details><summary>Alice e CAPS</summary><div class="grad-answer"><p><strong>Alice</strong> è il portale di Ateneo utilizzato per la carriera amministrativa e la domanda di laurea. <strong>CAPS</strong> è il sistema utilizzato dal Corso di Studio in Matematica per piani di studio e moduli didattici, compresa la domanda di esame finale.</p></div></details>
+
+<details><summary>Segreteria Studenti e Segreteria Didattica</summary><div class="grad-answer"><p>La <strong>Segreteria Studenti</strong> gestisce gli aspetti amministrativi della carriera. La <strong>Segreteria Didattica</strong> del Dipartimento segue invece gli aspetti organizzativi e didattici specifici del Corso di Studio.</p></div></details>
+
+<details><summary>Relatore e prova finale</summary><div class="grad-answer"><p>La prova finale consiste nella discussione orale di un elaborato scritto individuale, preparato con l'assistenza di almeno un docente relatore, su un argomento matematico di interesse teorico, algoritmico o applicativo.</p></div></details>
+
+<details>
+<summary>Relatore esterno al Corso di Studio</summary>
+<div class="grad-answer">
+<p>
+La prova finale può essere preparata anche con l'assistenza di un docente che non appartiene
+al Corso di Laurea in Matematica. In questo caso il nominativo del relatore va indicato correttamente
+nella domanda di laurea; l'organizzazione della commissione resta affidata al Corso di Studio
+secondo le regole di Ateneo.
+</p>
+
+<aside class="internal-note">
+<strong>Nota interna — da verificare.</strong>
+Il Regolamento LT consente espressamente un relatore esterno al Corso di Laurea,
+ma va chiarito meglio fino a che punto possa essere esterno anche all'Università di Pisa
+e se, in quel caso, sia richiesta una procedura aggiuntiva o l'individuazione di un referente interno.
+</aside>
+</div>
+</details>
+
+<details><summary>Abstract</summary><div class="grad-answer"><p>È una breve sintesi del contenuto dell'elaborato finale. Viene richiesto fra i documenti da allegare alla domanda su CAPS.</p></div></details>
+</section>
+</main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
