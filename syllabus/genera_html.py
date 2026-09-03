@@ -7,7 +7,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
 INPUT = BASE / "syllabus_2026.json"
-OUTPUT = BASE.parent / "docs" / "index.html"
+OUTPUT = BASE / "index.html"
 
 
 # ------------------------------------------------------------
