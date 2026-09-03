@@ -6,7 +6,8 @@ import re
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent
-INPUT = BASE / "syllabus_2026.json"
+INPUT_LT = BASE / "syllabus_2026.json"
+INPUT_LM = BASE / "syllabus_lm_2026.json"
 OUTPUT = BASE / "index.html"
 
 
@@ -121,8 +122,16 @@ def button(label, panel_id, value, secondary=False):
 # Lettura dataset
 # ------------------------------------------------------------
 
-with INPUT.open(encoding="utf-8") as f:
-    data = json.load(f)
+with INPUT_LT.open(encoding="utf-8") as f:
+    data_lt = json.load(f)
+
+with INPUT_LM.open(encoding="utf-8") as f:
+    data_lm = json.load(f)
+
+data = data_lt + data_lm
+
+count_lt = len(data_lt)
+count_lm = len(data_lm)
 
 
 courses_html = []
@@ -138,6 +147,7 @@ for n, item in enumerate(data):
     record = item.get("record_catalogo") or {}
 
     code = clean(item.get("codice"))
+    cds = clean(item.get("cds")) or "LT"
     year = clean(item.get("anno_corso"))
     semester = clean(item.get("semestre"))
 
@@ -338,7 +348,7 @@ for n, item in enumerate(data):
             )
 
     search_string = " ".join(
-        [code, title, docente, year, semester]
+        [cds, code, title, docente, year, semester]
     ).lower()
 
     missing_primary = sum(
@@ -357,6 +367,7 @@ for n, item in enumerate(data):
     courses_html.append(
         f"""
         <article class="course {status}"
+                 data-cds="{html.escape(cds)}"
                  data-year="{html.escape(year)}"
                  data-semester="{html.escape(semester)}"
                  data-status="{status}"
@@ -366,6 +377,7 @@ for n, item in enumerate(data):
             <div class="course-row">
 
                 <div class="metadata">
+                    <span class="cds-badge {html.escape(cds.lower())}">{html.escape(cds)}</span>
                     <span class="year-badge">{html.escape(year)}</span>
                     <span class="semester-badge">{html.escape(semester)}</span>
                 </div>
@@ -577,7 +589,7 @@ main {{
 .course-row {{
     display: grid;
     grid-template-columns:
-        85px
+        125px
         minmax(290px, 1.5fr)
         minmax(180px, .65fr)
         minmax(450px, 2fr);
@@ -834,6 +846,7 @@ footer {{
 
 <script>
 
+let cdsFilter = "ALL";
 let yearFilter = "ALL";
 let semesterFilter = "ALL";
 let missingOnly = false;
@@ -873,6 +886,20 @@ function closePanel(id) {{
     course.querySelectorAll(".field-button").forEach(b => {{
         b.classList.remove("active");
     }});
+}}
+
+
+function setCds(cds, button) {{
+
+    cdsFilter = cds;
+
+    document.querySelectorAll("[data-cds-filter]").forEach(b => {{
+        b.classList.remove("active");
+    }});
+
+    button.classList.add("active");
+
+    applyFilters();
 }}
 
 
@@ -925,6 +952,10 @@ function applyFilters() {{
 
     document.querySelectorAll(".course").forEach(course => {{
 
+        const cdsOK =
+            cdsFilter === "ALL" ||
+            course.dataset.cds === cdsFilter;
+
         const yearOK =
             yearFilter === "ALL" ||
             course.dataset.year === yearFilter;
@@ -942,6 +973,7 @@ function applyFilters() {{
             course.dataset.search.includes(query);
 
         const show =
+            cdsOK &&
             yearOK &&
             semesterOK &&
             missingOK &&
@@ -962,6 +994,7 @@ function applyFilters() {{
 
 function resetFilters() {{
 
+    cdsFilter = "ALL";
     yearFilter = "ALL";
     semesterFilter = "ALL";
     missingOnly = false;
@@ -971,6 +1004,10 @@ function resetFilters() {{
     document.querySelectorAll(".filter-button").forEach(b => {{
         b.classList.remove("active");
     }});
+
+    document.querySelector(
+        '[data-cds-filter="ALL"]'
+    ).classList.add("active");
 
     document.querySelector(
         '[data-year-filter="ALL"]'
@@ -1007,6 +1044,16 @@ function resetFilters() {{
         </div>
 
         <div class="summary-card">
+            <span class="summary-number">{count_lt}</span>
+            <span class="summary-label">LT</span>
+        </div>
+
+        <div class="summary-card">
+            <span class="summary-number">{count_lm}</span>
+            <span class="summary-label">LM</span>
+        </div>
+
+        <div class="summary-card">
             <span class="summary-number">{count_missing_program}</span>
             <span class="summary-label">programmi mancanti</span>
         </div>
@@ -1034,6 +1081,29 @@ function resetFilters() {{
         placeholder="Cerca corso, codice o docente…"
         oninput="applyFilters()"
     >
+
+    <button
+        class="filter-button active"
+        data-cds-filter="ALL"
+        onclick="setCds('ALL', this)">
+        Tutti
+    </button>
+
+    <button
+        class="filter-button"
+        data-cds-filter="LT"
+        onclick="setCds('LT', this)">
+        LT
+    </button>
+
+    <button
+        class="filter-button"
+        data-cds-filter="LM"
+        onclick="setCds('LM', this)">
+        LM
+    </button>
+
+    <span style="width:8px"></span>
 
     <button
         class="filter-button active"
@@ -1145,5 +1215,7 @@ print("Pagina generata:")
 print(OUTPUT)
 print()
 print(f"Insegnamenti: {len(data)}")
+print(f"LT: {count_lt}")
+print(f"LM: {count_lm}")
 print(f"Programmi mancanti: {count_missing_program}")
 print(f"Programmi brevi: {count_short}")
