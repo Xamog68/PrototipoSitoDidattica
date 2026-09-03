@@ -95,13 +95,6 @@ for cat in CATALOGHI:
 
     dati = get_json(url)
 
-    # Conserviamo anche una copia grezza del catalogo
-    rawfile = OUTDIR / f"catalogo_{cat['coorte']}_{cat['corso_cod']}.json"
-    rawfile.write_text(
-        json.dumps(dati, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
-
     for a in tutte_attivita(dati):
         if str(a.get("aa")) == "2026":
             a["_coorte_origine"] = cat["coorte"]

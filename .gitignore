@@ -1,1 +1,6 @@
 .DS_Store
+
+# Syllabus: dati intermedi/cache rigenerabili
+syllabus/catalogo_*.json
+syllabus/syllabus_2026.json
+syllabus/syllabus_lm_2026.json

@@ -101,11 +101,6 @@ print("Scarico il catalogo LM...")
 catalog_url = f"{BASE}/corso/{COORTE}/{CORSO_COD}"
 catalogo = get_json(catalog_url)
 
-catalog_file = OUTDIR / f"catalogo_LM_{COORTE}_{CORSO_COD}.json"
-catalog_file.write_text(
-    json.dumps(catalogo, ensure_ascii=False, indent=2),
-    encoding="utf-8"
-)
 
 attivita = [
     a for a in tutte_attivita(catalogo)
