@@ -425,6 +425,7 @@ footer {
 <script>
 
 let cdsFilter = "ALL";
+let ssdFilter = "ALL";
 let yearFilter = "ALL";
 let semesterFilter = "ALL";
 let missingOnly = false;
@@ -477,6 +478,13 @@ function setCds(cds, button) {
 
     button.classList.add("active");
 
+    applyFilters();
+}
+
+
+function setSSD(value) {
+
+    ssdFilter = value;
     applyFilters();
 }
 
@@ -534,6 +542,10 @@ function applyFilters() {
             cdsFilter === "ALL" ||
             course.dataset.cds === cdsFilter;
 
+        const ssdOK =
+            ssdFilter === "ALL" ||
+            course.dataset.ssd.split(" ").includes(ssdFilter);
+
         const yearOK =
             yearFilter === "ALL" ||
             course.dataset.year === yearFilter;
@@ -552,6 +564,7 @@ function applyFilters() {
 
         const show =
             cdsOK &&
+            ssdOK &&
             yearOK &&
             semesterOK &&
             missingOK &&
@@ -573,11 +586,13 @@ function applyFilters() {
 function resetFilters() {
 
     cdsFilter = "ALL";
+    ssdFilter = "ALL";
     yearFilter = "ALL";
     semesterFilter = "ALL";
     missingOnly = false;
 
     document.getElementById("search").value = "";
+    document.getElementById("ssd-filter").value = "ALL";
 
     document.querySelectorAll(".filter-button").forEach(b => {
         b.classList.remove("active");
@@ -683,6 +698,28 @@ function resetFilters() {
 
     <span style="width:8px"></span>
 
+    <select
+        id="ssd-filter"
+        class="filter-button"
+        onchange="setSSD(this.value)">
+        <option value="ALL">SSD: tutti</option>
+<option value="FIS/01">FIS/01</option>
+<option value="FIS/02">FIS/02</option>
+<option value="INF/01">INF/01</option>
+<option value="MAT/01">MAT/01</option>
+<option value="MAT/02">MAT/02</option>
+<option value="MAT/03">MAT/03</option>
+<option value="MAT/04">MAT/04</option>
+<option value="MAT/05">MAT/05</option>
+<option value="MAT/06">MAT/06</option>
+<option value="MAT/07">MAT/07</option>
+<option value="MAT/08">MAT/08</option>
+<option value="MAT/09">MAT/09</option>
+<option value="NN">NN</option>
+    </select>
+
+    <span style="width:8px"></span>
+
     <button
         class="filter-button active"
         data-year-filter="ALL"
@@ -769,10 +806,11 @@ function resetFilters() {
 
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="I"
                  data-semester="A"
                  data-status="ok"
-                 data-search="lt 561aa analisi matematica 1 gobbino massimo, picenni nicola i a"
+                 data-search="lt 561aa analisi matematica 1 gobbino massimo, picenni nicola i a mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -1028,10 +1066,11 @@ function resetFilters() {
         
         <article class="course very-short"
                  data-cds="LT"
+                 data-ssd="MAT/02"
                  data-year="I"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lt 015aa aritmetica del corso ilaria, bresciani giulio i 1"
+                 data-search="lt 015aa aritmetica del corso ilaria, bresciani giulio i 1 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -1266,10 +1305,11 @@ function resetFilters() {
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="FIS/01"
                  data-year="I"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 241bb fisica i con laboratorio bombaci ignazio, messineo alberto maria i 2"
+                 data-search="lt 241bb fisica i con laboratorio bombaci ignazio, messineo alberto maria i 2 fis/01"
                  data-missing="0">
 
             <div class="course-row">
@@ -1530,10 +1570,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="INF/01"
                  data-year="I"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 017aa fondamenti di programmazione con laboratorio mancarella paolo maria i 1"
+                 data-search="lt 017aa fondamenti di programmazione con laboratorio mancarella paolo maria i 1 inf/01"
                  data-missing="0">
 
             <div class="course-row">
@@ -1803,10 +1844,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="I"
                  data-semester="A"
                  data-status="missing"
-                 data-search="lt 614aa geometria 1 salvetti mario, callegaro filippo gianluca i a"
+                 data-search="lt 614aa geometria 1 salvetti mario, callegaro filippo gianluca i a mat/03"
                  data-missing="5">
 
             <div class="course-row">
@@ -1867,10 +1909,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="INF/01 NN"
                  data-year="I"
                  data-semester="A"
                  data-status="ok"
-                 data-search="lt 1993z laboratorio di introduzione alla matematica computazionale durastante fabio, massei stefano, gazzola silvia i a"
+                 data-search="lt 1993z laboratorio di introduzione alla matematica computazionale durastante fabio, massei stefano, gazzola silvia i a inf/01 nn"
                  data-missing="0">
 
             <div class="course-row">
@@ -2139,10 +2182,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/02"
                  data-year="II"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 037aa algebra 1 bandini andrea, sbarra enrico ii 1"
+                 data-search="lt 037aa algebra 1 bandini andrea, sbarra enrico ii 1 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -2348,10 +2392,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="INF/01"
                  data-year="II"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 039aa algoritmi e strutture dei dati grossi roberto ii 2"
+                 data-search="lt 039aa algoritmi e strutture dei dati grossi roberto ii 2 inf/01"
                  data-missing="0">
 
             <div class="course-row">
@@ -2589,10 +2634,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="II"
                  data-semester="A"
                  data-status="ok"
-                 data-search="lt 546aa analisi matematica 2 paolini emanuele, lucardesi ilaria ii a"
+                 data-search="lt 546aa analisi matematica 2 paolini emanuele, lucardesi ilaria ii a mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -2848,10 +2894,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/08"
                  data-year="II"
                  data-semester="1"
                  data-status="short"
-                 data-search="lt 043aa analisi numerica con laboratorio meini beatrice, pagliantini cecilia, robol leonardo ii 1"
+                 data-search="lt 043aa analisi numerica con laboratorio meini beatrice, pagliantini cecilia, robol leonardo ii 1 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -3129,10 +3176,11 @@ L'esame si articola nelle seguenti prove:
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/06"
                  data-year="II"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 052aa elementi di probabilità e statistica maurelli mario, morandin francesco ii 2"
+                 data-search="lt 052aa elementi di probabilità e statistica maurelli mario, morandin francesco ii 2 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -3385,10 +3433,11 @@ Altro testo: P. Baldi, Calcolo delle probabilità e statistica, seconda edizion
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="II"
                  data-semester="A"
                  data-status="ok"
-                 data-search="lt 511aa geometria 2 frigerio roberto, talpo mattia, szamuely tamas ii a"
+                 data-search="lt 511aa geometria 2 frigerio roberto, talpo mattia, szamuely tamas ii a mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -3619,10 +3668,11 @@ Altro testo: P. Baldi, Calcolo delle probabilità e statistica, seconda edizion
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/02"
                  data-year="III"
                  data-semester="2"
                  data-status="short"
-                 data-search="lt 038aa algebra 2 patimo leonardo, d&#x27;adderio michele iii 2"
+                 data-search="lt 038aa algebra 2 patimo leonardo, d&#x27;adderio michele iii 2 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -3854,10 +3904,11 @@ Altro testo: P. Baldi, Calcolo delle probabilità e statistica, seconda edizion
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="III"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 547aa analisi matematica 3 berselli luigi carlo iii 1"
+                 data-search="lt 547aa analisi matematica 3 berselli luigi carlo iii 1 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -4156,10 +4207,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course very-short"
                  data-cds="LT"
+                 data-ssd="MAT/08"
                  data-year="III"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lt 044aa calcolo scientifico massei stefano, robol leonardo iii 1"
+                 data-search="lt 044aa calcolo scientifico massei stefano, robol leonardo iii 1 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -4370,10 +4422,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 046aa elementi di analisi complessa abate marco iii 2"
+                 data-search="lt 046aa elementi di analisi complessa abate marco iii 2 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -4597,10 +4650,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="III"
                  data-semester="1"
                  data-status="short"
-                 data-search="lt 047aa elementi di calcolo delle variazioni novaga matteo iii 1"
+                 data-search="lt 047aa elementi di calcolo delle variazioni novaga matteo iii 1 mat/05"
                  data-missing="1">
 
             <div class="course-row">
@@ -4791,10 +4845,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="III"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lt 049aa elementi di geometria algebrica franciosi marco, pearlstein gregory james iii 1"
+                 data-search="lt 049aa elementi di geometria algebrica franciosi marco, pearlstein gregory james iii 1 mat/03"
                  data-missing="5">
 
             <div class="course-row">
@@ -4855,10 +4910,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/07"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 051aa elementi di meccanica celeste tommei giacomo iii 2"
+                 data-search="lt 051aa elementi di meccanica celeste tommei giacomo iii 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -5062,10 +5118,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course very-short"
                  data-cds="LT"
+                 data-ssd="MAT/01"
                  data-year="III"
                  data-semester="2"
                  data-status="very-short"
-                 data-search="lt 053aa elementi di teoria degli insiemi di nasso mauro iii 2"
+                 data-search="lt 053aa elementi di teoria degli insiemi di nasso mauro iii 2 mat/01"
                  data-missing="0">
 
             <div class="course-row">
@@ -5336,10 +5393,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course very-short"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="III"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lt 054aa elementi di topologia algebrica callegaro filippo gianluca, salvetti mario iii 1"
+                 data-search="lt 054aa elementi di topologia algebrica callegaro filippo gianluca, salvetti mario iii 1 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -5576,10 +5634,11 @@ Introduction to Laplace’s Equation, separation of variables, and connections w
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 545aa equazioni alle derivate parziali muratov cyrill iii 2"
+                 data-search="lt 545aa equazioni alle derivate parziali muratov cyrill iii 2 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -5880,10 +5939,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="FIS/02"
                  data-year="III"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lt 242bb fisica ii — iii 1"
+                 data-search="lt 242bb fisica ii — iii 1 fis/02"
                  data-missing="5">
 
             <div class="course-row">
@@ -5944,10 +6004,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="FIS/01"
                  data-year="III"
                  data-semester="2"
                  data-status="short"
-                 data-search="lt 243bb fisica iii sozzi marco stanislao iii 2"
+                 data-search="lt 243bb fisica iii sozzi marco stanislao iii 2 fis/01"
                  data-missing="0">
 
             <div class="course-row">
@@ -6178,10 +6239,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/03"
                  data-year="III"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 055aa geometria e topologia differenziale lisca paolo iii 1"
+                 data-search="lt 055aa geometria e topologia differenziale lisca paolo iii 1 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -6453,10 +6515,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/08"
                  data-year="III"
                  data-semester="A"
                  data-status="short"
-                 data-search="lt 058aa laboratorio computazionale meini beatrice iii a"
+                 data-search="lt 058aa laboratorio computazionale meini beatrice iii a mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -6727,10 +6790,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/08"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 062aa laboratorio sperimentale di matematica computazionale gazzola silvia, boito paola iii 2"
+                 data-search="lt 062aa laboratorio sperimentale di matematica computazionale gazzola silvia, boito paola iii 2 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -6960,10 +7024,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="INF/01"
                  data-year="III"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lt 063aa linguaggi di programmazione con laboratorio gadducci fabio, ciancia vincenzo iii 1"
+                 data-search="lt 063aa linguaggi di programmazione con laboratorio gadducci fabio, ciancia vincenzo iii 1 inf/01"
                  data-missing="5">
 
             <div class="course-row">
@@ -7024,10 +7089,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="MAT/01"
                  data-year="III"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lt 064aa logica matematica mamino marcello, berarducci alessandro iii 2"
+                 data-search="lt 064aa logica matematica mamino marcello, berarducci alessandro iii 2 mat/01"
                  data-missing="5">
 
             <div class="course-row">
@@ -7088,10 +7154,11 @@ Analysis I, Analysis II, and Analysis III.
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/04"
                  data-year="III"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 065aa matematiche elementari da un punto di vista superiore: aritmetica lisarelli giulia, di martino pietro iii 1"
+                 data-search="lt 065aa matematiche elementari da un punto di vista superiore: aritmetica lisarelli giulia, di martino pietro iii 1 mat/04"
                  data-missing="0">
 
             <div class="course-row">
@@ -7380,10 +7447,11 @@ They will know different approaches to proving fundamental results in arithmetic
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/07"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 575aa meccanica razionale gronchi giovanni federico, minguzzi ettore iii 2"
+                 data-search="lt 575aa meccanica razionale gronchi giovanni federico, minguzzi ettore iii 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -7632,10 +7700,11 @@ They will know different approaches to proving fundamental results in arithmetic
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/08"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 067aa metodi numerici per equazioni differenziali ordinarie pagliantini cecilia iii 2"
+                 data-search="lt 067aa metodi numerici per equazioni differenziali ordinarie pagliantini cecilia iii 2 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -7904,10 +7973,11 @@ They will know different approaches to proving fundamental results in arithmetic
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/09"
                  data-year="III"
                  data-semester="1"
                  data-status="short"
-                 data-search="lt 0047a ottimizzazione non lineare pappalardo massimo iii 1"
+                 data-search="lt 0047a ottimizzazione non lineare pappalardo massimo iii 1 mat/09"
                  data-missing="0">
 
             <div class="course-row">
@@ -8176,10 +8246,11 @@ They will know different approaches to proving fundamental results in arithmetic
         
         <article class="course short"
                  data-cds="LT"
+                 data-ssd="MAT/06"
                  data-year="III"
                  data-semester="1"
                  data-status="short"
-                 data-search="lt 070aa probabilità romito marco iii 1"
+                 data-search="lt 070aa probabilità romito marco iii 1 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -8424,10 +8495,11 @@ They will know different approaches to proving fundamental results in arithmetic
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/09"
                  data-year="III"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lt 072aa ricerca operativa scutella&#x27; maria grazia iii 2"
+                 data-search="lt 072aa ricerca operativa scutella&#x27; maria grazia iii 2 mat/09"
                  data-missing="0">
 
             <div class="course-row">
@@ -8680,10 +8752,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course ok"
                  data-cds="LT"
+                 data-ssd="MAT/07"
                  data-year="III"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lt 074aa sistemi dinamici bonanno claudio, del magno gianluigi iii 1"
+                 data-search="lt 074aa sistemi dinamici bonanno claudio, del magno gianluigi iii 1 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -8953,10 +9026,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course very-short"
                  data-cds="LT"
+                 data-ssd="MAT/06"
                  data-year="III"
                  data-semester="2"
                  data-status="very-short"
-                 data-search="lt 075aa statistica matematica romito marco, grotto francesco iii 2"
+                 data-search="lt 075aa statistica matematica romito marco, grotto francesco iii 2 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -9199,10 +9273,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course missing"
                  data-cds="LT"
+                 data-ssd="MAT/05"
                  data-year="III"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lt 219aa teoria della misura magnani valentino iii 1"
+                 data-search="lt 219aa teoria della misura magnani valentino iii 1 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -9263,10 +9338,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/02"
                  data-year="M"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lm 089aa algebre e gruppi di lie gaiffi giovanni, maffei andrea m 1"
+                 data-search="lm 089aa algebre e gruppi di lie gaiffi giovanni, maffei andrea m 1 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -9509,10 +9585,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lm 090aa analisi armonica bellazzini jacopo m 1"
+                 data-search="lm 090aa analisi armonica bellazzini jacopo m 1 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -9716,10 +9793,11 @@ Si assume inoltre una conoscenza di base dei concetti di algoritmo e di analisi 
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/06"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 699aa analisi dei dati morandin francesco m 2"
+                 data-search="lm 699aa analisi dei dati morandin francesco m 2 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -10018,10 +10096,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="short"
-                 data-search="lm 798aa analisi superiore a pratelli aldo m 2"
+                 data-search="lm 798aa analisi superiore a pratelli aldo m 2 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -10291,10 +10370,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lm 096aa calcolo delle variazioni a arroyo rabasa adolfo m 2"
+                 data-search="lm 096aa calcolo delle variazioni a arroyo rabasa adolfo m 2 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -10355,10 +10435,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lm 099aa complementi di analisi funzionale majer pietro m 1"
+                 data-search="lm 099aa complementi di analisi funzionale majer pietro m 1 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -10419,10 +10500,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/07"
                  data-year="M"
                  data-semester="2"
                  data-status="short"
-                 data-search="lm 101aa determinazione orbitale gronchi giovanni federico m 2"
+                 data-search="lm 101aa determinazione orbitale gronchi giovanni federico m 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -10695,10 +10777,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 553aa equazioni alle derivate parziali 2 visciglia nicola m 2"
+                 data-search="lm 553aa equazioni alle derivate parziali 2 visciglia nicola m 2 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -10941,10 +11024,11 @@ Students will also become familiar with computational aspects of real-data analy
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/06"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 555aa equazioni differenziali stocastiche e applicazioni maurelli mario m 2"
+                 data-search="lm 555aa equazioni differenziali stocastiche e applicazioni maurelli mario m 2 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -11226,10 +11310,11 @@ Per i non frequentanti: erame orale sui contenuti del corso.
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lm 109aa equazioni ellittiche velichkov bozhidar m 2"
+                 data-search="lm 109aa equazioni ellittiche velichkov bozhidar m 2 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -11290,10 +11375,11 @@ Per i non frequentanti: erame orale sui contenuti del corso.
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/07"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 111aa fisica matematica bonanno claudio m 2"
+                 data-search="lm 111aa fisica matematica bonanno claudio m 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -11527,10 +11613,11 @@ Per i non frequentanti: erame orale sui contenuti del corso.
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="2"
                  data-status="very-short"
-                 data-search="lm 0050a geometria algebrica complessa manfredini sandro m 2"
+                 data-search="lm 0050a geometria algebrica complessa manfredini sandro m 2 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -11734,10 +11821,11 @@ Per i non frequentanti: erame orale sui contenuti del corso.
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="1"
                  data-status="short"
-                 data-search="lm 0019a geometria e analisi complessa bianchi fabrizio m 1"
+                 data-search="lm 0019a geometria e analisi complessa bianchi fabrizio m 1 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -12002,10 +12090,11 @@ Characterization and properties of Stein manifolds.
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 130aa geometria riemanniana conti diego m 1"
+                 data-search="lm 130aa geometria riemanniana conti diego m 1 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -12234,10 +12323,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/06"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 0020a introduzione alla statistica computazionale trevisan dario m 1"
+                 data-search="lm 0020a introduzione alla statistica computazionale trevisan dario m 1 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -12480,10 +12570,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/02"
                  data-year="M"
                  data-semester="1"
                  data-status="short"
-                 data-search="lm 769aa istituzioni di algebra lombardo davide m 1"
+                 data-search="lm 769aa istituzioni di algebra lombardo davide m 1 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -12740,10 +12831,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="1"
                  data-status="missing"
-                 data-search="lm 770aa istituzioni di analisi matematica velichkov bozhidar m 1"
+                 data-search="lm 770aa istituzioni di analisi matematica velichkov bozhidar m 1 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -12804,10 +12896,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="2"
                  data-status="short"
-                 data-search="lm 772aa istituzioni di analisi numerica durastante fabio, boito paola m 2"
+                 data-search="lm 772aa istituzioni di analisi numerica durastante fabio, boito paola m 2 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -13078,10 +13171,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/04"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 771aa istituzioni di didattica della matematica baccaglini-frank anna ethelwyn, maracci mirko m 1"
+                 data-search="lm 771aa istituzioni di didattica della matematica baccaglini-frank anna ethelwyn, maracci mirko m 1 mat/04"
                  data-missing="0">
 
             <div class="course-row">
@@ -13350,10 +13444,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/07"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 774aa istituzioni di fisica matematica gronchi giovanni federico, bau&#x27; giulio m 1"
+                 data-search="lm 774aa istituzioni di fisica matematica gronchi giovanni federico, bau&#x27; giulio m 1 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -13572,10 +13667,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 768aa istituzioni di geometria martelli bruno m 2"
+                 data-search="lm 768aa istituzioni di geometria martelli bruno m 2 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -13844,10 +13940,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/06"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 773aa istituzioni di probabilità grotto francesco m 2"
+                 data-search="lm 773aa istituzioni di probabilità grotto francesco m 2 mat/06"
                  data-missing="0">
 
             <div class="course-row">
@@ -14103,10 +14200,11 @@ Isometry group and Killing fields: Bochner's theorem. Alekseevskii-Kimel'fel'd t
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/07"
                  data-year="M"
                  data-semester="2"
                  data-status="short"
-                 data-search="lm 144aa meccanica spaziale bau&#x27; giulio m 2"
+                 data-search="lm 144aa meccanica spaziale bau&#x27; giulio m 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -14387,10 +14485,11 @@ Halo and Lissajous orbits around the collinear Lagrangian points.
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/07"
                  data-year="M"
                  data-semester="2"
                  data-status="very-short"
-                 data-search="lm 145aa meccanica superiore giulietti paolo, bonanno claudio m 2"
+                 data-search="lm 145aa meccanica superiore giulietti paolo, bonanno claudio m 2 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -14648,10 +14747,11 @@ Halo and Lissajous orbits around the collinear Lagrangian points.
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 775aa metodi di analisi armonica in analisi non lineare forcella luigi, bellazzini jacopo m 2"
+                 data-search="lm 775aa metodi di analisi armonica in analisi non lineare forcella luigi, bellazzini jacopo m 2 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -14887,10 +14987,11 @@ Halo and Lissajous orbits around the collinear Lagrangian points.
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 0058a metodi numerici per catene di markov e reti complesse meini beatrice m 2"
+                 data-search="lm 0058a metodi numerici per catene di markov e reti complesse meini beatrice m 2 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -15207,10 +15308,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 795aa metodi numerici per equazioni alle derivate parziali heltai luca m 1"
+                 data-search="lm 795aa metodi numerici per equazioni alle derivate parziali heltai luca m 1 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -15611,10 +15713,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="2"
                  data-status="short"
-                 data-search="lm 0056a metodi numerici per funzioni di matrici poloni federico giovanni, cortinovis alice m 2"
+                 data-search="lm 0056a metodi numerici per funzioni di matrici poloni federico giovanni, cortinovis alice m 2 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -15887,10 +15990,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 149aa metodi numerici per la grafica boito paola m 1"
+                 data-search="lm 149aa metodi numerici per la grafica boito paola m 1 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -16130,10 +16234,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course short"
                  data-cds="LM"
+                 data-ssd="MAT/08"
                  data-year="M"
                  data-semester="1"
                  data-status="short"
-                 data-search="lm 0057a modelli matematici e loro simulazione numerica robol leonardo, gazzola silvia m 1"
+                 data-search="lm 0057a modelli matematici e loro simulazione numerica robol leonardo, gazzola silvia m 1 mat/08"
                  data-missing="0">
 
             <div class="course-row">
@@ -16389,10 +16494,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 559aa modelli matematici in biomedicina e fisica matematica gueorguiev vladimir simeonov, manca maria laura m 2"
+                 data-search="lm 559aa modelli matematici in biomedicina e fisica matematica gueorguiev vladimir simeonov, manca maria laura m 2 mat/05"
                  data-missing="0">
 
             <div class="course-row">
@@ -16604,10 +16710,11 @@ Matlab Laboratory: Algorithm implementation on real-world networks and Markov ch
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/04"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 166aa problem solving di martino pietro m 2"
+                 data-search="lm 166aa problem solving di martino pietro m 2 mat/04"
                  data-missing="0">
 
             <div class="course-row">
@@ -16891,10 +16998,11 @@ Per tale motivo, pur non essendo obbligatoria, la frequenza alle attività didat
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/02"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 202aa teoria algebrica dei numeri 2 del corso ilaria, bandini andrea m 2"
+                 data-search="lm 202aa teoria algebrica dei numeri 2 del corso ilaria, bandini andrea m 2 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -17134,10 +17242,11 @@ Per tale motivo, pur non essendo obbligatoria, la frequenza alle attività didat
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/02"
                  data-year="M"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lm 706aa teoria algebrica dei numeri 3 szamuely tamas m 1"
+                 data-search="lm 706aa teoria algebrica dei numeri 3 szamuely tamas m 1 mat/02"
                  data-missing="0">
 
             <div class="course-row">
@@ -17367,10 +17476,11 @@ Per tale motivo, pur non essendo obbligatoria, la frequenza alle attività didat
         
         <article class="course very-short"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="1"
                  data-status="very-short"
-                 data-search="lm 0065a teoria degli schemi talpo mattia, di lorenzo andrea m 1"
+                 data-search="lm 0065a teoria degli schemi talpo mattia, di lorenzo andrea m 1 mat/03"
                  data-missing="0">
 
             <div class="course-row">
@@ -17639,10 +17749,11 @@ Per tale motivo, pur non essendo obbligatoria, la frequenza alle attività didat
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/09"
                  data-year="M"
                  data-semester="2"
                  data-status="ok"
-                 data-search="lm 211aa teoria dei giochi bigi giancarlo m 2"
+                 data-search="lm 211aa teoria dei giochi bigi giancarlo m 2 mat/09"
                  data-missing="0">
 
             <div class="course-row">
@@ -17834,10 +17945,11 @@ Inoltre, lo studente potrà acquisire sensibilità critica nella formulazione e 
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/01"
                  data-year="M"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lm 213aa teoria dei modelli berarducci alessandro m 2"
+                 data-search="lm 213aa teoria dei modelli berarducci alessandro m 2 mat/01"
                  data-missing="5">
 
             <div class="course-row">
@@ -17898,10 +18010,11 @@ Inoltre, lo studente potrà acquisire sensibilità critica nella formulazione e 
         
         <article class="course ok"
                  data-cds="LM"
+                 data-ssd="MAT/05 MAT/07"
                  data-year="M"
                  data-semester="1"
                  data-status="ok"
-                 data-search="lm 224aa teoria ergodica del magno gianluigi m 1"
+                 data-search="lm 224aa teoria ergodica del magno gianluigi m 1 mat/05 mat/07"
                  data-missing="0">
 
             <div class="course-row">
@@ -18118,10 +18231,11 @@ Inoltre, lo studente potrà acquisire sensibilità critica nella formulazione e 
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/05"
                  data-year="M"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lm 225aa teoria geometrica della misura alberti giovanni m 2"
+                 data-search="lm 225aa teoria geometrica della misura alberti giovanni m 2 mat/05"
                  data-missing="5">
 
             <div class="course-row">
@@ -18182,10 +18296,11 @@ Inoltre, lo studente potrà acquisire sensibilità critica nella formulazione e 
         
         <article class="course missing"
                  data-cds="LM"
+                 data-ssd="MAT/03"
                  data-year="M"
                  data-semester="2"
                  data-status="missing"
-                 data-search="lm 766aa topologia algebrica b ferroni luis, salvetti mario m 2"
+                 data-search="lm 766aa topologia algebrica b ferroni luis, salvetti mario m 2 mat/03"
                  data-missing="5">
 
             <div class="course-row">

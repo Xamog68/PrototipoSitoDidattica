@@ -10,6 +10,37 @@ INPUT_LT = BASE / "syllabus_2026.json"
 INPUT_LM = BASE / "syllabus_lm_2026.json"
 OUTPUT = BASE / "index.html"
 
+SSD_MAP = {
+    "MATH-01/A": "MAT/01",
+    "MATH-01/B": "MAT/04",
+    "MATH-02/A": "MAT/02",
+    "MATH-02/B": "MAT/03",
+    "MATH-03/A": "MAT/05",
+    "MATH-03/B": "MAT/06",
+    "MATH-04/A": "MAT/07",
+    "MATH-05/A": "MAT/08",
+    "MATH-06/A": "MAT/09",
+    "INFO-01/A": "INF/01",
+    "PHYS-01/A": "FIS/01",
+}
+
+
+def normalize_ssd(value):
+    value = clean(value)
+    if not value:
+        return []
+
+    parts = [x.strip() for x in value.split(",") if x.strip()]
+    result = []
+
+    for part in parts:
+        normalized = SSD_MAP.get(part, part)
+        if normalized not in result:
+            result.append(normalized)
+
+    return result
+
+
 
 # ------------------------------------------------------------
 # Utility
@@ -150,6 +181,9 @@ for n, item in enumerate(data):
     cds = clean(item.get("cds")) or "LT"
     year = clean(item.get("anno_corso"))
     semester = clean(item.get("semestre"))
+
+    ssd_list = normalize_ssd(syllabus.get("ssd"))
+    ssd_string = " ".join(ssd_list)
 
     title = (
         clean(syllabus.get("des_it"))
@@ -348,7 +382,7 @@ for n, item in enumerate(data):
             )
 
     search_string = " ".join(
-        [cds, code, title, docente, year, semester]
+        [cds, code, title, docente, year, semester, ssd_string]
     ).lower()
 
     missing_primary = sum(
@@ -368,6 +402,7 @@ for n, item in enumerate(data):
         f"""
         <article class="course {status}"
                  data-cds="{html.escape(cds)}"
+                 data-ssd="{html.escape(ssd_string)}"
                  data-year="{html.escape(year)}"
                  data-semester="{html.escape(semester)}"
                  data-status="{status}"
@@ -414,6 +449,27 @@ for n, item in enumerate(data):
         </article>
         """
     )
+
+
+# ------------------------------------------------------------
+# Elenco SSD presenti
+# ------------------------------------------------------------
+
+ssd_values = set()
+
+for item in data:
+    syllabus = item.get("syllabus") or {}
+    for ssd in normalize_ssd(syllabus.get("ssd")):
+        ssd_values.add(ssd)
+
+ssd_options = ['<option value="ALL">SSD: tutti</option>']
+
+for ssd in sorted(ssd_values):
+    ssd_options.append(
+        f'<option value="{html.escape(ssd)}">{html.escape(ssd)}</option>'
+    )
+
+ssd_select_html = "\n".join(ssd_options)
 
 
 # ------------------------------------------------------------
@@ -847,6 +903,7 @@ footer {{
 <script>
 
 let cdsFilter = "ALL";
+let ssdFilter = "ALL";
 let yearFilter = "ALL";
 let semesterFilter = "ALL";
 let missingOnly = false;
@@ -899,6 +956,13 @@ function setCds(cds, button) {{
 
     button.classList.add("active");
 
+    applyFilters();
+}}
+
+
+function setSSD(value) {{
+
+    ssdFilter = value;
     applyFilters();
 }}
 
@@ -956,6 +1020,10 @@ function applyFilters() {{
             cdsFilter === "ALL" ||
             course.dataset.cds === cdsFilter;
 
+        const ssdOK =
+            ssdFilter === "ALL" ||
+            course.dataset.ssd.split(" ").includes(ssdFilter);
+
         const yearOK =
             yearFilter === "ALL" ||
             course.dataset.year === yearFilter;
@@ -974,6 +1042,7 @@ function applyFilters() {{
 
         const show =
             cdsOK &&
+            ssdOK &&
             yearOK &&
             semesterOK &&
             missingOK &&
@@ -995,11 +1064,13 @@ function applyFilters() {{
 function resetFilters() {{
 
     cdsFilter = "ALL";
+    ssdFilter = "ALL";
     yearFilter = "ALL";
     semesterFilter = "ALL";
     missingOnly = false;
 
     document.getElementById("search").value = "";
+    document.getElementById("ssd-filter").value = "ALL";
 
     document.querySelectorAll(".filter-button").forEach(b => {{
         b.classList.remove("active");
@@ -1102,6 +1173,15 @@ function resetFilters() {{
         onclick="setCds('LM', this)">
         LM
     </button>
+
+    <span style="width:8px"></span>
+
+    <select
+        id="ssd-filter"
+        class="filter-button"
+        onchange="setSSD(this.value)">
+        {ssd_select_html}
+    </select>
 
     <span style="width:8px"></span>
 
