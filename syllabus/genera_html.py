@@ -462,11 +462,26 @@ for item in data:
     for ssd in normalize_ssd(syllabus.get("ssd")):
         ssd_values.add(ssd)
 
+SSD_LABELS = {
+    "MAT/01": "MAT/01 — MATH-01/A",
+    "MAT/02": "MAT/02 — MATH-02/A",
+    "MAT/03": "MAT/03 — MATH-02/B",
+    "MAT/04": "MAT/04 — MATH-01/B",
+    "MAT/05": "MAT/05 — MATH-03/A",
+    "MAT/06": "MAT/06 — MATH-03/B",
+    "MAT/07": "MAT/07 — MATH-04/A",
+    "MAT/08": "MAT/08 — MATH-05/A",
+    "MAT/09": "MAT/09 — MATH-06/A",
+    "INF/01": "INF/01 — INFO-01/A",
+    "FIS/01": "FIS/01 — PHYS-01/A",
+}
+
 ssd_options = ['<option value="ALL">SSD: tutti</option>']
 
 for ssd in sorted(ssd_values):
+    label = SSD_LABELS.get(ssd, ssd)
     ssd_options.append(
-        f'<option value="{html.escape(ssd)}">{html.escape(ssd)}</option>'
+        f'<option value="{html.escape(ssd)}">{html.escape(label)}</option>'
     )
 
 ssd_select_html = "\n".join(ssd_options)
