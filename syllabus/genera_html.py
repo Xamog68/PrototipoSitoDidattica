@@ -414,7 +414,7 @@ for n, item in enumerate(data):
                 <div class="metadata">
                     <span class="cds-badge {html.escape(cds.lower())}">{html.escape(cds)}</span>
                     <span class="year-badge">{html.escape(year)}</span>
-                    <span class="semester-badge">{html.escape(semester)}</span>
+                    <span class="semester-badge">{html.escape("S" + semester if semester in ("1", "2") else semester)}</span>
                 </div>
 
                 <div class="identity">
