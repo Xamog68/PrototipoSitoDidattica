@@ -1,23 +1,592 @@
 <!DOCTYPE html>
-<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Costruire il piano di studi - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscrizione</a></li><li><a href="ofa.html">OFA</a></li><li><a href="precorso.html">Precorso e test di ingresso</a></li><li><a href="piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="laurearsi.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main>
+<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Costruire il piano di studi - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+:root{
+  --line:#d6d9dd;
+  --soft:#f5f6f7;
+  --soft2:#fafbfc;
+  --text:#1f2933;
+  --muted:#5b6670;
+  --purple-bg:#faf6fc;
+  --purple:#6a3f78;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  line-height:1.55;
+  background:#fff;
+}
+main{max-width:1120px;margin:0 auto;padding:2.3rem 1.35rem 4rem}
+h1{margin-bottom:.35rem}
+.intro{max-width:860px;font-size:1.06rem;color:#444}
+.notice{
+  margin:1.2rem 0;
+  padding:1rem 1.1rem;
+  border-left:4px solid #687684;
+  background:#f4f6f8;
+}
+.notice p:first-child{margin-top:0}
+.notice p:last-child{margin-bottom:0}
+.old-cohort{
+  margin:1.6rem 0 2rem;
+  padding:1rem 1.1rem;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#fbfbfc;
+}
+.old-cohort h2{font-size:1.05rem;margin:.05rem 0 .35rem}
+.year{
+  margin:2rem 0 2.4rem;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+}
+.year-head{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  align-items:baseline;
+  padding:1rem 1.2rem;
+  background:#eef2f5;
+  border-bottom:1px solid var(--line);
+}
+.year-head h2{margin:0}
+.year-head span{color:var(--muted);font-size:.93rem}
+.year-body{padding:1.2rem}
+.label{
+  display:inline-block;
+  margin-bottom:.7rem;
+  padding:.18rem .55rem;
+  border:1px solid #ccd3da;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:700;
+  background:#fff;
+}
+.course-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.55rem .8rem;
+}
+.course{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.65rem .75rem;
+  border:1px solid #e0e3e6;
+  border-radius:7px;
+  background:#fff;
+}
+.course strong{font-weight:600}
+.cfu{white-space:nowrap;color:var(--muted);font-size:.92rem}
+.curricula{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.1rem;
+}
+.curriculum{
+  border:1px solid var(--line);
+  border-radius:10px;
+  overflow:hidden;
+}
+.curriculum>h3{
+  margin:0;
+  padding:.8rem .95rem;
+  background:#f6f7f8;
+  border-bottom:1px solid var(--line);
+}
+.curriculum-body{padding:.85rem}
+.choice{
+  margin:.6rem 0;
+  border:1px solid #cfd5dc;
+  border-radius:8px;
+  overflow:hidden;
+  background:#fafbfc;
+}
+.choice summary{
+  cursor:pointer;
+  list-style:none;
+  padding:.72rem .82rem;
+  font-weight:700;
+}
+.choice summary::-webkit-details-marker{display:none}
+.choice summary::after{content:"＋";float:right;font-weight:400}
+.choice[open] summary::after{content:"−"}
+.choice[open] summary{border-bottom:1px solid #dde1e5}
+.choice-body{padding:.82rem .92rem}
+.choice-body p:first-child{margin-top:0}
+.choice-body p:last-child{margin-bottom:0}
+.choice.free{background:#fffaf0;border-color:#dbcfae}
+.choice.lang{background:#f5f8fb;border-color:#cdd8e2}
+.group-courses{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.4rem .8rem;
+  margin:.8rem 0;
+}
+.group-course{
+  padding:.48rem .58rem;
+  border:1px solid #e1e4e7;
+  border-radius:6px;
+  background:#fff;
+  font-size:.94rem;
+}
+.final{
+  margin-top:.65rem;
+  padding:.72rem .8rem;
+  border:1px solid #d7dce1;
+  border-radius:7px;
+  background:#f7f8f9;
+}
+.rules{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin:2rem 0;
+}
+.rule-card{
+  padding:1rem 1.05rem;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:#fff;
+}
+.rule-card h3{margin-top:0}
+.rule-items{
+  display:grid;
+  gap:.75rem;
+  margin-top:1rem;
+}
+.rule-item{
+  padding:.8rem .9rem;
+  border:1px solid #d9dde1;
+  border-radius:8px;
+  background:#fafbfc;
+}
+.internal-note{
+  margin:1.3rem 0;
+  padding:.9rem 1rem;
+  border:1px dashed #8a5a9b;
+  border-radius:7px;
+  background:var(--purple-bg);
+  color:var(--purple);
+  font-size:.94rem;
+}
+@media(max-width:820px){
+  .course-list,.curricula,.group-courses,.rules{grid-template-columns:1fr}
+  .year-head{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head><body>
+<header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="presentazione.html">Presentazione</a></li>
+<li><a href="iscrizione.html">Iscrizione</a></li>
+<li><a href="ofa.html">OFA</a></li>
+<li><a href="precorso.html">Precorso e test di ingresso</a></li>
+<li><a href="piano-di-studi.html">Costruire il piano di studi</a></li>
+<li><a href="presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+<li><a href="laurearsi.html">Laurearsi</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
+<li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+<li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+<li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+<li><a href="../lezioni-esami/esami.html">Esami</a></li>
+<li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+</ul></li>
+<li class="item has-sub"><span>Organizzazione</span><ul class="submenu">
+<li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+<li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+<li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+<li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+</ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul></nav></header>
+<main>
 <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> Costruire il piano di studi</div>
 <h1>Costruire il piano di studi</h1>
 
-<p>Questa pagina sarà dedicata a <strong>che cosa inserire nel piano di studi</strong>: attività obbligatorie, gruppi di scelta, crediti liberi e regole per costruire un percorso valido.</p>
+<p class="intro">
+Il percorso ha una struttura precisa, ma non è una grande tabella da imparare a memoria:
+ci sono attività obbligatorie, scelte guidate e attività più libere.
+La cosa più semplice è leggerlo anno per anno.
+</p>
 
-<div class="notice"><strong>Pagina in lavorazione.</strong> La parte procedurale è stata separata: per sapere come presentare il piano in CAPS, quando viene valutato e come seguirne l'iter, consulta <a href="presentare-piano-di-studi.html">Presentare il piano di studi</a>.</div>
+<div class="notice">
+<p><strong>Due curricula.</strong>
+Il primo anno è comune. Dal secondo anno il piano distingue fra
+<strong>Fondamentale</strong> e <strong>Computazionale</strong>.
+La scelta del curriculum avviene quando presenti il piano di studi.</p>
+<p><strong>La scelta non è definitiva:</strong> durante la carriera puoi cambiare curriculum presentando un nuovo piano di studi.</p>
+</div>
 
-<h2>Pagine collegate</h2>
-<ul class="page-list">
-<li><a href="piano-di-studi/gruppo-mcma.html">Gruppo MCMA</a></li>
-<li><a href="piano-di-studi/gruppo-mctf.html">Gruppo MCTF</a></li>
-<li><a href="../laurea-magistrale/piano-di-studi/esami-sovrannumerari.html">Esami sovrannumerari</a></li>
-<li><a href="../lezioni-esami/insegnamenti-attivati.html">Programmazione didattica</a></li>
-<li><a href="regolamento.html">Regolamento</a></li>
+<section class="old-cohort">
+<h2>Ti sei immatricolato prima del 2021/22?</h2>
+<p>
+Questa pagina descrive la struttura prevista per gli immatricolati dal 2021/22.
+Per le coorti precedenti terrei un quadro separato con la relativa tabella storica e il rinvio
+al Regolamento del proprio anno di immatricolazione.
+</p>
+</section>
+
+<section class="year">
+<div class="year-head">
+<h2>Primo anno</h2>
+<span>comune ai due curricula · 63 CFU</span>
+</div>
+<div class="year-body">
+<span class="label">Comune a tutti</span>
+
+<div class="course-list">
+<div class="course"><strong>Analisi matematica 1</strong><span class="cfu">15 CFU</span></div>
+<div class="course"><strong>Aritmetica</strong><span class="cfu">9 CFU</span></div>
+<div class="course"><strong>Fisica I con laboratorio</strong><span class="cfu">9 CFU</span></div>
+<div class="course"><strong>Fondamenti di programmazione con laboratorio</strong><span class="cfu">9 CFU</span></div>
+<div class="course"><strong>Geometria 1</strong><span class="cfu">15 CFU</span></div>
+<div class="course"><strong>Laboratorio di introduzione alla matematica computazionale</strong><span class="cfu">6 CFU</span></div>
+</div>
+</div>
+</section>
+
+<section class="year">
+<div class="year-head">
+<h2>Secondo anno</h2>
+<span>molto in comune, poi una prima differenza</span>
+</div>
+<div class="year-body">
+
+<span class="label">Parte comune · 51 CFU</span>
+
+<div class="course-list">
+<div class="course"><strong>Algebra 1</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Analisi matematica 2</strong><span class="cfu">12 CFU</span></div>
+<div class="course"><strong>Analisi numerica con laboratorio</strong><span class="cfu">9 CFU</span></div>
+<div class="course"><strong>Elementi di probabilità e statistica</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Geometria 2</strong><span class="cfu">12 CFU</span></div>
+</div>
+
+<details class="choice lang">
+<summary>Inglese — idoneità B2 · 6 CFU</summary>
+<div class="choice-body">
+<p>
+Dal 2024/25 il vecchio corso di <strong>Inglese Scientifico 013ZW</strong> non è più erogato.
+I 6 CFU si ottengono normalmente superando l'<strong>idoneità linguistica di Ateneo di livello B2</strong>
+presso il Centro Linguistico di Ateneo (CLI), che viene verbalizzata direttamente in carriera.
+</p>
+<p>
+In alternativa è possibile utilizzare una <strong>certificazione di livello B2 o superiore</strong>
+rilasciata da un ente accreditato; in questo caso occorre chiedere la verbalizzazione attraverso
+l'apposito modulo CAPS.
+</p>
+<p>
+La prova B2 del CLI comprende comprensione orale e scritta, grammatica e lessico:
+dura 35 minuti e si supera con almeno il 70% di risposte corrette.
+</p>
+<div class="notice">
+<strong>Attenzione.</strong>
+L'idoneità B2 del CLI consente di ottenere i CFU previsti dal piano di studi, ma
+<strong>non è una certificazione linguistica B2 spendibile all'esterno dell'Università</strong>.
+</div>
+</div>
+</details>
+
+<div class="curricula" style="margin-top:1rem">
+
+<div class="curriculum">
+<h3>Curriculum Fondamentale</h3>
+<div class="curriculum-body">
+
+<details class="choice free">
+<summary>Attività a scelta dello studente — 6 CFU</summary>
+<div class="choice-body">
+<p>
+Nei piani guidati di CAPS, per questi crediti puoi scegliere fra gli
+<strong>insegnamenti di Matematica proposti dal sistema</strong> e non già utilizzati nel piano.
+</p>
+<p>
+Se vuoi inserire attività diverse, consulta il blocco
+<strong>“Vuoi scegliere qualcosa di meno standard?”</strong> in fondo alla pagina.
+</p>
+</div>
+</details>
+
+</div>
+</div>
+
+<div class="curriculum">
+<h3>Curriculum Computazionale</h3>
+<div class="curriculum-body">
+<div class="course"><strong>Algoritmi e strutture dei dati</strong><span class="cfu">6 CFU</span></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="year">
+<div class="year-head">
+<h2>Terzo anno</h2>
+<span>qui i due curricula prendono davvero strade diverse</span>
+</div>
+<div class="year-body">
+
+<div class="curricula">
+
+<div class="curriculum">
+<h3>Curriculum Fondamentale</h3>
+<div class="curriculum-body">
+
+<div class="course"><strong>Meccanica razionale</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Fisica II</strong><span class="cfu">9 CFU</span></div>
+<div class="course"><strong>Fisica III</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Laboratorio sperimentale di matematica computazionale</strong><span class="cfu">6 CFU</span></div>
+
+<details class="choice">
+<summary>Gruppo MCMA — scegli 1 esame · 6 CFU</summary>
+<div class="choice-body">
+<p>
+Il gruppo <strong>MCMA</strong> raccoglie insegnamenti caratterizzanti di ambito
+<strong>modellistico-applicativo</strong>. Tutti valgono 6 CFU.
+</p>
+<div class="group-courses">
+<div class="group-course">Calcolo scientifico</div>
+<div class="group-course">Elementi di meccanica celeste</div>
+<div class="group-course">Metodi numerici per equazioni differenziali ordinarie</div>
+<div class="group-course">Ottimizzazione non lineare</div>
+<div class="group-course">Probabilità</div>
+<div class="group-course">Ricerca operativa</div>
+<div class="group-course">Sistemi dinamici</div>
+<div class="group-course">Statistica matematica</div>
+</div>
+</div>
+</details>
+
+<details class="choice">
+<summary>Gruppo MCTF — scegli 1 esame · 6 CFU</summary>
+<div class="choice-body">
+<p>
+Il gruppo <strong>MCTF</strong> raccoglie insegnamenti caratterizzanti di ambito
+<strong>teorico</strong>. Tutti valgono 6 CFU.
+</p>
+<div class="group-courses">
+<div class="group-course">Algebra 2</div>
+<div class="group-course">Analisi matematica 3</div>
+<div class="group-course">Elementi di algebra computazionale</div>
+<div class="group-course">Elementi di analisi complessa</div>
+<div class="group-course">Elementi di calcolo delle variazioni</div>
+<div class="group-course">Elementi di geometria algebrica</div>
+<div class="group-course">Elementi di logica matematica</div>
+<div class="group-course">Elementi di teoria degli insiemi</div>
+<div class="group-course">Elementi di topologia algebrica</div>
+<div class="group-course">Equazioni alle derivate parziali</div>
+<div class="group-course">Geometria e topologia differenziale</div>
+<div class="group-course">Elementi di teoria delle rappresentazioni</div>
+<div class="group-course">Logica matematica</div>
+<div class="group-course">Matematiche elementari da un punto di vista superiore: Aritmetica</div>
+<div class="group-course">Matematiche elementari da un punto di vista superiore: Geometria</div>
+<div class="group-course">Metodi topologici in analisi globale</div>
+<div class="group-course">Spazi di Sobolev</div>
+<div class="group-course">Storia della matematica</div>
+<div class="group-course">Teoria algebrica dei numeri 1</div>
+<div class="group-course">Teoria dei campi e teoria di Galois</div>
+<div class="group-course">Teoria dei codici e crittografia</div>
+<div class="group-course">Teoria dei numeri elementare</div>
+<div class="group-course">Teoria della misura</div>
+</div>
+</div>
+</details>
+
+<details class="choice free">
+<summary>Attività a scelta dello studente — 12 CFU</summary>
+<div class="choice-body">
+<p>
+Nei piani guidati di CAPS, per questi crediti puoi scegliere fra gli
+<strong>insegnamenti di Matematica proposti dal sistema</strong> e non già utilizzati nel piano.
+</p>
+<p>
+Se vuoi inserire attività diverse, consulta il blocco
+<strong>“Vuoi scegliere qualcosa di meno standard?”</strong> in fondo alla pagina.
+</p>
+</div>
+</details>
+
+<div class="final"><strong>Prova finale</strong> · 9 CFU</div>
+
+</div>
+</div>
+
+<div class="curriculum">
+<h3>Curriculum Computazionale</h3>
+<div class="curriculum-body">
+
+<div class="course"><strong>Calcolo scientifico</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Laboratorio computazionale</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Meccanica razionale</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Ricerca operativa</strong><span class="cfu">6 CFU</span></div>
+<div class="course"><strong>Linguaggi di programmazione con laboratorio</strong><span class="cfu">9 CFU</span></div>
+
+<details class="choice free">
+<summary>Attività a scelta dello studente — 18 CFU</summary>
+<div class="choice-body">
+<p>
+Nei piani guidati di CAPS, per questi crediti puoi scegliere fra gli
+<strong>insegnamenti di Matematica proposti dal sistema</strong> e non già utilizzati nel piano.
+</p>
+<p>
+Se vuoi inserire attività diverse, consulta il blocco
+<strong>“Vuoi scegliere qualcosa di meno standard?”</strong> in fondo alla pagina.
+</p>
+<p><strong>I 18 CFU non devono necessariamente corrispondere a tre attività da 6 CFU.</strong></p>
+</div>
+</details>
+
+<div class="final"><strong>Prova finale</strong> · 9 CFU</div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="rules">
+<article class="rule-card">
+<h3>Prima di scegliere un corso opzionale</h3>
+<div class="rule-items">
+<div class="rule-item">
+<strong>Un corso nel Regolamento non è necessariamente attivato ogni anno.</strong><br>
+Controlla la programmazione didattica dell'anno in cui pensi di sostenerlo.
+</div>
+<div class="rule-item">
+<strong>Non puoi sostenere un esame di un insegnamento che non sia mai stato attivato durante i tuoi anni di iscrizione.</strong><br>
+Il fatto che compaia nel Regolamento o in un gruppo di scelta non basta, da solo, a renderlo utilizzabile.
+</div>
+</div>
+</article>
+
+<article class="rule-card">
+<h3>Guarda anche un po' più avanti</h3>
+<p>
+Se pensi di proseguire con la Laurea Magistrale a Pisa, conviene considerare già ora
+il <strong>requisito dei 3 su 5</strong>.
+</p>
+<p>I cinque insegnamenti di riferimento sono:</p>
+<ul>
+<li>Algebra 2;</li>
+<li>Analisi Matematica 3;</li>
+<li>Probabilità;</li>
+<li>Elementi di teoria degli insiemi;</li>
+<li>Geometria e Topologia Differenziale.</li>
 </ul>
+<p>
+Nel percorso complessivo fra Triennale e Magistrale devi averne almeno
+<strong>3 su 5, per un totale di 18 CFU</strong>.
+Se durante la Triennale ne hai già sostenuti due, in Magistrale te ne servirà almeno un terzo.
+</p>
+</article>
+</section>
+
+
+
+<section class="old-cohort" style="margin-top:2rem">
+<h2>Attività e CFU sovrannumerari</h2>
+
+<p>
+La tua carriera può contenere più attività — o più CFU — di quelli necessari per conseguire la laurea.
+Un'attività può essere <strong>interamente sovrannumeraria</strong>, se non viene utilizzata nel piano,
+oppure esserlo solo in parte.
+</p>
+
+<div class="notice">
+<p>
+<strong>Esempio.</strong>
+Se uno spazio del piano richiede 6 CFU e viene coperto con un esame da 8 CFU,
+<strong>6 CFU vengono utilizzati nel piano</strong> e i <strong>2 CFU eccedenti restano sovrannumerari</strong>.
+</p>
+</div>
+
+<p>
+I CFU sovrannumerari restano nella carriera, ma non sono necessari per completare
+i 180 CFU utilizzati per conseguire la laurea.
+</p>
+
+<p>
+<strong>Quando presenti il piano su CAPS devi indicare quali attività o quali CFU devono essere considerati sovrannumerari.</strong>
+</p>
+</section>
+
+<section class="rules">
+<article class="rule-card">
+<h3>Vuoi scegliere qualcosa di meno standard?</h3>
+<p>
+Puoi costruire anche percorsi che comprendano attività non presenti nelle tendine dei piani guidati, per esempio:
+</p>
+<ul>
+<li>insegnamenti di altri Corsi di Studio UniPi;</li>
+<li>corsi della <strong>Scuola Normale Superiore</strong> o della <strong>Scuola Superiore Sant'Anna</strong>;</li>
+<li><strong>corsi di dottorato</strong>;</li>
+<li>tirocini;</li>
+<li>attività svolte all'estero;</li>
+<li>altri casi particolari.</li>
+</ul>
+<p>
+In questi casi devi normalmente utilizzare un <strong>piano Libero</strong>,
+che sarà valutato individualmente dal Corso di Studio.
+</p>
+<p>
+Per le regole e le procedure specifiche rinvieremo alla pagina
+<strong>Attività formative particolari</strong>.
+</p>
+</article>
+
+<article class="rule-card">
+<h3>Hai deciso che cosa mettere nel piano?</h3>
+<p>
+A questo punto resta solo da presentarlo.
+</p>
+<p>
+Vai alla pagina <a href="presentare-piano-di-studi.html"><strong>Presentare il piano di studi</strong></a> per sapere come usare CAPS,
+quando il piano viene valutato e come seguirne l'approvazione.
+</p>
+</article>
+</section>
 
 <aside class="internal-note">
-<strong>Nota interna.</strong>
-Da riscrivere sulla sostanza del piano LT: obbligatori, scelte guidate, CFU liberi, insegnamenti esterni e modifica del percorso.
+<strong>Nota interna — v6.</strong>
+Da creare una pagina comune sulle <strong>attività formative particolari</strong>:
+tirocini e stage, corsi di altri CdS UniPi, SNS, SSSUP, corsi di dottorato e attività all'estero.
+Le pagine sul piano di studi potranno rimandare lì per le procedure di dettaglio.
+<br><br>
+Nella pagina burocratica <strong>“Presentare il piano di studi”</strong> va mantenuto anche
+il richiamo operativo: in CAPS occorre indicare quali attività o quali CFU devono essere considerati sovrannumerari.
 </aside>
-</main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+</main>
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
+</body></html>
