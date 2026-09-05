@@ -4,10 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OFA - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet">
 <style>
-body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1f2933;background:#fff;line-height:1.6}
-main{max-width:940px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
-.breadcrumb{font-size:.92rem;color:#5b6670;margin-bottom:1rem}
 .lead{font-size:1.06rem;max-width:850px}
 .ofa-intro{margin:1.35rem 0 1.7rem;padding:1.1rem 1.2rem;border-left:5px solid #555;background:#f3f6f8}
 details{border:1px solid #d6d9dd;border-radius:9px;margin:1rem 0;background:#fff;overflow:hidden}
@@ -31,6 +29,73 @@ summary{cursor:pointer;padding:1rem 1.15rem;font-weight:700;background:#f5f6f7;f
 </style>
 </head>
 <body>
+<header>
+  <div class="brand">
+    <div class="seal">UNIPI</div>
+    <div>
+      <div class="site-name">Didattica</div>
+      <div class="dept">Dipartimento di Matematica</div>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <button aria-expanded="false" class="menu-toggle">Menu</button>
+    <ul class="menu">
+      <li><a href="../index.html">Didattica</a></li>
+      <li class="item has-sub"><a href="index.html">Laurea Triennale</a>
+        <ul class="submenu">
+          <li><a href="presentazione.html">Presentazione</a></li>
+          <li><a href="iscrizione.html">Iscrizione</a></li>
+          <li><a href="ofa.html">OFA</a></li>
+          <li><a href="precorso.html">Precorso e test di ingresso</a></li>
+          <li><a href="piano-di-studi.html">Costruire il piano di studi</a></li>
+          <li><a href="presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+          <li><a href="laurearsi.html">Laurearsi</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a>
+        <ul class="submenu">
+          <li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+          <li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
+          <li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
+          <li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+          <li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+          <li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a>
+        <ul class="submenu">
+          <li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+          <li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+          <li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+          <li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+          <li><a href="../lezioni-esami/esami.html">Esami</a></li>
+          <li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+          <li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><span>Organizzazione</span>
+        <ul class="submenu">
+          <li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+          <li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+          <li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+          <li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+        </ul>
+      </li>
+      <li class="item"><a href="../orientamento.html">Orientamento</a></li>
+      <li class="item has-sub"><a href="../info-utili/index.html">Info utili</a>
+        <ul class="submenu">
+          <li><a href="../info-utili/borse.html">Borse di studio</a></li>
+          <li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+          <li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+          <li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+        </ul>
+      </li>
+      <li class="item"><a href="../bandi.html">Bandi</a></li>
+      <li class="item"><a href="../news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
+
 <main>
 <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Laurea Triennale</a> <span>›</span> OFA</div>
 <h1>Obblighi Formativi Aggiuntivi (OFA)</h1>
@@ -102,9 +167,9 @@ Per il TOLC-I si considera la somma delle sezioni Matematica + Logica, mantenend
 </section>
 
 <section class="route">
-<h3>2. All'inizio dell'anno: con la prova iniziale del CdS</h3>
+<h3>2. All'inizio dell'anno: con il test del CdS</h3>
 <p>Il Corso di Studio organizza la <strong>Prova di verifica delle conoscenze in ingresso</strong>, normalmente subito dopo il Precorso. Il raggiungimento della soglia prevista assolve gli OFA.</p>
-<p>Per date, modalità, materiali e significato del punteggio consulta la pagina <a href="precorso.html"><strong>Precorso e prova iniziale</strong></a>.</p>
+<p>Per date, modalità, materiali e significato del punteggio consulta la pagina <a href="precorso.html"><strong>Precorso e test di ingresso</strong></a>.</p>
 </section>
 
 <section class="route">
@@ -127,5 +192,7 @@ Per il TOLC-I si considera la somma delle sezioni Matematica + Logica, mantenend
 <p>Le conoscenze elementari su calcolo algebrico, equazioni e disequazioni, funzioni, geometria e linguaggio matematico vengono utilizzate continuamente nei corsi del primo anno. Superare una prova fa venir meno l'OFA; consolidare queste basi rende molto più semplice affrontare con profitto gli studi successivi.</p>
 </section>
 </main>
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
 </body>
 </html>
