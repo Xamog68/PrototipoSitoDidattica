@@ -1,3 +1,223 @@
 <!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Lezioni &amp; Esami - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
 
-<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Lezioni &amp; Esami - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e prova iniziale</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> Lezioni &amp; Esami</div><h1>Lezioni &amp; Esami</h1><p class="struct-note">Accesso rapido alle informazioni su corsi, lezioni, esami e presentazioni.</p><ul class="page-list"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="presentazione-corsi.html">Presentazione degli insegnamenti non obbligatori</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Calendario esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li><li><a href="riepilogo-corsi.html">Archivio dei corsi attivati dal 2016/17</a></li></ul></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<style>
+.le-hero{max-width:850px;margin-bottom:2rem}
+.le-hero h1{margin-bottom:.45rem}
+.le-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+
+.le-panel{
+  margin-top:1.5rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.35rem;
+}
+.le-panel-head{margin-bottom:1.1rem}
+.le-panel-head h2{margin:0 0 .3rem;font-size:1.55rem}
+.le-panel-head p{margin:0;color:#66717b}
+
+.le-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.le-grid.three{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.le-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid #d8dde3;
+  border-radius:13px;
+  padding:1.1rem 1.15rem;
+  background:#f8f9fa;
+}
+.le-card:hover,.le-card:focus{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.le-card h3{margin:0 0 .35rem;font-size:1.18rem}
+.le-card p{margin:0;color:#56616b;line-height:1.5}
+.le-card .micro{
+  margin-top:.65rem;
+  padding-top:.65rem;
+  border-top:1px solid #dde1e5;
+  font-size:.9rem;
+  color:#6b747d;
+}
+
+.le-note{
+  margin-top:1rem;
+  padding:.9rem 1rem;
+  border-left:4px solid #666;
+  background:#f3f6f8;
+}
+.le-note p{margin:.25rem 0}
+
+@media(max-width:900px){
+  .le-grid,.le-grid.three{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="brand">
+    <div class="seal">UNIPI</div>
+    <div>
+      <div class="site-name">Didattica</div>
+      <div class="dept">Dipartimento di Matematica</div>
+    </div>
+  </div>
+
+  <nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-triennale/ofa.html">OFA</a></li>
+<li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li>
+<li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li>
+<li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+<li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li>
+<li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="orario.html">Orario delle lezioni</a></li>
+<li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="programmi-syllabus.html">Programmi e syllabus</a></li>
+<li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+<li><a href="calendario-esami.html">Calendario esami</a></li>
+<li><a href="appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="strumenti-per-la-didattica.html">Strumenti per la didattica</a></li>
+</ul></li>
+<li class="item has-sub"><span>Organizzazione</span><ul class="submenu">
+<li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+<li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+<li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+<li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+</ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> Lezioni &amp; Esami</div>
+
+  <section class="le-hero">
+    <h1>Lezioni &amp; Esami</h1>
+    <p>Qui trovi ciò che serve per organizzare l'anno, seguire gli insegnamenti e sostenere gli esami.</p>
+  </section>
+
+  <section class="le-panel" aria-labelledby="organizzare-title">
+    <div class="le-panel-head">
+      <h2 id="organizzare-title">Organizzare l'anno</h2>
+      <p>Le date e gli orari che scandiscono la vita didattica.</p>
+    </div>
+
+    <div class="le-grid">
+      <a class="le-card" href="calendario.html">
+        <h3>Calendario delle attività didattiche</h3>
+        <p>Inizio e fine delle lezioni, sessioni d'esame, vacanze, appelli straordinari e principali scadenze dell'anno.</p>
+      </a>
+
+      <a class="le-card" href="orario.html">
+        <h3>Orario delle lezioni</h3>
+        <p>Orari delle lezioni per anno, semestre e Corso di Studio, con i collegamenti agli strumenti di consultazione aggiornati.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="le-panel" aria-labelledby="corsi-title">
+    <div class="le-panel-head">
+      <h2 id="corsi-title">Seguire i corsi</h2>
+      <p>Dall'offerta dell'anno ai programmi ufficiali, fino agli strumenti per scegliere e frequentare gli insegnamenti.</p>
+    </div>
+
+    <div class="le-grid">
+      <a class="le-card" href="insegnamenti-attivati.html">
+        <h3>Insegnamenti attivati</h3>
+        <p>Quali corsi sono offerti nell'anno accademico corrente, con CFU, semestre, settore scientifico-disciplinare e docente.</p>
+      </a>
+
+      <a class="le-card" href="programmi-syllabus.html">
+        <h3>Programmi e syllabus</h3>
+        <p>Programmi, obiettivi, prerequisiti, modalità d'esame, bibliografia e altre informazioni ufficiali sugli insegnamenti attivati.</p>
+        <div class="micro">Cruscotto costruito a partire dai dati del Course Catalogue di Ateneo.</div>
+      </a>
+
+      <a class="le-card" href="presentazione-corsi.html">
+        <h3>Presentazione degli insegnamenti</h3>
+        <p>Uno strumento orientativo per capire le diverse aree della matematica e scegliere con maggiore consapevolezza gli insegnamenti non obbligatori.</p>
+      </a>
+
+      <a class="le-card" href="insegnamenti-attivati.html#storico">
+        <h3>Storico degli insegnamenti attivati</h3>
+        <p>Per verificare in quali anni un insegnamento è stato effettivamente offerto.</p>
+        <div class="micro">Utile anche per il piano di studi: non puoi utilizzare un insegnamento che non sia mai stato attivato durante i tuoi anni di iscrizione.</div>
+      </a>
+
+      <a class="le-card" href="strumenti-per-la-didattica.html">
+        <h3>E-learning</h3>
+        <p>Accesso agli spazi online degli insegnamenti, ai materiali didattici e alle comunicazioni dei docenti.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="le-panel" aria-labelledby="esami-title">
+    <div class="le-panel-head">
+      <h2 id="esami-title">Esami e lauree</h2>
+      <p>Date e informazioni operative per gli appelli d'esame e le sessioni di laurea.</p>
+    </div>
+
+    <div class="le-grid">
+      <a class="le-card" href="calendario-esami.html">
+        <h3>Calendario esami</h3>
+        <p>Date degli appelli, calendari delle sessioni e indicazioni pratiche per sostenere gli esami.</p>
+      </a>
+
+      <a class="le-card" href="appelli-laurea.html">
+        <h3>Appelli di laurea</h3>
+        <p>Calendario delle sessioni di laurea.</p>
+        <div class="micro">Per la procedura completa consulta la pagina “Laurearsi” del tuo Corso di Studio.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="le-note">
+    <p><strong>Nota.</strong> Questa sezione raccoglie soprattutto informazioni operative e strumenti di consultazione. Le regole sul percorso individuale restano nelle pagine della Laurea Triennale e della Laurea Magistrale.</p>
+  </section>
+</main>
+
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strumenti per la didattica - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet">
+<style>
+.tools-hero{max-width:920px}
+.tools-hero p{font-size:1.06rem;color:#56616b;line-height:1.55}
+.tools-note{margin:1rem 0 1.35rem;padding:1rem 1.05rem;border-left:4px solid #666;background:#f3f6f8}
+.tools-note p{margin:.25rem 0;line-height:1.5}
+.tools-section{margin:1.4rem 0}
+.tools-section>h2{margin:0 0 .35rem}
+.tools-section>.intro{margin:0 0 .9rem;color:#616b75;line-height:1.5}
+.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.tool-card{background:#fff;border:1px solid #d8dde3;border-radius:14px;padding:1rem 1.05rem;display:flex;flex-direction:column;min-height:220px}
+.tool-head{display:flex;justify-content:space-between;gap:.8rem;align-items:flex-start}
+.tool-card h3{margin:0;font-size:1.13rem}
+.tool-tag{font-size:.78rem;font-weight:700;background:#edf1f5;border-radius:999px;padding:.28rem .52rem;white-space:nowrap;color:#4f5b66}
+.tool-card p{color:#5d6872;line-height:1.5;margin:.6rem 0}
+.tool-card ul{margin:.15rem 0 .8rem;padding-left:1.15rem;color:#414a52;line-height:1.5}
+.tool-links{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:auto;padding-top:.5rem}
+.tool-links a{display:inline-block;text-decoration:none;border:1px solid #bcc5cf;border-radius:7px;padding:.5rem .65rem;font-weight:700;color:inherit;background:#fff}
+.tool-links a.primary{background:#17365d;color:white;border-color:#17365d}
+.mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.mini-card{background:#fff;border:1px solid #d8dde3;border-radius:12px;padding:.9rem 1rem}
+.mini-card h3{margin:0 0 .35rem;font-size:1.02rem}
+.mini-card p{margin:0 0 .65rem;color:#616b75;line-height:1.45}
+.mini-card a{font-weight:700}
+@media(max-width:850px){
+ .tool-grid,.mini-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-triennale/ofa.html">OFA</a></li>
+<li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li>
+<li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li>
+<li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+<li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li>
+<li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="orario.html">Orario delle lezioni</a></li>
+<li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="programmi-syllabus.html">Programmi e syllabus</a></li>
+<li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+<li><a href="calendario-esami.html">Calendario esami</a></li>
+<li><a href="appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="strumenti-per-la-didattica.html">Strumenti per la didattica</a></li>
+</ul></li>
+<li class="item has-sub"><span>Organizzazione</span><ul class="submenu">
+<li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+<li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+<li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+<li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+</ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Strumenti per la didattica</div>
+
+<section class="tools-hero">
+<h1>Strumenti per la didattica</h1>
+<p>Durante il percorso incontrerai diverse piattaforme. Non fanno tutte la stessa cosa: questa pagina serve a capire rapidamente <strong>quale strumento usare per quale esigenza</strong>.</p>
+</section>
+
+<section class="tools-note">
+<p><strong>Una regola pratica.</strong> Quando cerchi un'informazione, parti dalla domanda che vuoi risolvere: piano di studi, iscrizione a un esame, programma di un corso, materiali didattici, carriera, orario. Lo strumento giusto dipende da questo.</p>
+</section>
+
+<section class="tools-section">
+<h2>Gli strumenti principali</h2>
+<p class="intro">Sono quelli che uno studente di Matematica incontra più spesso durante il percorso.</p>
+
+<div class="tool-grid">
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>CAPS</h3>
+    <span class="tool-tag">Piani e pratiche CdS</span>
+  </div>
+  <p><strong>Compilazione Assistita Piani di Studio.</strong> È lo strumento del Corso di Studio per diverse pratiche didattiche.</p>
+  <ul>
+    <li>tutto ciò che riguarda i <strong>piani di studio</strong>;</li>
+    <li>le pratiche relative all'<strong>inglese</strong> per gli studenti;</li>
+    <li>la <strong>domanda di laurea</strong>;</li>
+    <li>la <strong>verbalizzazione degli esami di dottorato</strong> — questa operazione viene effettuata dal docente.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://caps.dm.unipi.it/" target="_blank" rel="noopener">Apri CAPS</a>
+    <a href="../laurea-triennale/presentare-piano-di-studi.html">Piani di studio</a>
+  </div>
+</article>
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>Valutami</h3>
+    <span class="tool-tag">Esami e valutazione</span>
+  </div>
+  <p>È il portale di Ateneo che userai soprattutto per due operazioni.</p>
+  <ul>
+    <li><strong>iscrizione agli esami</strong>;</li>
+    <li><strong>compilazione dei questionari</strong> di valutazione della didattica.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://esami.unipi.it/" target="_blank" rel="noopener">Apri Valutami</a>
+    <a href="calendario-esami.html">Calendario esami</a>
+  </div>
+</article>
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>Course Catalogue</h3>
+    <span class="tool-tag">Programmi ufficiali</span>
+  </div>
+  <p>È la <strong>fonte ufficiale di Ateneo</strong> per le informazioni sugli insegnamenti: programmi, obiettivi, prerequisiti, modalità d'esame, bibliografia e altri dati.</p>
+  <ul>
+    <li>consulta la scheda ufficiale del corso;</li>
+    <li>verifica programma e modalità d'esame;</li>
+    <li>consulta l'offerta dei corsi di studio dell'Ateneo.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://unipi.coursecatalogue.cineca.it/" target="_blank" rel="noopener">Apri Course Catalogue</a>
+    <a href="programmi-syllabus.html">La nostra vista sinottica</a>
+  </div>
+</article>
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>E-learning di Matematica</h3>
+    <span class="tool-tag">Materiali dei corsi</span>
+  </div>
+  <p>È la piattaforma Moodle del Dipartimento di Matematica. I docenti possono usarla per mettere a disposizione materiali, esercizi, comunicazioni e altre risorse.</p>
+  <ul>
+    <li>cerca il corso dell'anno accademico corrente;</li>
+    <li>accedi con le credenziali di Ateneo;</li>
+    <li>consulta anche i corsi degli anni precedenti quando disponibili.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://elearning.dm.unipi.it/" target="_blank" rel="noopener">Apri E-learning</a>
+  </div>
+</article>
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>Alice</h3>
+    <span class="tool-tag">Carriera amministrativa</span>
+  </div>
+  <p>È il portale studenti di Ateneo. Serve per molte operazioni amministrative legate alla carriera universitaria.</p>
+  <ul>
+    <li>consultare il libretto e la carriera;</li>
+    <li>gestire iscrizioni e tasse;</li>
+    <li>accedere a procedure amministrative e concorsi.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://www.studenti.unipi.it/" target="_blank" rel="noopener">Apri Alice</a>
+  </div>
+</article>
+
+<article class="tool-card">
+  <div class="tool-head">
+    <h3>Agenda Didattica</h3>
+    <span class="tool-tag">Orari e attività</span>
+  </div>
+  <p>È lo strumento di Ateneo che raccoglie <strong>orari, informazioni e link utili</strong> in modo personalizzato rispetto agli insegnamenti che vuoi seguire.</p>
+  <ul>
+    <li>costruisci una vista personale delle attività didattiche;</li>
+    <li>consulta orari e collegamenti utili;</li>
+    <li>accedi con il profilo studente.</li>
+  </ul>
+  <div class="tool-links">
+    <a class="primary" href="https://agendadidattica.unipi.it/" target="_blank" rel="noopener">Apri Agenda Didattica</a>
+    <a href="orario.html">Orario delle lezioni</a>
+  </div>
+</article>
+
+</div>
+</section>
+
+<section class="tools-section">
+<h2>Altri strumenti utili</h2>
+<p class="intro">Non sono specifici del Corso di Studio, ma possono essere molto utili durante il percorso.</p>
+
+<div class="mini-grid">
+<article class="mini-card">
+  <h3>OneSearchUNIPI</h3>
+  <p>Per cercare libri, riviste, articoli, ebook e altre risorse del Sistema Bibliotecario di Ateneo; con l'autenticazione puoi anche gestire prestiti e prenotazioni.</p>
+  <a href="https://www.sba.unipi.it/" target="_blank" rel="noopener">Vai al Sistema Bibliotecario</a>
+</article>
+
+<article class="mini-card">
+  <h3>Servizi informatici del Dipartimento</h3>
+  <p>Il Dipartimento mette a disposizione anche altri servizi, fra cui Jupyter, Overleaf, cluster di calcolo e strumenti per attività scientifiche e didattiche.</p>
+  <a href="https://www.dm.unipi.it/risorse-informatiche/risorse-informatiche-del-dipartimento/" target="_blank" rel="noopener">Vedi i servizi</a>
+</article>
+
+<article class="mini-card">
+  <h3>Credenziali di Ateneo</h3>
+  <p>Molti degli strumenti sopra richiedono l'autenticazione con le credenziali istituzionali. Se qualcosa non funziona, conviene verificare prima l'accesso ai servizi di Ateneo.</p>
+  <a href="https://www.unipi.it/studenti/" target="_blank" rel="noopener">Area studenti di Ateneo</a>
+</article>
+</div>
+</section>
+
+</main>
+
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

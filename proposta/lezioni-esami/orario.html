@@ -1,2 +1,165 @@
 <!DOCTYPE html>
-<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Orario - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e prova iniziale</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Orario</div><h1>Orario</h1><p>Pagina presente nella struttura attuale. In questa prima fotografia il contenuto completo non è ancora stato importato.</p><p><a class="official" href="https://www.dm.unipi.it/didattica/lezioni-esami/orario/">Apri la pagina ufficiale</a></p><aside><strong>Nota di lavoro.</strong> Questa scheda serve a verificare posizione, nome e raggiungibilità della pagina prima della revisione dei contenuti.</aside></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Orario delle lezioni - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.or-hero{max-width:850px;margin-bottom:1.6rem}
+.or-hero p{font-size:1.06rem;line-height:1.55;color:#56616b}
+.or-panel{margin-top:1.4rem;background:#fff;border:1px solid #d8dde3;border-radius:16px;padding:1.25rem}
+.or-panel h2{margin:0 0 .35rem;font-size:1.5rem}
+.or-panel>p{margin:.2rem 0 1rem;color:#66717b}
+.or-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.or-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.or-card{display:block;text-decoration:none;color:inherit;border:1px solid #d8dde3;border-radius:13px;padding:1.05rem 1.1rem;background:#f8f9fa}
+.or-card:hover,.or-card:focus{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.or-card h3{margin:0 0 .35rem;font-size:1.15rem}
+.or-card p{margin:0;color:#56616b;line-height:1.45}
+.or-note{margin-top:1rem;padding:.9rem 1rem;border-left:4px solid #666;background:#f3f6f8}
+.or-note p{margin:.25rem 0}
+.or-alt{margin-top:1rem;padding:.9rem 1rem;border:1px solid #d8dde3;border-radius:12px;background:#fff}
+.or-alt h3{margin:0 0 .35rem}
+.or-alt p{margin:.2rem 0 .65rem;color:#5e6973}
+.or-alt a{font-weight:700}
+@media(max-width:900px){.or-grid,.or-grid.three{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="seal">UNIPI</div>
+    <div>
+      <div class="site-name">Didattica</div>
+      <div class="dept">Dipartimento di Matematica</div>
+    </div>
+  </div>
+  <nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-triennale/ofa.html">OFA</a></li>
+<li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li>
+<li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li>
+<li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+<li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li>
+<li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="orario.html">Orario delle lezioni</a></li>
+<li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="programmi-syllabus.html">Programmi e syllabus</a></li>
+<li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+<li><a href="calendario-esami.html">Calendario esami</a></li>
+<li><a href="appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="strumenti-per-la-didattica.html">Strumenti per la didattica</a></li>
+</ul></li>
+<li class="item has-sub"><span>Organizzazione</span><ul class="submenu">
+<li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+<li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+<li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+<li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+</ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Orario delle lezioni</div>
+
+  <section class="or-hero">
+    <h1>Orario delle lezioni</h1>
+    <p>Consulta l'orario scegliendo la vista più adatta al tuo percorso. I collegamenti aprono le griglie settimanali aggiornate del sistema di Ateneo.</p>
+  </section>
+
+  <section class="or-note">
+    <p><strong>Cosa si apre?</strong> I collegamenti portano a una griglia settimanale con orari, aule e insegnamenti. La visualizzazione è gestita dal sistema di Ateneo e può cambiare nel tempo.</p>
+  </section>
+
+  <section class="or-panel">
+    <h2>Laurea Triennale</h2>
+    <p>Scegli l'anno di corso per aprire la relativa griglia settimanale.</p>
+    <div class="or-grid three">
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6966206f0f456f00552cec75">
+        <h3>I anno</h3>
+        <p>Insegnamenti del primo anno.</p>
+      </a>
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=696622ec8a872b0073c0e54d">
+        <h3>II anno</h3>
+        <p>Insegnamenti del secondo anno.</p>
+      </a>
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6966259a7727c0007dce3bd2">
+        <h3>III anno</h3>
+        <p>Insegnamenti del terzo anno.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="or-panel">
+    <h2>Laurea Magistrale</h2>
+    <p>Consulta la griglia della Laurea Magistrale oppure la vista estesa che comprende anche i corsi a cavallo fra LT e LM.</p>
+    <div class="or-grid">
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6966272716f73b007d88fd8f">
+        <h3>Magistrale</h3>
+        <p>Insegnamenti della Laurea Magistrale in Matematica.</p>
+      </a>
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=6966470f8e0ba000379410b6">
+        <h3>Magistrale + corsi a cavallo</h3>
+        <p>Vista estesa che comprende anche gli insegnamenti collocati a cavallo fra Laurea Triennale e Laurea Magistrale.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="or-panel">
+    <h2>Aule e laboratori</h2>
+    <p>Per verificare l'occupazione degli spazi didattici.</p>
+    <div class="or-grid">
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=696647d2ceaddd004b6633e5">
+        <h3>Occupazione aule — corsi di Matematica</h3>
+        <p>Aule del Polo Fibonacci e laboratori informatici utilizzati dai corsi di Matematica.</p>
+      </a>
+      <a class="or-card" href="https://unipi.prod.up.cineca.it/calendarioPubblico/linkCalendarioId=68edf5317fe425001e5653c3">
+        <h3>Occupazione aule — generale</h3>
+        <p>Comprende anche esami, eventi occasionali e altre attività.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="or-alt">
+    <h3>Visualizzazione alternativa</h3>
+    <p>È disponibile anche una vista alternativa dell'orario. Può essere utile soprattutto quando la griglia settimanale standard risulta poco comoda da consultare.</p>
+    <a href="https://lab.phc.dm.unipi.it/orario/">Apri la visualizzazione alternativa</a>
+  </section>
+
+  <section class="or-note">
+    <p><strong>Attenzione.</strong> Gli orari possono subire modifiche, soprattutto nei giorni precedenti l'inizio del semestre. Conviene ricontrollarli prima delle lezioni.</p>
+  </section>
+</main>
+
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

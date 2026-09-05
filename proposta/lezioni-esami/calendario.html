@@ -1,2 +1,403 @@
 <!DOCTYPE html>
-<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Calendario - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e prova iniziale</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-triennale/conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="calendario.html">Calendario delle attività didattiche</a></li><li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="orario.html">Orario delle lezioni</a></li><li><a href="esami.html">Esami</a></li><li><a href="appelli-laurea.html">Appelli di laurea</a></li><li><a href="e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header><main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Calendario</div><h1>Calendario</h1><p>Pagina presente nella struttura attuale. In questa prima fotografia il contenuto completo non è ancora stato importato.</p><p><a class="official" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario/">Apri la pagina ufficiale</a></p><aside><strong>Nota di lavoro.</strong> Questa scheda serve a verificare posizione, nome e raggiungibilità della pagina prima della revisione dei contenuti.</aside></main><footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Calendario delle attività didattiche - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.cal-hero{max-width:850px;margin-bottom:1.6rem}
+.cal-hero p{font-size:1.06rem;line-height:1.55;color:#56616b}
+.cal-current{border:1px solid #d8dde3;border-radius:16px;padding:1.25rem;background:#fff}
+.cal-current h2{margin:.1rem 0 .8rem}
+.cal-table-wrap{overflow-x:auto}
+.cal-table{width:100%;border-collapse:collapse}
+.cal-table th,.cal-table td{padding:.75rem .7rem;border-bottom:1px solid #e2e6ea;text-align:left;vertical-align:top}
+.cal-table th{font-size:.92rem;color:#5f6972;background:#f8f9fa}
+.cal-table td:last-child,.cal-table th:last-child{text-align:center;white-space:nowrap}
+.cal-notes{margin-top:1.2rem;padding:1rem 1.05rem;background:#f3f6f8;border-left:4px solid #666}
+.cal-notes h3{margin:0 0 .45rem;font-size:1.1rem}
+.cal-notes ul{margin:.35rem 0 0;padding-left:1.2rem}
+.cal-notes li{margin:.35rem 0}
+.cal-archive{margin-top:1.7rem;padding-top:1.4rem;border-top:1px solid #d8dde3}
+.cal-archive h2{margin:0 0 .35rem}
+.cal-archive p{margin:.2rem 0 1rem;color:#66717b}
+.cal-year-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem}
+.cal-year{display:block;text-decoration:none;color:inherit;border:1px solid #d8dde3;border-radius:12px;padding:.9rem 1rem;background:#fff}
+.cal-year:hover,.cal-year:focus{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.cal-year strong{display:block}
+.cal-year span{font-size:.9rem;color:#68727c}
+
+.cal-visual{margin-top:1.35rem;padding-top:1.2rem;border-top:1px solid #d8dde3}
+.cal-visual h3{margin:0 0 .35rem;font-size:1.15rem}
+.cal-visual>p{margin:.2rem 0 1rem;color:#66717b}
+.cal-timeline{overflow-x:auto;padding-bottom:.35rem}
+.cal-chart{min-width:980px}
+.cal-months{display:grid;grid-template-columns:repeat(13,1fr);margin-left:11.5rem;border-bottom:1px solid #d8dde3}
+.cal-months span{font-size:.82rem;text-align:center;padding:.35rem 0;color:#68727c;border-left:1px solid #eceff1}
+.cal-row{display:grid;grid-template-columns:11.5rem 1fr;align-items:center;min-height:2.35rem;border-bottom:1px solid #eef0f2}
+.cal-label{font-size:.9rem;padding-right:.75rem}
+.cal-track{position:relative;height:1.45rem;background:repeating-linear-gradient(to right,transparent 0,transparent calc(7.6923% - 1px),#eceff1 calc(7.6923% - 1px),#eceff1 7.6923%)}
+.cal-band{position:absolute;top:.23rem;height:.95rem;border-radius:999px;background:#dfe7ef;border:1px solid #aebdcb}
+.cal-band.lessons{background:#e6edf5;border-color:#afc0d0}
+.cal-band.exams{background:#f1eadf;border-color:#cdbb9b}
+.cal-band.extra{background:#ece5f1;border-color:#bcaac8}
+.cal-band.other{background:#e8efe8;border-color:#b3c4b3}
+.cal-legend{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.8rem;font-size:.86rem;color:#65707a}
+.cal-legend span::before{content:"";display:inline-block;width:.75rem;height:.75rem;border-radius:3px;margin-right:.35rem;vertical-align:-.08rem;border:1px solid #bbb}
+.cal-legend .l-lessons::before{background:#e6edf5;border-color:#afc0d0}
+.cal-legend .l-exams::before{background:#f1eadf;border-color:#cdbb9b}
+.cal-legend .l-extra::before{background:#ece5f1;border-color:#bcaac8}
+.cal-legend .l-other::before{background:#e8efe8;border-color:#b3c4b3}
+
+.cal-band{cursor:help}
+.cal-band::after{
+  content:attr(data-tooltip);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + .45rem);
+  transform:translateX(-50%);
+  min-width:max-content;
+  max-width:24rem;
+  padding:.45rem .6rem;
+  border-radius:7px;
+  background:#252a2f;
+  color:#fff;
+  font-size:.78rem;
+  line-height:1.3;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .12s ease;
+  z-index:5;
+  box-shadow:0 4px 12px rgba(0,0,0,.18);
+}
+.cal-band:hover::after,.cal-band:focus::after{opacity:1}
+.cal-band.holiday{background:#f3e4e4;border-color:#cfabab}
+.cal-legend .l-holiday::before{background:#f3e4e4;border-color:#cfabab}
+
+
+.protected-box{
+  border:1px solid #c9ced4;
+  border-radius:8px;
+  background:#f7f8fa;
+  overflow:hidden;
+  text-align:left;
+}
+.protected-box summary{
+  cursor:pointer;
+  padding:.38rem .55rem;
+  font-weight:600;
+  list-style:none;
+  background:#f7f8fa;
+}
+.protected-box summary::-webkit-details-marker{display:none}
+.protected-box summary span::after{
+  content:" ▾";
+  font-size:.8em;
+  opacity:.7;
+}
+.protected-box[open] summary{
+  border-bottom:1px solid #d8dde3;
+}
+.protected-box[open] summary span::after{
+  content:" ▴";
+}
+.protected-content{
+  padding:.7rem .8rem;
+  background:#fff;
+  text-align:left;
+}
+.protected-content p{
+  margin:.1rem 0 .45rem;
+  text-align:left;
+}
+.protected-content ul{
+  margin:.25rem 0;
+  padding-left:1.2rem;
+  text-align:left;
+}
+.protected-content li{
+  margin:.2rem 0;
+  text-align:left;
+}
+.cal-archive details{border:1px solid #d8dde3;border-radius:12px;background:#fff;overflow:hidden}
+.cal-archive summary{cursor:pointer;padding:1rem 1.05rem;font-weight:700;background:#f8f9fa}
+.cal-archive .archive-body{padding:1rem}
+
+@media(max-width:800px){.cal-year-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="seal">UNIPI</div>
+    <div>
+      <div class="site-name">Didattica</div>
+      <div class="dept">Dipartimento di Matematica</div>
+    </div>
+  </div>
+  <nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu">
+<li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-triennale/ofa.html">OFA</a></li>
+<li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li>
+<li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li>
+<li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+<li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-triennale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-triennale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu">
+<li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+<li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li>
+<li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li>
+<li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li>
+<li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+<li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+</ul></li>
+<li class="item has-sub"><a href="index.html">Lezioni &amp; Esami</a><ul class="submenu">
+<li><a href="calendario.html">Calendario delle attività didattiche</a></li>
+<li><a href="orario.html">Orario delle lezioni</a></li>
+<li><a href="insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+<li><a href="programmi-syllabus.html">Programmi e syllabus</a></li>
+<li><a href="presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+<li><a href="calendario-esami.html">Calendario esami</a></li>
+<li><a href="appelli-laurea.html">Appelli di laurea</a></li>
+<li><a href="strumenti-per-la-didattica.html">Strumenti per la didattica</a></li>
+</ul></li>
+<li class="item has-sub"><span>Organizzazione</span><ul class="submenu">
+<li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+<li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+<li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+<li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+</ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Lezioni &amp; Esami</a> <span>›</span> Calendario delle attività didattiche</div>
+
+  <section class="cal-hero">
+    <h1>Calendario delle attività didattiche</h1>
+    <p>Il calendario definisce i periodi di lezione, le sessioni d'esame, gli appelli straordinari e le principali sospensioni delle attività didattiche.</p>
+  </section>
+
+  <section class="cal-current" aria-labelledby="current-year-title">
+    <h2 id="current-year-title">Anno accademico 2026/27</h2>
+
+    <div class="cal-table-wrap">
+      <table class="cal-table">
+        <thead>
+          <tr>
+            <th>Attività</th>
+            <th>Inizio</th>
+            <th>Fine</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Precorso</strong></td>
+            <td>14 settembre 2026</td>
+            <td>18 settembre 2026</td>
+            <td>Raccomandato per gli studenti del primo anno</td>
+          </tr>
+          <tr>
+            <td><strong>Lezioni I semestre</strong></td>
+            <td>23 settembre 2026</td>
+            <td>18 dicembre 2026</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Appello straordinario</strong></td>
+            <td>2 novembre 2026</td>
+            <td>5 dicembre 2026</td>
+            <td><details class="protected-box">
+<summary><span>1 appello per le “categorie protette”</span></summary>
+<div class="protected-content">
+<p>Il <strong>Regolamento Didattico di Ateneo, art. 23-quater, comma 2</strong>, riserva gli appelli straordinari a:</p>
+<ul>
+<li>studenti lavoratori;</li>
+<li>studenti atleti;</li>
+<li>studenti iscritti oltre la durata normale del Corso di Studio (“fuori corso”);</li>
+<li>studenti iscritti all'ultimo anno della durata normale che abbiano presentato domanda di conseguimento del titolo;</li>
+<li>genitori con figli di età inferiore agli otto anni;</li>
+<li>studenti in stato di gravidanza;</li>
+<li>studenti iscritti a corsi di transizione per recuperare requisiti curriculari o di personale preparazione ai fini dell'ammissione a una Laurea Magistrale;</li>
+<li>studenti detenuti;</li>
+<li>caregivers, come definiti dalla Legge 205/2017, art. 1, commi 254–255;</li>
+<li>eventuali altre tipologie analoghe individuate dal Senato accademico.</li>
+</ul>
+</div>
+</details></td>
+          </tr>
+          <tr>
+            <td><strong>Appelli invernali</strong></td>
+            <td>7 gennaio 2027</td>
+            <td>19 febbraio 2027</td>
+            <td>2 appelli</td>
+          </tr>
+          <tr>
+            <td><strong>Lezioni II semestre</strong></td>
+            <td>22 febbraio 2027</td>
+            <td>14 maggio 2027 per i corsi annuali<br>28 maggio 2027 per i corsi semestrali</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Appello straordinario</strong></td>
+            <td>5 aprile 2027</td>
+            <td>7 maggio 2027</td>
+            <td><details class="protected-box">
+<summary><span>1 appello per le “categorie protette”</span></summary>
+<div class="protected-content">
+<p>Il <strong>Regolamento Didattico di Ateneo, art. 23-quater, comma 2</strong>, riserva gli appelli straordinari a:</p>
+<ul>
+<li>studenti lavoratori;</li>
+<li>studenti atleti;</li>
+<li>studenti iscritti oltre la durata normale del Corso di Studio (“fuori corso”);</li>
+<li>studenti iscritti all'ultimo anno della durata normale che abbiano presentato domanda di conseguimento del titolo;</li>
+<li>genitori con figli di età inferiore agli otto anni;</li>
+<li>studenti in stato di gravidanza;</li>
+<li>studenti iscritti a corsi di transizione per recuperare requisiti curriculari o di personale preparazione ai fini dell'ammissione a una Laurea Magistrale;</li>
+<li>studenti detenuti;</li>
+<li>caregivers, come definiti dalla Legge 205/2017, art. 1, commi 254–255;</li>
+<li>eventuali altre tipologie analoghe individuate dal Senato accademico.</li>
+</ul>
+</div>
+</details></td>
+          </tr>
+          <tr>
+            <td><strong>Appelli estivi</strong></td>
+            <td>3 giugno 2027</td>
+            <td>30 luglio 2027<br><small>scritti entro il 23 luglio</small></td>
+            <td>2–3 appelli</td>
+          </tr>
+          <tr>
+            <td><strong>Appelli autunnali</strong></td>
+            <td>1 settembre 2027</td>
+            <td>21 settembre 2027<br><small>scritti entro il 17 settembre</small></td>
+            <td>1–2 appelli</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="cal-visual" aria-labelledby="visual-title">
+      <h3 id="visual-title">L'anno in un colpo d'occhio</h3>
+      <p>Le bande mostrano in modo indicativo la durata dei principali periodi didattici lungo l'anno accademico. Passa con il mouse, oppure usa il focus da tastiera, per vedere le date precise.</p>
+
+      <div class="cal-timeline">
+        <div class="cal-chart">
+          <div class="cal-months">
+            <span>Set</span><span>Ott</span><span>Nov</span><span>Dic</span><span>Gen</span><span>Feb</span><span>Mar</span><span>Apr</span><span>Mag</span><span>Giu</span><span>Lug</span><span>Ago</span><span>Set</span>
+          </div>
+          <div class="cal-row">
+  <div class="cal-label">Precorso</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band other" data-tooltip="Precorso · 14–18 settembre 2026" style="left:3.291%;width:1.266%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Lezioni I semestre</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band lessons" data-tooltip="Lezioni I semestre · 23 settembre–18 dicembre 2026" style="left:5.570%;width:22.025%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Appello straordinario</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band extra" data-tooltip="Appello straordinario · 2 novembre–5 dicembre 2026" style="left:15.696%;width:8.608%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Appelli invernali</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band exams" data-tooltip="Appelli invernali · 7 gennaio–19 febbraio 2027" style="left:32.405%;width:11.139%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Lezioni II semestre</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band lessons" data-tooltip="Lezioni II semestre · 22 febbraio–28 maggio 2027 (corsi annuali fino al 14 maggio)" style="left:44.051%;width:24.304%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Appello straordinario</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band extra" data-tooltip="Appello straordinario · 5 aprile–7 maggio 2027" style="left:54.684%;width:8.354%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Appelli estivi</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band exams" data-tooltip="Appelli estivi · 3 giugno–30 luglio 2027 (scritti entro il 23 luglio)" style="left:69.620%;width:14.684%"></div></div>
+</div><div class="cal-row">
+  <div class="cal-label">Appelli autunnali</div>
+  <div class="cal-track"><div tabindex="0" class="cal-band exams" data-tooltip="Appelli autunnali · 1–21 settembre 2027 (scritti entro il 17 settembre)" style="left:92.405%;width:5.316%"></div></div>
+<div class="cal-row">
+  <div class="cal-label">Vacanze</div>
+  <div class="cal-track">
+    <div tabindex="0" class="cal-band holiday" data-tooltip="Vacanze di Natale · 21 dicembre 2026–6 gennaio 2027" style="left:28.282%;width:4.293%"></div>
+    <div tabindex="0" class="cal-band holiday" data-tooltip="Vacanze di Pasqua · 26 marzo–2 aprile 2027" style="left:52.273%;width:2.020%"></div>
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cal-legend">
+        <span class="l-lessons">Lezioni</span>
+        <span class="l-exams">Sessioni d'esame</span>
+        <span class="l-extra">Appelli straordinari</span>
+        <span class="l-other">Altre attività</span>
+        <span class="l-holiday">Vacanze</span>
+      </div>
+    </section>
+
+    <div class="cal-notes">
+      <h3>Altre date da ricordare</h3>
+      <ul>
+        <li><strong>Presentazione degli insegnamenti:</strong> 21 e 22 settembre 2026.</li>
+        <li><strong>Test di ingresso:</strong> 22 settembre 2026.</li>
+        <li><strong>Vacanze di Natale:</strong> dal 21 dicembre 2026 al 6 gennaio 2027, estremi inclusi.</li>
+        <li><strong>Vacanze di Pasqua:</strong> dal 26 marzo 2027 al 2 aprile 2027, estremi inclusi.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cal-archive">
+  <details>
+    <summary>Anni precedenti</summary>
+    <div class="archive-body">
+      <p>Consulta i calendari degli anni accademici precedenti.</p>
+      <div class="cal-year-grid">
+        <a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2025-26/">
+  <strong>2025/26</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2024-25/">
+  <strong>2024/25</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2023-24/">
+  <strong>2023/24</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2022-23/">
+  <strong>2022/23</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2021-22/">
+  <strong>2021/22</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2020-21/">
+  <strong>2020/21</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2019-20/">
+  <strong>2019/20</strong><span>Calendario completo</span>
+</a>
+<a class="cal-year" href="https://www.dm.unipi.it/didattica/lezioni-esami/calendario-delle-attivita-didattiche/calendario-delle-attivita-didattiche-a-a-2018-19/">
+  <strong>2018/19</strong><span>Calendario completo</span>
+</a>
+      </div>
+    </div>
+  </details>
+</section>
+</main>
+
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
