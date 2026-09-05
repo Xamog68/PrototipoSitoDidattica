@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Tirocini e stage - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.opp-hero{max-width:900px;margin-bottom:1.7rem}
+.opp-hero h1{margin-bottom:.45rem}
+.opp-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+.opp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:1.25rem}
+.opp-card{display:block;text-decoration:none;color:inherit;border:1px solid #d8dde3;border-radius:14px;padding:1.1rem 1.15rem;background:#fff}
+.opp-card:hover,.opp-card:focus{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.opp-card h2,.opp-card h3{margin:0 0 .4rem}
+.opp-card p{margin:.2rem 0;line-height:1.5;color:#56616b}
+.opp-card .micro{margin-top:.7rem;padding-top:.65rem;border-top:1px solid #e0e4e8;font-size:.92rem;color:#6b747d}
+.opp-section{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #d8dde3}
+.opp-section h2{margin-top:0}
+.choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem;margin:1rem 0}
+.choice{border:1px solid #d8dde3;border-radius:12px;padding:1rem;background:#fafbfc}
+.choice h3{margin:.05rem 0 .4rem;font-size:1.08rem}
+.choice p{margin:.25rem 0;line-height:1.48}
+.link-row{display:flex;flex-wrap:wrap;gap:.55rem 1rem;margin-top:.8rem}
+.link-row a{font-weight:700}
+.callout{margin:1rem 0;padding:1rem 1.05rem;background:#f3f6f8;border-left:4px solid #666}
+.callout p{margin:.3rem 0;line-height:1.5}
+.internal-note{margin-top:1.2rem;padding:.95rem 1rem;background:#f4eff8;border:1px dashed #87629a;color:#5e426c;border-radius:8px}
+.internal-note p{margin:.3rem 0}
+.steps{margin:.7rem 0;padding-left:1.3rem}
+.steps li{margin:.45rem 0}
+@media(max-width:850px){.opp-grid,.choice-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div>
+<div class="site-name">Didattica</div>
+<div class="dept">Dipartimento di Matematica</div>
+</div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub">
+<a href="../laurea-triennale/index.html">Laurea Triennale</a>
+<ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul>
+</li>
+<li class="item has-sub">
+<a href="../laurea-magistrale/index.html">Laurea Magistrale</a>
+<ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul>
+</li>
+<li class="item has-sub">
+<a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a>
+<ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul>
+</li><li class="item has-sub"><a href="index.html">Opportunità</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="borse.html">Borse e sostegni</a></li><li><a href="internazionalizzazione.html">Studiare all’estero</a></li><li><a href="tirocini.html">Tirocini e stage</a></li><li><a href="oltre-il-corso.html">Studiare oltre il proprio corso</a></li></ul></li>
+<li class="item has-sub">
+<a href="../organizzazione/index.html">Organizzazione</a>
+<ul class="submenu"><li><a href="../organizzazione/index.html">Panoramica</a></li><li><a href="../organizzazione/segreterie.html">Segreterie e contatti</a></li><li><a href="../organizzazione/consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="../organizzazione/verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="../organizzazione/genesi.html">Genesi del Corso di Studio</a></li><li><a href="../organizzazione/normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul>
+</li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub">
+<a href="../info-utili/index.html">Info utili</a>
+<ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul>
+</li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Opportunità</a> <span>›</span> Tirocini e stage</div>
+<section class="opp-hero">
+<h1>Tirocini e stage</h1>
+<p>
+    Un tirocinio permette di svolgere un'esperienza formativa presso un ente, una scuola,
+    un'azienda o un'altra istituzione. La procedura dipende dal tipo di tirocinio.
+  </p>
+</section>
+<section class="choice-grid">
+<div class="choice">
+<h3>Tirocinio curriculare</h3>
+<p>Fa parte del percorso di studio e può dare luogo al riconoscimento di CFU secondo quanto previsto dal piano di studi.</p>
+</div>
+<div class="choice">
+<h3>Tirocinio extracurriculare</h3>
+<p>È svolto fuori dal percorso curriculare ed è regolato dalle procedure generali dell'Ateneo.</p>
+</div>
+<div class="choice">
+<h3>Tirocinio all'estero</h3>
+<p>Alcuni programmi di mobilità finanziano traineeship, attività di tesi o esperienze formative presso enti stranieri.</p>
+</div>
+</section>
+<section class="opp-section">
+<h2>Da dove si comincia?</h2>
+<ol class="steps">
+<li>individuare l'attività e il soggetto ospitante;</li>
+<li>verificare con il Corso di Studio se e come l'attività può entrare nel percorso;</li>
+<li>controllare che esista la convenzione necessaria e predisporre il progetto formativo;</li>
+<li>avviare la procedura prima dell'inizio dell'attività.</li>
+</ol>
+<div class="link-row">
+<a href="https://www.dm.unipi.it/didattica/info-utili/tirocini-e-stage/" rel="noopener" target="_blank">Procedure e soggetti convenzionati — pagina attuale</a>
+</div>
+</section>
+<div class="callout">
+<strong>Non iniziare il tirocinio prima di aver completato la procedura.</strong>
+<p>
+    Convenzione e progetto formativo non sono formalità da sistemare a posteriori: servono anche a definire correttamente coperture e riconoscimento dell'attività.
+  </p>
+</div>
+<aside class="internal-note">
+<strong>Nota interna — migrazione.</strong>
+<p>
+    La vecchia pagina contiene un lungo elenco di enti e scuole convenzionati. Decidere se mantenerlo localmente,
+    sostituirlo con una fonte centrale aggiornata o trasformarlo in una ricerca/archivio separato.
+  </p>
+</aside>
+</main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

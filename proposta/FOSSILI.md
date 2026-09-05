@@ -25,3 +25,12 @@ Questa cartella non è stata modificata automaticamente. Il rapporto distingue t
 ## Nota sul calendario didattico
 
 Nel file zip caricato mancava `lezioni-esami/calendario.html`, anche se tutti i menu lo puntavano. Ho reinserito la versione `calendario-attivita-didattiche-v6.html` prodotta nella sessione corrente.
+
+## Info utili — migrazione verso Opportunità
+
+La nuova sezione `opportunita/` assorbe progressivamente:
+- `info-utili/borse.html` → `opportunita/borse.html`
+- `info-utili/tirocini.html` → `opportunita/tirocini.html`
+
+Le pagine `tutorato.html` e `studenti-lavoratori.html` non vengono ancora classificate come fossili:
+prima va decisa la loro collocazione definitiva.
