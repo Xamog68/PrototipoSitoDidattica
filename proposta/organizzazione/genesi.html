@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Genesi del Corso di Studio</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.gen-hero{max-width:920px;margin-bottom:1.6rem}
+.gen-hero h1{margin-bottom:.45rem}
+.gen-hero p{font-size:1.08rem;line-height:1.58;color:#56616b;margin:.25rem 0}
+
+.gen-chain{
+  margin:1.3rem 0 1.8rem;
+  padding:1rem 1.1rem;
+  border:1px solid #d8dde3;
+  border-radius:14px;
+  background:#f8f9fa;
+}
+.gen-chain strong{display:block;margin-bottom:.45rem}
+.chain-flow{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.45rem .55rem;
+  color:#4f5963;
+  line-height:1.5;
+}
+.chain-flow .step{
+  border:1px solid #d8dde3;
+  border-radius:999px;
+  padding:.28rem .58rem;
+  background:#fff;
+  white-space:nowrap;
+}
+.chain-flow .arrow{color:#88919a}
+
+.timeline{position:relative;margin-top:1.7rem}
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:#d9dee3;
+}
+.gen-step{
+  position:relative;
+  margin:0 0 1.15rem 0;
+  padding-left:3.3rem;
+}
+.gen-step .num{
+  position:absolute;
+  left:0;
+  top:.1rem;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:2px solid #aab3bb;
+  font-weight:700;
+}
+.gen-card{
+  border:1px solid #d8dde3;
+  border-radius:15px;
+  padding:1.15rem 1.2rem;
+  background:#fff;
+}
+.gen-card h2{margin:.05rem 0 .3rem;font-size:1.45rem}
+.gen-card .subtitle{
+  margin:0 0 .75rem;
+  color:#66717b;
+  font-style:italic;
+}
+.gen-card p{line-height:1.55}
+.gen-card ul{margin:.65rem 0 .2rem}
+.level{
+  margin-top:.8rem;
+  padding:.7rem .8rem;
+  background:#f5f7f9;
+  border-left:4px solid #7b848d;
+}
+.level strong{display:block;margin-bottom:.15rem}
+
+.docs{
+  margin-top:.85rem;
+  border-top:1px solid #e1e5e9;
+  padding-top:.75rem;
+}
+.docs summary{cursor:pointer;font-weight:600}
+.docs ul{margin:.65rem 0 .1rem}
+.docs li{margin:.35rem 0}
+
+.questions{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.questions h2{margin:.05rem 0 .8rem}
+.q-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.8rem;
+}
+.q-card{
+  border:1px solid #dfe3e7;
+  border-radius:12px;
+  padding:.9rem 1rem;
+  background:#fafbfc;
+}
+.q-card h3{margin:0 0 .3rem;font-size:1rem}
+.q-card p{margin:0;color:#56616b;line-height:1.5}
+
+.internal-note{
+  margin-top:1.25rem;
+  padding:.9rem 1rem;
+  border:1px dashed #8c6bb1;
+  background:#f5f0fa;
+  color:#5b4677;
+  border-radius:10px;
+}
+.internal-note p{margin:.25rem 0;line-height:1.5}
+
+@media(max-width:720px){
+  .q-grid{grid-template-columns:1fr}
+  .timeline:before{left:17px}
+  .gen-step{padding-left:3rem}
+  .gen-step .num{width:36px;height:36px}
+}
+
+.link-note{
+  margin:1rem 0 1.6rem;
+  padding:1rem 1.05rem;
+  border-left:4px solid #666;
+  background:#f3f6f8;
+}
+.link-note h2{margin:0 0 .35rem;font-size:1.15rem}
+.link-note p{margin:0;line-height:1.5}
+
+.docs-note{font-size:.92rem;color:#66717b;line-height:1.5}
+
+.distinction-box,.change-box{
+  margin:.9rem 0;
+  padding:.85rem .95rem;
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  background:#fafbfc;
+}
+.distinction-box h3,.change-box h3{
+  margin:0 0 .45rem;
+  font-size:1.05rem;
+}
+.distinction-box p{margin:.3rem 0}
+
+.change-table-wrap{overflow-x:auto}
+.change-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:560px;
+}
+.change-table th,.change-table td{
+  padding:.55rem .6rem;
+  border-bottom:1px solid #e1e5e9;
+  text-align:left;
+}
+.change-table th{background:#f4f6f8}
+
+.norm-archive{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.norm-archive h2{margin:.05rem 0 .35rem}
+.norm-archive .intro{margin:0 0 .9rem;color:#66717b}
+.norm-archive details{
+  border-top:1px solid #e1e5e9;
+  padding:.75rem 0;
+}
+.norm-archive details:first-of-type{border-top:none}
+.norm-archive summary{cursor:pointer;font-weight:700}
+.norm-archive ul{margin:.65rem 0 .1rem}
+
+.change-section{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.change-section h2{margin:.05rem 0 .35rem}
+.change-section .intro{margin:0 0 1rem;color:#66717b;line-height:1.5}
+
+.norm-archive details{
+  border-top:1px solid #e1e5e9;
+  padding:.85rem 0;
+}
+.norm-archive details:first-of-type{border-top:none}
+.norm-archive summary{
+  cursor:pointer;
+  font-weight:700;
+  font-size:1.05rem;
+}
+.archive-body{padding:.8rem 0 .15rem}
+.doc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:.85rem;
+  margin:.85rem 0;
+}
+.doc-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.doc-card{
+  border:1px solid #dfe3e7;
+  border-radius:11px;
+  padding:.9rem 1rem;
+  background:#fafbfc;
+}
+.doc-card h3{margin:0 0 .35rem;font-size:1.05rem}
+.doc-card p{margin:.3rem 0;line-height:1.48}
+.doc-action,.doc-actions{margin-top:.7rem!important}
+.doc-actions{display:flex;flex-wrap:wrap;gap:.5rem .9rem}
+.mini-archive{
+  margin-top:.75rem;
+  padding-top:.65rem!important;
+  border-top:1px solid #e1e5e9!important;
+}
+.mini-archive summary{font-size:.95rem!important}
+.year-list{margin:.55rem 0 .1rem;padding-left:1.25rem}
+.formal-note{
+  margin-top:1rem;
+  padding:.85rem .95rem;
+  background:#f3f6f8;
+  border-left:4px solid #666;
+}
+.formal-note p{margin:.25rem 0}
+@media(max-width:760px){
+  .doc-grid.two{grid-template-columns:1fr}
+}
+
+.future-link{
+  display:inline-block;
+  color:#66717b;
+  font-style:italic;
+}
+.archive-link{margin:.9rem 0 .1rem}
+.archive-pair{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.85rem;
+  margin-top:1rem;
+}
+.archive-pair>div{
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  padding:.8rem .9rem;
+  background:#fafbfc;
+}
+.archive-pair h3{margin:0 0 .25rem;font-size:1rem}
+.archive-pair p{margin:0}
+@media(max-width:760px){
+  .archive-pair{grid-template-columns:1fr}
+}
+
+.closing-doc-box{
+  margin:2rem 0 1rem;
+  padding:1.15rem 1.25rem;
+  border:1px solid #dfe3e7;
+  border-radius:12px;
+  background:#f7f8fa;
+}
+.closing-doc-box h2{margin-top:0}
+.button-link{
+  display:inline-block;
+  font-weight:700;
+  text-decoration:none;
+}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div>
+<div class="site-name">Didattica</div>
+<div class="dept">Dipartimento di Matematica</div>
+</div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Organizzazione</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Organizzazione</a> <span>›</span> Genesi del Corso di Studio</div>
+<section class="gen-hero">
+<h1>Genesi del Corso di Studio</h1>
+<p>Un Corso di Studio non nasce da un singolo regolamento. È il risultato di una catena di norme nazionali, decisioni di Ateneo, ordinamenti, regolamenti e scelte che vengono rinnovate ogni anno.</p>
+<p>Questa pagina racconta come si passa dalla cornice nazionale a un Corso di Studio concreto: classi di laurea, ordinamento, attivazione, regolamento, programmazione, insegnamenti e qualità.</p>
+</section>
+<section class="gen-chain">
+<strong>La catena in breve</strong>
+<div class="chain-flow">
+<span class="step">DM 270/2004</span><span class="arrow">→</span>
+<span class="step">Classi di laurea</span><span class="arrow">→</span>
+<span class="step">Ordinamento</span><span class="arrow">→</span>
+<span class="step">Istituzione e attivazione</span><span class="arrow">→</span>
+<span class="step">Regolamento</span><span class="arrow">→</span>
+<span class="step">Programmazione annuale</span><span class="arrow">→</span>
+<span class="step">Insegnamenti</span><span class="arrow">→</span>
+<span class="step">Monitoraggio</span>
+</div>
+</section>
+<section class="timeline">
+<article class="gen-step">
+<div class="num">0</div>
+<div class="gen-card">
+<h2>Prima del Corso di Studio</h2>
+<p class="subtitle">Prima del singolo Corso di Studio viene la cornice normativa nazionale.</p>
+<p>Non esiste ancora “Matematica a Pisa”. Esiste il quadro generale entro cui le università possono organizzare attività di formazione superiore.</p>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">1</div>
+<div class="gen-card">
+<h2>La cornice nazionale</h2>
+<p class="subtitle">Il sistema dei titoli, dei corsi e dei CFU.</p>
+<p>Il riferimento centrale è il <strong>DM 270/2004</strong>, il regolamento sull'autonomia didattica degli Atenei. Qui vengono definiti il sistema dei titoli universitari, i corsi di studio, i crediti formativi e il ruolo degli ordinamenti didattici.</p>
+<ul>
+<li>laurea e laurea magistrale;</li>
+<li>CFU e attività formative;</li>
+<li>ordinamenti didattici;</li>
+<li>autonomia didattica degli Atenei;</li>
+<li>classi di laurea e laurea magistrale.</li>
+</ul>
+<div class="level"><strong>Livello ontologico</strong>Stabilisce quali creature possono esistere.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">2</div>
+<div class="gen-card">
+<h2>Le classi di laurea</h2>
+<p class="subtitle">Le classi di laurea definiscono che cosa deve essere, in generale, un corso di un certo tipo.</p>
+<p>Il Ministero stabilisce le classi. Per Matematica ci interessano in particolare:</p>
+<ul>
+<li><strong>L-35 — Scienze matematiche</strong> per la Laurea Triennale;</li>
+<li><strong>LM-40 — Matematica</strong> per la Laurea Magistrale.</li>
+</ul>
+<p>Le classi definiscono obiettivi culturali, competenze attese, ambiti disciplinari, vincoli di CFU e altri requisiti generali. Non stabiliscono ancora quali insegnamenti avrà Matematica a Pisa.</p>
+<div class="level"><strong>Livello tassonomico</strong>Il corso non è ancora nato, ma sappiamo a quale specie dovrà appartenere.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">3</div>
+<div class="gen-card">
+<h2>Matematica a Pisa prende forma</h2>
+<p class="subtitle">L'ordinamento didattico dà al corso una propria identità locale.</p>
+<p>L'Ateneo prende la cornice della classe e la traduce in uno specifico progetto formativo: il Corso di Laurea o di Laurea Magistrale in Matematica dell'Università di Pisa.</p>
+<ul>
+<li>nome e classe del corso;</li>
+<li>obiettivi formativi specifici;</li>
+<li>profili culturali e professionali;</li>
+<li>risultati di apprendimento attesi;</li>
+<li>quadro generale delle attività formative;</li>
+<li>requisiti di accesso e prova finale.</li>
+</ul>
+<div class="level"><strong>Livello genetico</strong>L'ordinamento contiene il DNA del corso.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">4</div>
+<div class="gen-card">
+<h2>Dall'ordinamento al corso attivato</h2>
+<p class="subtitle">Istituire un corso e attivarlo non sono la stessa cosa.</p>
+<p><strong>Istituire</strong> un Corso di Studio significa crearlo formalmente nell'ordinamento dell'Ateneo. <strong>Attivarlo</strong> significa farlo partire concretamente in un determinato anno accademico, con studenti, docenti, insegnamenti e risorse.</p>
+<p>A questo livello il Corso di Studio entra anche nell'organizzazione dell'Ateneo, con un Presidente, un Consiglio e responsabilità didattiche e organizzative.</p>
+<div class="level"><strong>Livello istituzionale</strong>Il corso non è più solo un progetto formativo: diventa un soggetto dell'organizzazione universitaria.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">5</div>
+<div class="gen-card">
+<h2>Le regole del percorso</h2>
+<p class="subtitle">Il regolamento didattico traduce l'ordinamento in regole concrete.</p>
+<p>Qui si passa dal progetto generale al funzionamento effettivo del percorso:</p>
+<ul>
+<li>insegnamenti e CFU;</li>
+<li>obblighi e scelte;</li>
+<li>eventuali propedeuticità;</li>
+<li>piani di studio;</li>
+<li>requisiti di accesso;</li>
+<li>prova finale e voto di laurea.</li>
+</ul>
+<div class="distinction-box">
+<h3>Ordinamento e regolamento non sono la stessa cosa</h3>
+<p><strong>Ordinamento:</strong> definisce la struttura fondamentale del corso e può restare invariato per più anni.</p>
+<p><strong>Regolamento:</strong> è riferito a una specifica coorte di studenti e viene aggiornato annualmente. Per questo è necessario conservare anche i regolamenti degli anni precedenti.</p>
+</div>
+<div class="level"><strong>Livello normativo-operativo</strong>Il corso ha ormai un corpo funzionante.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">6</div>
+<div class="gen-card">
+<h2>La programmazione annuale</h2>
+<p class="subtitle">Ogni anno il progetto viene tradotto in una programmazione concreta.</p>
+<p>Bisogna stabilire quali insegnamenti sono attivati, chi li tiene, in quale semestre e con quali modalità organizzative.</p>
+<ul>
+<li>insegnamenti attivati;</li>
+<li>docenti;</li>
+<li>semestri;</li>
+<li>orari e aule;</li>
+<li>mutuazioni e coperture;</li>
+<li>appelli e commissioni.</li>
+</ul>
+<div class="level"><strong>Livello liturgico-annuale</strong>Il rito si ripete ogni anno, con variazioni.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">7</div>
+<div class="gen-card">
+<h2>Le schede degli insegnamenti</h2>
+<p class="subtitle">Il livello più vicino alla singola attività formativa.</p>
+<p>Le schede degli insegnamenti descrivono il contenuto concreto dei corsi: programmi, prerequisiti, obiettivi, modalità d'esame, bibliografia, metodi di insegnamento e risultati di apprendimento attesi.</p>
+<div class="level"><strong>Livello cellulare</strong>Ogni insegnamento è una piccola unità del Corso di Studio.</div>
+</div>
+</article>
+<article class="gen-step">
+<div class="num">8</div>
+<div class="gen-card">
+<h2>Monitorare e migliorare</h2>
+<p class="subtitle">Il Corso di Studio viene monitorato e riesaminato nel tempo.</p>
+<p>Qui entrano SUA-CdS, Scheda di Monitoraggio Annuale, Riesame ciclico, relazione della CPDS, questionari degli studenti e indicatori. La gestione complessiva dell'Assicurazione della Qualità appartiene alla sezione istituzionale del Dipartimento.</p>
+<div class="level"><strong>Livello riflessivo</strong>La creatura viene osservata, valutata e, quando serve, corretta.</div>
+</div>
+</article>
+</section><section class="questions">
+<h2>Quattro domande per orientarsi</h2>
+<div class="q-grid">
+<div class="q-card">
+<h3>1. Può esistere un corso di laurea?</h3>
+<p>Risponde la normativa nazionale, soprattutto il DM 270/2004.</p>
+</div>
+<div class="q-card">
+<h3>2. Che caratteristiche deve avere una laurea in Matematica?</h3>
+<p>Rispondono le classi L-35 e LM-40 e i relativi decreti ministeriali.</p>
+</div>
+<div class="q-card">
+<h3>3. Che cos'è esattamente Matematica a Pisa?</h3>
+<p>Rispondono gli ordinamenti didattici dei due Corsi di Studio.</p>
+</div>
+<div class="q-card">
+<h3>4. Come funziona concretamente Matematica a Pisa?</h3>
+<p>Rispondono regolamenti didattici, programmazione annuale, schede degli insegnamenti, delibere e procedure locali.</p>
+</div>
+</div>
+</section><section class="change-section">
+<h2>Cosa cambia ogni anno?</h2>
+<p class="intro">I diversi livelli della catena hanno tempi molto diversi. Alcuni sono quasi stabili, altri vengono aggiornati ogni anno.</p>
+<div class="change-table-wrap">
+<table class="change-table">
+<thead>
+<tr><th>Oggetto</th><th>Quanto spesso cambia?</th><th>A cosa serve</th></tr>
+</thead>
+<tbody>
+<tr><td>DM 270/2004</td><td>Solo con una nuova riforma</td><td>Definisce il quadro generale dei Corsi di Studio</td></tr>
+<tr><td>Classi L-35 e LM-40</td><td>Raramente</td><td>Definiscono caratteristiche e vincoli generali della classe</td></tr>
+<tr><td>Ordinamento del CdS</td><td>Solo quando cambia il progetto formativo</td><td>Definisce la struttura fondamentale di Matematica a Pisa</td></tr>
+<tr><td>Regolamento della coorte</td><td><strong>Ogni anno</strong></td><td>Stabilisce le regole applicabili agli studenti di quella coorte</td></tr>
+<tr><td>Programmazione didattica</td><td><strong>Ogni anno</strong></td><td>Stabilisce quali insegnamenti sono attivati e come vengono erogati</td></tr>
+<tr><td>Schede degli insegnamenti</td><td><strong>Ogni anno</strong></td><td>Descrivono contenuti, obiettivi e modalità d'esame dei singoli corsi</td></tr>
+</tbody>
+</table>
+</div>
+<div class="distinction-box">
+<h3>Ordinamento e regolamento non sono la stessa cosa</h3>
+<p><strong>Ordinamento:</strong> definisce la struttura fondamentale del Corso di Studio e può restare invariato per più anni.</p>
+<p><strong>Regolamento:</strong> è riferito a una specifica coorte e viene aggiornato annualmente. Per questo è necessario conservare anche i regolamenti degli anni precedenti.</p>
+</div>
+</section>
+<section class="closing-doc-box">
+<h2>Cerchi i documenti?</h2>
+<p>
+    Questa pagina spiega <em>come nasce e come si struttura</em> un Corso di Studio.
+    I testi ufficiali sono raccolti separatamente, senza interrompere il racconto.
+  </p>
+<p><a class="button-link" href="normativa.html">Regolamenti, ordinamenti e normativa nazionale</a></p>
+</section></main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

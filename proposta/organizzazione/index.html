@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Organizzazione - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.org-hero{max-width:880px;margin-bottom:1.9rem}
+.org-hero h1{margin-bottom:.45rem}
+.org-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+
+.org-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.3rem;
+}
+.org-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid #d8dde3;
+  border-radius:15px;
+  padding:1.15rem 1.2rem;
+  background:#fff;
+}
+.org-card:hover,.org-card:focus{
+  transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.org-card h2{margin:0 0 .4rem;font-size:1.28rem}
+.org-card p{margin:0;color:#56616b;line-height:1.52}
+.org-card .micro{
+  margin-top:.75rem;
+  padding-top:.7rem;
+  border-top:1px solid #e0e4e8;
+  font-size:.92rem;
+  color:#6b747d;
+  line-height:1.45;
+}
+.org-card.wide{grid-column:1 / -1}
+.org-card.wide .wide-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);
+  gap:1.2rem;
+  align-items:start;
+}
+.org-card.wide .micro{margin-top:0;padding-top:0;border-top:0;border-left:1px solid #e0e4e8;padding-left:1.2rem}
+
+.org-footnote{
+  margin-top:1.4rem;
+  padding:.95rem 1rem;
+  border-left:4px solid #666;
+  background:#f3f6f8;
+}
+.org-footnote p{margin:.2rem 0;line-height:1.5}
+
+@media(max-width:820px){
+  .org-grid{grid-template-columns:1fr}
+  .org-card.wide{grid-column:auto}
+  .org-card.wide .wide-inner{grid-template-columns:1fr}
+  .org-card.wide .micro{border-left:0;border-top:1px solid #e0e4e8;padding-left:0;padding-top:.7rem;margin-top:.7rem}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div>
+<div class="site-name">Didattica</div>
+<div class="dept">Dipartimento di Matematica</div>
+</div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub">
+<a href="../laurea-triennale/index.html">Laurea Triennale</a>
+<ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul>
+</li>
+<li class="item has-sub">
+<a href="../laurea-magistrale/index.html">Laurea Magistrale</a>
+<ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul>
+</li>
+<li class="item has-sub">
+<a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a>
+<ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul>
+</li>
+<li class="item has-sub">
+<a href="index.html">Organizzazione</a>
+<ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul>
+</li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub">
+<a href="../info-utili/index.html">Info utili</a>
+<ul class="submenu">
+<li><a href="../info-utili/borse.html">Borse di studio</a></li>
+<li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+<li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+<li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+</ul>
+</li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> Organizzazione</div>
+<section class="org-hero">
+<h1>Organizzazione</h1>
+<p>
+    Chi gestisce i Corsi di Studio in Matematica, dove trovare i contatti giusti
+    e dove consultare verbali, regole e documenti ufficiali.
+  </p>
+</section>
+<section class="org-grid">
+<a class="org-card" href="segreterie.html">
+<h2>Segreterie e contatti</h2>
+<p>
+      Per capire a chi rivolgersi e distinguere rapidamente ciò che compete
+      alla Segreteria Didattica da ciò che compete alla Segreteria Studenti.
+    </p>
+<div class="micro">
+      Contatti, persone, orari e una guida pratica «chi fa cosa?».
+    </div>
+</a>
+<a class="org-card" href="consiglio-cds.html">
+<h2>Consiglio dei Corsi di Studio</h2>
+<p>
+      L'organo che coordina la didattica della Laurea Triennale e della Laurea Magistrale
+      in Matematica e assume le principali decisioni sul loro funzionamento.
+    </p>
+<div class="micro">
+      Composizione annuale, competenze, Commissione Carriere, Gruppo di Riesame e collegamento alla CPDS.
+    </div>
+</a>
+<a class="org-card" href="verbali-consiglio.html">
+<h2>Verbali del Consiglio</h2>
+<p>
+      L'archivio delle sedute del Consiglio dei Corsi di Studio.
+    </p>
+<div class="micro">
+      Verbali dell'anno in corso e archivio degli anni precedenti.
+    </div>
+</a>
+<a class="org-card" href="genesi.html">
+<h2>Genesi del Corso di Studio</h2>
+<p>
+      Come si passa dalla normativa nazionale a un vero Corso di Studio:
+      classi, ordinamento, regolamento, programmazione, insegnamenti e qualità.
+    </p>
+<div class="micro">
+      La pagina per capire come stanno insieme tutti i pezzi.
+    </div>
+</a>
+<a class="org-card wide" href="normativa.html">
+<div class="wide-inner">
+<div>
+<h2>Regolamenti, ordinamenti e normativa nazionale</h2>
+<p>
+          I documenti che fanno fede: normativa ministeriale, Regolamento didattico di Ateneo,
+          ordinamenti dei Corsi di Studio e regolamenti delle singole coorti.
+        </p>
+</div>
+<div class="micro">
+        Qui si trova la documentazione formale, insieme alle eventuali versioni leggibili
+        che predisporremo per orientarsi senza affrontare subito il documento completo.
+      </div>
+</div>
+</a>
+</section>
+<section class="org-footnote">
+<p>
+<strong>Questa sezione riguarda l'organizzazione dei Corsi di Studio.</strong>
+    Gli organismi e i documenti che appartengono invece all'Assicurazione della qualità
+    del Dipartimento restano nella relativa sezione istituzionale.
+  </p>
+</section>
+</main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

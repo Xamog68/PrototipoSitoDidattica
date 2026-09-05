@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Segreterie e contatti - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.contacts-hero{max-width:900px;margin-bottom:1.6rem}
+.contacts-hero h1{margin-bottom:.45rem}
+.contacts-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+
+.contacts-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin:1.4rem 0 1.8rem;
+}
+.contact-card{
+  border:1px solid #d8dde3;
+  border-radius:15px;
+  padding:1.2rem;
+  background:#fff;
+}
+.contact-card h2{margin:.05rem 0 .45rem;font-size:1.4rem}
+.contact-card p{margin:.3rem 0;color:#56616b;line-height:1.5}
+.contact-card .meta{
+  margin-top:.85rem;
+  padding-top:.8rem;
+  border-top:1px solid #e1e5e9;
+  font-size:.94rem;
+  line-height:1.55;
+}
+.contact-card .meta p{margin:.15rem 0}
+.contact-card .cta{margin-top:.85rem}
+
+.who{
+  margin-top:1.4rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.25rem;
+}
+.who h2{margin:0 0 .3rem}
+.who-intro{margin:0 0 1rem;color:#66717b}
+
+.matrix-wrap{overflow-x:auto}
+.matrix{
+  width:100%;
+  border-collapse:collapse;
+  min-width:690px;
+}
+.matrix th,.matrix td{
+  padding:.72rem .75rem;
+  border-bottom:1px solid #e1e5e9;
+  vertical-align:middle;
+}
+.matrix th{
+  text-align:left;
+  background:#f4f6f8;
+}
+.matrix th.center,.matrix td.center{
+  text-align:center;
+  width:180px;
+}
+.matrix tbody tr:last-child td{border-bottom:none}
+
+.mark{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1.7rem;
+  height:1.7rem;
+  border-radius:999px;
+  font-weight:700;
+  font-size:1rem;
+}
+.yes{background:#e7f4ea;color:#1f6a35}
+.no{background:#f8e8e8;color:#9a2f2f}
+.maybe{background:#fff3cd;color:#755a00}
+
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.8rem 1.2rem;
+  margin-top:1rem;
+  font-size:.92rem;
+  color:#5f6871;
+}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+
+.contact-note{
+  margin-top:1.3rem;
+  padding:.95rem 1rem;
+  border-left:4px solid #666;
+  background:#f3f6f8;
+}
+.contact-note p{margin:.25rem 0;line-height:1.5}
+
+.internal-note{
+  margin-top:1.25rem;
+  padding:.9rem 1rem;
+  border:1px dashed #8c6bb1;
+  background:#f5f0fa;
+  color:#5b4677;
+  border-radius:10px;
+}
+.internal-note p{margin:.25rem 0}
+
+@media(max-width:800px){
+  .contacts-grid{grid-template-columns:1fr}
+}
+
+.contacts-grid.single{grid-template-columns:1fr}
+.staff-block{margin-top:1.25rem}
+.staff-block>h3{margin:0 0 .3rem;font-size:1.3rem}
+.staff-block>.who-intro{margin-bottom:1rem}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div>
+<div class="site-name">Didattica</div>
+<div class="dept">Dipartimento di Matematica</div>
+</div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Organizzazione</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Organizzazione</a> <span>›</span> Segreterie e contatti</div>
+<section class="contacts-hero">
+<h1>Segreterie e contatti</h1>
+<p>Segreteria Didattica e Segreteria Studenti svolgono funzioni diverse. Qui sono raccolti direttamente i contatti della Segreteria Didattica del Dipartimento e le indicazioni per capire quale ufficio contattare nelle diverse situazioni.</p>
+</section>
+<section aria-labelledby="didattica-title" class="who"><h2 id="didattica-title">Segreteria Didattica</h2><p class="who-intro">Contatti, orari e persone della Segreteria Didattica del Dipartimento di Matematica.</p><div class="contacts-grid"><article class="contact-card">
+<p>È il punto di riferimento del Dipartimento per il funzionamento dei Corsi di Studio e per le pratiche didattiche di competenza del CdS.</p>
+<div class="meta">
+<p><strong>Si occupa in particolare di:</strong> piani di studio, procedure del CdS, supporto agli organi collegiali, organizzazione delle lauree, informazioni sulla didattica e pratiche gestite dal Dipartimento.</p>
+<p><strong>Sede</strong><br/>
+        Dipartimento di Matematica, edificio A, primo piano, ufficio 207<br/>
+        Largo Bruno Pontecorvo 5, Pisa.</p>
+<p><strong>Contatti</strong><br/>
+        Tel. 050 2213815<br/>
+        E-mail: <a href="mailto:segdid@dm.unipi.it">segdid@dm.unipi.it</a></p>
+<p><strong>Ricevimento</strong><br/>
+        Martedì e mercoledì, 10:00–12:00 e 15:00–17:00<br/>
+        Venerdì, 11:00–13:00</p>
+</div>
+</article></div><section aria-labelledby="staff-title" class="staff-block">
+<h3 id="staff-title">Chi lavora nella Segreteria Didattica</h3>
+<p class="who-intro">La Segreteria Didattica è un ufficio unico, ma alcune attività hanno referenti che le seguono più direttamente.</p>
+<div class="contacts-grid">
+<article class="contact-card">
+<h2>Maria Benvenuti</h2>
+<p><strong>Responsabile dell'Unità Didattica.</strong></p>
+<p>Segue il coordinamento generale delle attività della Segreteria, il supporto agli organi del Corso di Studio, ordinamenti e regolamenti, programmazione didattica, orientamento e attività connesse all'assicurazione della qualità.</p>
+</article>
+<article class="contact-card">
+<h2>Chiara Luzzati</h2>
+<p><strong>Pratiche studenti e piani di studio.</strong></p>
+<p>Segue in particolare le pratiche relative alle carriere degli studenti, i piani di studio e CAPS, le convalide e i riconoscimenti e la preparazione delle pratiche da sottoporre agli organi del Corso di Studio.</p>
+</article>
+<article class="contact-card">
+<h2>Claudio Di Pietro</h2>
+<p><strong>Mobilità internazionale e strumenti informatici per la didattica.</strong></p>
+<p>Segue in particolare mobilità Erasmus e altri programmi internazionali, riconoscimento delle attività svolte all'estero e alcuni strumenti e servizi informatici utilizzati per la didattica.</p>
+</article>
+<article class="contact-card">
+<h2>Samantha Dian</h2>
+<p><strong>Segreteria Didattica.</strong></p>
+<p>Fa parte dell'attuale gruppo di lavoro della Segreteria Didattica.</p>
+<div class="internal-note">
+<strong>Nota interna — da completare.</strong>
+<p>Definire l'ambito di attività da indicare pubblicamente per Samantha Dian. Le informazioni oggi reperibili sul sito non descrivono ancora il suo ruolo aggiornato nella Segreteria Didattica.</p>
+</div>
+</article>
+</div>
+<aside class="internal-note">
+<strong>Nota interna — da verificare.</strong>
+<p>I testi sintetici sulle competenze individuali sono ricavati dalle informazioni attualmente disponibili sul sito del Dipartimento e vanno controllati con la Segreteria prima della pubblicazione definitiva, soprattutto perché la composizione dell'ufficio è cambiata rispetto alle pagine ufficiali oggi online.</p>
+</aside>
+</section></section><section aria-labelledby="studenti-title" class="who"><h2 id="studenti-title">Segreteria Studenti</h2><p class="who-intro">Per gli aspetti amministrativi della carriera universitaria il riferimento è la Segreteria Studenti di Ateneo.</p><div class="contacts-grid single"><article class="contact-card">
+<p>Gestisce gli aspetti amministrativi della carriera degli studenti attraverso i servizi centrali di Ateneo.</p>
+<div class="meta">
+<p><strong>Si occupa in particolare di:</strong> immatricolazioni, iscrizioni, tasse, certificazioni, passaggi e trasferimenti, ricongiunzioni e aggiornamento amministrativo della carriera.</p>
+<p><strong>Per Matematica:</strong> la Segreteria Studenti individua personale di riferimento per il Corso di Studio. Nominativi e recapiti aggiornati sono pubblicati nelle pagine ufficiali di Ateneo.</p>
+</div>
+<div class="cta">
+<a href="https://www.unipi.it/studenti/" rel="noopener" target="_blank">Vai ai servizi della Segreteria Studenti di Ateneo</a>
+</div>
+</article></div></section><section class="who">
+<h2>Chi fa cosa?</h2>
+<p class="who-intro">La tabella indica quale ufficio è normalmente il riferimento principale. In alcune pratiche possono essere coinvolti entrambi, ma per aspetti diversi.</p>
+<div class="matrix-wrap">
+<table class="matrix">
+<thead>
+<tr>
+<th>Questione</th>
+<th class="center">Segreteria Didattica</th>
+<th class="center">Segreteria Studenti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Informazioni sul Corso di Studio e sulla didattica</td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+</tr>
+<tr>
+<td>Piano di studi e procedure del CdS</td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+<td class="center"><span aria-label="Può essere coinvolta" class="mark maybe">◐</span></td>
+</tr>
+<tr>
+<td>Immatricolazione e iscrizione annuale</td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Tasse e contribuzione studentesca</td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Certificati e carriera amministrativa</td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Trasferimenti, passaggi e ricongiunzioni</td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Riconoscimenti e delibere didattiche</td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+<td class="center"><span aria-label="Può essere coinvolta" class="mark maybe">◐</span></td>
+</tr>
+<tr>
+<td>Organizzazione delle sedute di laurea</td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+<td class="center"><span aria-label="Può essere coinvolta" class="mark maybe">◐</span></td>
+</tr>
+<tr>
+<td>Domanda amministrativa di laurea e adempimenti di carriera</td>
+<td class="center"><span aria-label="Può essere coinvolta" class="mark maybe">◐</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Aggiornamento e coerenza della carriera su Alice</td>
+<td class="center"><span aria-label="Può essere coinvolta" class="mark maybe">◐</span></td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+</tr>
+<tr>
+<td>Pratiche didattiche specifiche gestite dal Dipartimento</td>
+<td class="center"><span aria-label="Competenza principale" class="mark yes">✓</span></td>
+<td class="center"><span aria-label="Non è normalmente l'ufficio giusto" class="mark no">×</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div aria-label="Legenda" class="legend">
+<span><span aria-hidden="true" class="mark yes">✓</span> competenza principale</span>
+<span><span aria-hidden="true" class="mark maybe">◐</span> può essere coinvolta</span>
+<span><span aria-hidden="true" class="mark no">×</span> non è normalmente l'ufficio giusto</span>
+</div>
+</section><section class="contact-note">
+<p><strong>Un dubbio frequente.</strong> Una stessa procedura può avere una parte didattica e una parte amministrativa. Per esempio, il Corso di Studio può deliberare su un piano o su un riconoscimento, mentre l'aggiornamento formale della carriera universitaria passa attraverso i servizi amministrativi di Ateneo.</p>
+</section><aside class="internal-note">
+<strong>Nota interna — da verificare.</strong>
+<p>Prima della pubblicazione definitiva conviene controllare riga per riga la matrice “Chi fa cosa?” con la Segreteria Didattica e con le pagine ufficiali di Ateneo, soprattutto per riconoscimenti, laurea, allineamento della carriera e pratiche che coinvolgono più uffici.</p>
+</aside></main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

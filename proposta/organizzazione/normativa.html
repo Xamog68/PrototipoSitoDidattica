@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Regolamenti, ordinamenti e normativa nazionale</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.gen-hero{max-width:920px;margin-bottom:1.6rem}
+.gen-hero h1{margin-bottom:.45rem}
+.gen-hero p{font-size:1.08rem;line-height:1.58;color:#56616b;margin:.25rem 0}
+
+.gen-chain{
+  margin:1.3rem 0 1.8rem;
+  padding:1rem 1.1rem;
+  border:1px solid #d8dde3;
+  border-radius:14px;
+  background:#f8f9fa;
+}
+.gen-chain strong{display:block;margin-bottom:.45rem}
+.chain-flow{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.45rem .55rem;
+  color:#4f5963;
+  line-height:1.5;
+}
+.chain-flow .step{
+  border:1px solid #d8dde3;
+  border-radius:999px;
+  padding:.28rem .58rem;
+  background:#fff;
+  white-space:nowrap;
+}
+.chain-flow .arrow{color:#88919a}
+
+.timeline{position:relative;margin-top:1.7rem}
+.timeline:before{
+  content:"";
+  position:absolute;
+  left:20px;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:#d9dee3;
+}
+.gen-step{
+  position:relative;
+  margin:0 0 1.15rem 0;
+  padding-left:3.3rem;
+}
+.gen-step .num{
+  position:absolute;
+  left:0;
+  top:.1rem;
+  width:42px;
+  height:42px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:2px solid #aab3bb;
+  font-weight:700;
+}
+.gen-card{
+  border:1px solid #d8dde3;
+  border-radius:15px;
+  padding:1.15rem 1.2rem;
+  background:#fff;
+}
+.gen-card h2{margin:.05rem 0 .3rem;font-size:1.45rem}
+.gen-card .subtitle{
+  margin:0 0 .75rem;
+  color:#66717b;
+  font-style:italic;
+}
+.gen-card p{line-height:1.55}
+.gen-card ul{margin:.65rem 0 .2rem}
+.level{
+  margin-top:.8rem;
+  padding:.7rem .8rem;
+  background:#f5f7f9;
+  border-left:4px solid #7b848d;
+}
+.level strong{display:block;margin-bottom:.15rem}
+
+.docs{
+  margin-top:.85rem;
+  border-top:1px solid #e1e5e9;
+  padding-top:.75rem;
+}
+.docs summary{cursor:pointer;font-weight:600}
+.docs ul{margin:.65rem 0 .1rem}
+.docs li{margin:.35rem 0}
+
+.questions{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.questions h2{margin:.05rem 0 .8rem}
+.q-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.8rem;
+}
+.q-card{
+  border:1px solid #dfe3e7;
+  border-radius:12px;
+  padding:.9rem 1rem;
+  background:#fafbfc;
+}
+.q-card h3{margin:0 0 .3rem;font-size:1rem}
+.q-card p{margin:0;color:#56616b;line-height:1.5}
+
+.internal-note{
+  margin-top:1.25rem;
+  padding:.9rem 1rem;
+  border:1px dashed #8c6bb1;
+  background:#f5f0fa;
+  color:#5b4677;
+  border-radius:10px;
+}
+.internal-note p{margin:.25rem 0;line-height:1.5}
+
+@media(max-width:720px){
+  .q-grid{grid-template-columns:1fr}
+  .timeline:before{left:17px}
+  .gen-step{padding-left:3rem}
+  .gen-step .num{width:36px;height:36px}
+}
+
+.link-note{
+  margin:1rem 0 1.6rem;
+  padding:1rem 1.05rem;
+  border-left:4px solid #666;
+  background:#f3f6f8;
+}
+.link-note h2{margin:0 0 .35rem;font-size:1.15rem}
+.link-note p{margin:0;line-height:1.5}
+
+.docs-note{font-size:.92rem;color:#66717b;line-height:1.5}
+
+.distinction-box,.change-box{
+  margin:.9rem 0;
+  padding:.85rem .95rem;
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  background:#fafbfc;
+}
+.distinction-box h3,.change-box h3{
+  margin:0 0 .45rem;
+  font-size:1.05rem;
+}
+.distinction-box p{margin:.3rem 0}
+
+.change-table-wrap{overflow-x:auto}
+.change-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:560px;
+}
+.change-table th,.change-table td{
+  padding:.55rem .6rem;
+  border-bottom:1px solid #e1e5e9;
+  text-align:left;
+}
+.change-table th{background:#f4f6f8}
+
+.norm-archive{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.norm-archive h2{margin:.05rem 0 .35rem}
+.norm-archive .intro{margin:0 0 .9rem;color:#66717b}
+.norm-archive details{
+  border-top:1px solid #e1e5e9;
+  padding:.75rem 0;
+}
+.norm-archive details:first-of-type{border-top:none}
+.norm-archive summary{cursor:pointer;font-weight:700}
+.norm-archive ul{margin:.65rem 0 .1rem}
+
+.change-section{
+  margin-top:1.8rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:16px;
+  padding:1.2rem;
+}
+.change-section h2{margin:.05rem 0 .35rem}
+.change-section .intro{margin:0 0 1rem;color:#66717b;line-height:1.5}
+
+.norm-archive details{
+  border-top:1px solid #e1e5e9;
+  padding:.85rem 0;
+}
+.norm-archive details:first-of-type{border-top:none}
+.norm-archive summary{
+  cursor:pointer;
+  font-weight:700;
+  font-size:1.05rem;
+}
+.archive-body{padding:.8rem 0 .15rem}
+.doc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:.85rem;
+  margin:.85rem 0;
+}
+.doc-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.doc-card{
+  border:1px solid #dfe3e7;
+  border-radius:11px;
+  padding:.9rem 1rem;
+  background:#fafbfc;
+}
+.doc-card h3{margin:0 0 .35rem;font-size:1.05rem}
+.doc-card p{margin:.3rem 0;line-height:1.48}
+.doc-action,.doc-actions{margin-top:.7rem!important}
+.doc-actions{display:flex;flex-wrap:wrap;gap:.5rem .9rem}
+.mini-archive{
+  margin-top:.75rem;
+  padding-top:.65rem!important;
+  border-top:1px solid #e1e5e9!important;
+}
+.mini-archive summary{font-size:.95rem!important}
+.year-list{margin:.55rem 0 .1rem;padding-left:1.25rem}
+.formal-note{
+  margin-top:1rem;
+  padding:.85rem .95rem;
+  background:#f3f6f8;
+  border-left:4px solid #666;
+}
+.formal-note p{margin:.25rem 0}
+@media(max-width:760px){
+  .doc-grid.two{grid-template-columns:1fr}
+}
+
+.future-link{
+  display:inline-block;
+  color:#66717b;
+  font-style:italic;
+}
+.archive-link{margin:.9rem 0 .1rem}
+.archive-pair{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.85rem;
+  margin-top:1rem;
+}
+.archive-pair>div{
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  padding:.8rem .9rem;
+  background:#fafbfc;
+}
+.archive-pair h3{margin:0 0 .25rem;font-size:1rem}
+.archive-pair p{margin:0}
+@media(max-width:760px){
+  .archive-pair{grid-template-columns:1fr}
+}
+
+.ateneo-box{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1.25rem;
+  align-items:center;
+  margin:1.3rem 0 2rem;
+  padding:1.15rem 1.25rem;
+  border:1px solid #d8dde3;
+  border-radius:12px;
+  background:#f4f6f8;
+}
+.ateneo-box h2{margin:.1rem 0 .35rem}
+.ateneo-box p{margin:.25rem 0}
+.ateneo-action a{font-weight:700}
+.year-archive{
+  margin-top:1rem;
+  border-top:1px solid #dfe3e7;
+  padding-top:.8rem;
+}
+.year-archive summary{cursor:pointer;font-weight:700}
+@media(max-width:760px){
+  .ateneo-box{grid-template-columns:1fr}
+}
+
+.doc-grid.one{grid-template-columns:minmax(0,520px)}
+.ateneo-section{margin-top:2rem}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div>
+<div class="site-name">Didattica</div>
+<div class="dept">Dipartimento di Matematica</div>
+</div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Organizzazione</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main><div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Organizzazione</a> <span>›</span> Regolamenti, ordinamenti e normativa nazionale</div>
+<section class="gen-hero">
+<p class="eyebrow">Organizzazione</p>
+<h1>Regolamenti, ordinamenti e normativa nazionale</h1>
+<p>
+    Qui sta la documentazione formale che definisce il quadro dei Corsi di Studio in Matematica.
+    Per capire come questi livelli si collegano tra loro, c'è una pagina separata dedicata alla
+    <a href="genesi.html">genesi del Corso di Studio</a>.
+  </p>
+</section>
+<section class="norm-archive">
+<h2>Normativa nazionale</h2>
+<div class="doc-grid">
+<article class="doc-card">
+<h3>DM 270/2004</h3>
+<p>Il quadro generale dell'autonomia didattica universitaria: titoli, CFU, Corsi di Studio, ordinamenti e classi.</p>
+<div class="doc-actions">
+<a href="https://off270.mur.gov.it/leggi/dm270.html" rel="noopener" target="_blank">Testo ufficiale MUR</a>
+</div>
+</article>
+<article class="doc-card">
+<h3>DM 1648/2023</h3>
+<p>Disciplina le classi delle lauree, compresa <strong>L-35 — Scienze matematiche</strong>.</p>
+<div class="doc-actions">
+<a href="https://www.mur.gov.it/it/atti-e-normativa/decreto-ministeriale-n-1648-del-19-12-2023" rel="noopener" target="_blank">Pagina ufficiale MUR</a>
+</div>
+</article>
+<article class="doc-card">
+<h3>DM 1649/2023</h3>
+<p>Disciplina le classi delle lauree magistrali, compresa <strong>LM-40 — Matematica</strong>.</p>
+<div class="doc-actions">
+<a href="https://www.mur.gov.it/it/atti-e-normativa/decreto-ministeriale-n-1649-del-19-12-2023" rel="noopener" target="_blank">Pagina ufficiale MUR</a>
+</div>
+</article>
+</div>
+</section><section class="norm-archive ateneo-section">
+<h2>Regolamento didattico di Ateneo</h2>
+<p class="intro">
+  È il regolamento generale dell'Università di Pisa in materia didattica. Fa da cornice ai regolamenti
+  dei singoli Corsi di Studio e disciplina, a livello di Ateneo, organizzazione della didattica,
+  carriere e procedure.
+</p>
+<div class="doc-grid one">
+<article class="doc-card">
+<h3>Regolamento didattico di Ateneo</h3>
+<p>Il riferimento generale di Ateneo per la disciplina delle attività didattiche.</p>
+<div class="doc-actions">
+<a href="https://www.unipi.it/ateneo/statuto-e-regolamento/regolamenti-di-ateneo/didattica-e-diritto-allo-studio/" rel="noopener" target="_blank">Pagina ufficiale UniPi</a>
+</div>
+</article>
+</div>
+</section>
+<section class="norm-archive">
+<h2>Ordinamenti di Matematica a Pisa</h2>
+<p class="intro">
+    L'ordinamento definisce l'ossatura del Corso di Studio: obiettivi formativi, struttura generale
+    e vincoli delle attività formative. La fonte ufficiale pubblica è la <strong>SUA-CdS</strong>;
+    i quadri che costituiscono l'ordinamento sono contrassegnati con la sigla <strong>RaD</strong>.
+  </p>
+<div class="doc-grid two">
+<article class="doc-card">
+<h3>Laurea Triennale — L-35</h3>
+<div class="doc-actions">
+<span class="future-link">Versione leggibile — da preparare</span>
+<a href="https://www.dm.unipi.it/wp-content/uploads/2025/11/SUA-LT-2025-26.pdf" rel="noopener" target="_blank">Fonte ufficiale — SUA-CdS</a>
+</div>
+</article>
+<article class="doc-card">
+<h3>Laurea Magistrale — LM-40</h3>
+<div class="doc-actions">
+<span class="future-link">Versione leggibile — da preparare</span>
+<a href="https://www.dm.unipi.it/wp-content/uploads/2025/11/SUA-LM-2025-26.pdf" rel="noopener" target="_blank">Fonte ufficiale — SUA-CdS</a>
+</div>
+</article>
+</div>
+<p class="archive-link">
+<a href="https://www.dm.unipi.it/assicurazione-della-qualita/attivita-di-monitoraggio-e-riesame-relativi-alla-didattica/scheda-sua-cds/" rel="noopener" target="_blank">Archivio pubblico delle SUA-CdS</a>
+</p>
+</section>
+<section class="norm-archive">
+<h2>Regolamenti delle coorti</h2>
+<p class="intro">
+    Il regolamento del Corso di Studio è legato alla coorte: il riferimento per uno studente è il regolamento
+    vigente nell'anno accademico della sua immatricolazione. Per questo i regolamenti precedenti non sono materiale
+    superato, ma restano documenti da conservare e consultare.
+  </p>
+<div class="doc-grid two">
+<article class="doc-card">
+<h3>Laurea Triennale</h3>
+<p><strong>Ultimo documento pubblico reperito: 2025/26.</strong></p>
+<div class="doc-actions">
+<span class="future-link">Versione leggibile — da preparare</span>
+<a href="https://www.dm.unipi.it/didattica/wp-content/uploads/sites/3/2025/11/Regolamento-LT-2025.pdf" rel="noopener" target="_blank">PDF ufficiale</a>
+</div>
+<p class="docs-note">Il regolamento 2026/27 andrà collegato appena sarà pubblicato.</p>
+</article>
+<article class="doc-card">
+<h3>Laurea Magistrale</h3>
+<p><strong>Ultimo documento pubblico reperito: 2025/26.</strong></p>
+<div class="doc-actions">
+<span class="future-link">Versione leggibile — da preparare</span>
+<a href="https://www.dm.unipi.it/didattica/wp-content/uploads/sites/3/2025/11/Regolamento-LM-2025.pdf" rel="noopener" target="_blank">PDF ufficiale</a>
+</div>
+<p class="docs-note">Il regolamento 2026/27 andrà collegato appena sarà pubblicato.</p>
+</article>
+</div>
+<details class="year-archive">
+<summary>Archivio dei regolamenti precedenti</summary>
+<div class="archive-pair">
+<div>
+<h3>Laurea Triennale</h3>
+<p><a href="https://www.dm.unipi.it/didattica/laurea-triennale/regolamento/" rel="noopener" target="_blank">Archivio attuale LT</a></p>
+</div>
+<div>
+<h3>Laurea Magistrale</h3>
+<p><a href="https://www.dm.unipi.it/didattica/laurea-magistrale/regolamento/" rel="noopener" target="_blank">Archivio attuale LM</a></p>
+</div>
+</div>
+</details>
+<div class="formal-note">
+<strong>Versione leggibile e fonte ufficiale.</strong>
+<p>
+      Quando prepareremo una versione web più umana di un ordinamento o di un regolamento,
+      il collegamento alla versione leggibile sarà sempre affiancato a quello al documento ufficiale.
+    </p>
+</div>
+</section>
+<aside class="internal-note">
+<strong>Nota interna — completamento archivio.</strong>
+<p>
+    Collegare SUA-CdS e regolamenti 2026/27 appena disponibili. In fase di migrazione conviene inoltre
+    ricostruire direttamente qui l'archivio storico LT/LM, anziché rimandare alle vecchie pagine sotto Didattica.
+    Verificare anche il collegamento diretto al testo vigente del Regolamento didattico di Ateneo:
+    la pagina centrale UniPi dei regolamenti didattici è già una fonte stabile e preferibile.
+  </p>
+</aside>
+</main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

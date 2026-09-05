@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Verbali del Consiglio - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.minutes-hero{max-width:900px;margin-bottom:1.5rem}
+.minutes-hero h1{margin-bottom:.45rem}
+.minutes-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+.minutes-panel{margin-top:1.4rem;background:#fff;border:1px solid #d8dde3;border-radius:16px;padding:1.25rem}
+.minutes-panel h2{margin:.05rem 0 .35rem}
+.minutes-panel .intro{margin:0 0 1rem;color:#66717b;line-height:1.5}
+.minute-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem}
+.minute-card{display:block;text-decoration:none;color:inherit;border:1px solid #d8dde3;border-radius:12px;padding:.9rem 1rem;background:#f8f9fa}
+.minute-card:hover,.minute-card:focus{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.05)}
+.minute-date{display:block;font-weight:700;font-size:1.02rem}
+.minute-label{display:block;margin-top:.25rem;color:#66717b;font-size:.9rem}
+.year{border-top:1px solid #e1e5e9;padding:.75rem 0}
+.year:first-of-type{border-top:none}
+.year summary{cursor:pointer;font-weight:700}
+.year summary span{font-weight:400;color:#6c757d;margin-left:.4rem;font-size:.92rem}
+.year ul{margin:.75rem 0 .15rem;padding-left:1.3rem}
+.year li{margin:.38rem 0}
+.note{margin-top:1.3rem;padding:.95rem 1rem;border-left:4px solid #666;background:#f3f6f8}
+.note p{margin:.25rem 0;line-height:1.5}
+.internal-note{margin-top:1.25rem;padding:.9rem 1rem;border:1px dashed #8c6bb1;background:#f5f0fa;color:#5b4677;border-radius:10px}
+.internal-note p{margin:.25rem 0}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">
+<div class="seal">UNIPI</div>
+<div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div>
+</div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Organizzazione</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Organizzazione</a> <span>›</span> Verbali del Consiglio</div>
+<section class="minutes-hero">
+<h1>Verbali del Consiglio</h1>
+<p>Archivio dei verbali del Consiglio aggregato dei Corsi di Laurea e Laurea Magistrale in Matematica. Per ciascuna seduta sono raccolti il verbale, le delibere approvate e gli eventuali allegati.</p>
+</section>
+<section class="minutes-panel">
+<h2>2026</h2>
+<p class="intro">Sedute dell'anno in corso.</p>
+<div class="minute-grid">
+<a class="minute-card" href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">
+<span class="minute-date">24 marzo 2026</span>
+<span class="minute-label">Verbale, delibere e allegati</span>
+</a>
+<a class="minute-card" href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">
+<span class="minute-date">27 gennaio 2026</span>
+<span class="minute-label">Verbale, delibere e allegati</span>
+</a>
+</div>
+</section>
+<section class="minutes-panel">
+<h2>Archivio</h2>
+<p class="intro">Le sedute degli anni precedenti sono raccolte per anno. Apri un anno per consultarne i verbali.</p>
+<details class="year">
+<summary>2025 <span>4 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">4 novembre 2025</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">14 luglio 2025</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">26 marzo 2025</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">19 febbraio 2025</a></li></ul>
+</details><details class="year">
+<summary>2024 <span>5 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">12 novembre 2024</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">14 ottobre 2024</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">10 settembre 2024</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">29 maggio 2024</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">20 febbraio 2024</a></li></ul>
+</details><details class="year">
+<summary>2023 <span>7 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">7 dicembre 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">23 ottobre 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">11 settembre 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">24 luglio 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">12 giugno 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">4 aprile 2023</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">15 febbraio 2023</a></li></ul>
+</details><details class="year">
+<summary>2022 <span>7 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">19 dicembre 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">2 novembre 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">5 settembre 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">7 luglio 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">28 aprile 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">18 febbraio 2022</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">21 gennaio 2022</a></li></ul>
+</details><details class="year">
+<summary>2021 <span>8 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">18 novembre 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">9 settembre 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">16 luglio 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">20 maggio 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">4 maggio 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">17 marzo 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">18 febbraio 2021</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">19 gennaio 2021</a></li></ul>
+</details><details class="year">
+<summary>2020 <span>6 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">18 novembre 2020</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">21 ottobre 2020</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">9 luglio 2020</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">7 maggio 2020</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">18 marzo 2020</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">17 febbraio 2020</a></li></ul>
+</details><details class="year">
+<summary>2019 <span>6 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">10 dicembre 2019</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">4 novembre 2019</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">5 luglio 2019</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">11 aprile 2019</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">6 marzo 2019</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">11 febbraio 2019</a></li></ul>
+</details><details class="year">
+<summary>2018 <span>6 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">13 dicembre 2018</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">11 ottobre 2018</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">25 settembre 2018</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">5 luglio 2018</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">22 marzo 2018</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">1 febbraio 2018</a></li></ul>
+</details><details class="year">
+<summary>2017 <span>6 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">15 dicembre 2017</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">26 settembre 2017</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">4 luglio 2017</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">10 aprile 2017</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">16 marzo 2017</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">20 gennaio 2017</a></li></ul>
+</details><details class="year">
+<summary>2016 <span>4 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">6 ottobre 2016</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">1 giugno 2016</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">16 marzo 2016</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">25 gennaio 2016</a></li></ul>
+</details><details class="year">
+<summary>2015 <span>5 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">9 dicembre 2015</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">15 ottobre 2015</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">28 maggio 2015</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">19 marzo 2015</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">22 gennaio 2015</a></li></ul>
+</details><details class="year">
+<summary>2014 <span>5 sedute</span></summary>
+<ul><li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">29 ottobre 2014</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">24 settembre 2014</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">9 luglio 2014</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">21 marzo 2014</a></li>
+<li><a href="https://www.dm.unipi.it/didattica/organi-collegiali-e-verbali/delibere-e-verbali-del-consiglio-aggregato-dei-corsi-di-laurea-e-laurea-magistrale/" rel="noopener" target="_blank">22 gennaio 2014</a></li></ul>
+</details>
+</section>
+<section class="note">
+<p><strong>Che cosa contiene un verbale?</strong> Il verbale documenta lo svolgimento della seduta del Consiglio; nello stesso fascicolo possono essere presenti anche le delibere e gli allegati richiamati durante la riunione.</p>
+</section>
+<aside class="internal-note"><strong>Nota interna — accesso ai verbali.</strong><p>I verbali sono pubblicati in area protetta da password. Prima della pubblicazione della nuova pagina va documentato con precisione chi è autorizzato a conoscerla, come viene comunicata ai destinatari e chi ne cura l'eventuale aggiornamento.</p></aside>
+</main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

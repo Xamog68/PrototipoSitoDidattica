@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Consiglio dei Corsi di Studio - Prototipo Didattica</title>
+<link href="../assets/style.css" rel="stylesheet"/>
+<style>
+.cds-hero{max-width:920px;margin-bottom:1.5rem}
+.cds-hero h1{margin-bottom:.45rem}
+.cds-hero p{font-size:1.08rem;line-height:1.55;color:#56616b;margin:.25rem 0}
+.cds-panel{margin-top:1.4rem;background:#fff;border:1px solid #d8dde3;border-radius:16px;padding:1.25rem}
+.cds-panel h2{margin:.05rem 0 .35rem}
+.cds-panel .intro{margin:0 0 1rem;color:#66717b;line-height:1.5}
+.role-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.role-card{border:1px solid #d8dde3;border-radius:13px;padding:1.05rem 1.1rem;background:#f8f9fa}
+.role-card h3{margin:0 0 .35rem}
+.role-card p{margin:.25rem 0;line-height:1.5}
+.term-note{margin:1.2rem 0;padding:1rem 1.05rem;border-left:4px solid #666;background:#f3f6f8}
+.term-note p{margin:.25rem 0;line-height:1.5}
+.counts{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 1rem}
+.count{border:1px solid #d8dde3;border-radius:999px;padding:.35rem .65rem;background:#f8f9fa;font-size:.92rem}
+.searchbox{margin:1rem 0}
+.searchbox label{display:block;font-weight:600;margin-bottom:.35rem}
+.searchbox input{width:100%;max-width:520px;padding:.65rem .75rem;border:1px solid #cfd5db;border-radius:9px;font:inherit}
+.table-wrap{overflow-x:auto}
+.members{width:100%;border-collapse:collapse;min-width:760px}
+.members th,.members td{padding:.68rem .72rem;border-bottom:1px solid #e1e5e9;text-align:left;vertical-align:middle}
+.members th{background:#f4f6f8;position:sticky;top:0}
+.members td:nth-child(2) span{font-size:.88rem;color:#66717b}
+.members td:nth-child(4) a{word-break:break-word}
+.student-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem 1rem;list-style:none;padding:0;margin:1rem 0 0}
+.student-list li{border:1px solid #dfe3e7;border-radius:10px;padding:.8rem;background:#fafbfc}
+.archive details{border-top:1px solid #e1e5e9;padding:.8rem 0}
+.archive summary{cursor:pointer;font-weight:600}
+.internal-note{margin-top:1.25rem;padding:.9rem 1rem;border:1px dashed #8c6bb1;background:#f5f0fa;color:#5b4677;border-radius:10px}
+@media(max-width:700px){.role-grid,.student-list{grid-template-columns:1fr}}
+
+.cds-accordion{
+  margin-top:1.1rem;
+  background:#fff;
+  border:1px solid #d8dde3;
+  border-radius:14px;
+  overflow:hidden;
+}
+.cds-accordion summary{
+  cursor:pointer;
+  font-weight:700;
+  font-size:1.25rem;
+  padding:1rem 1.15rem;
+  background:#f7f8fa;
+}
+.cds-accordion[open] summary{border-bottom:1px solid #e1e5e9}
+.accordion-body{padding:1.15rem}
+.member-tiles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:.85rem;
+  margin-top:1rem;
+}
+.member-tile{
+  border:1px solid #dfe3e7;
+  border-radius:11px;
+  padding:.85rem .9rem;
+  background:#fafbfc;
+}
+.member-tile h3{
+  margin:0 0 .45rem;
+  font-size:1.02rem;
+}
+.member-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem .7rem;
+  margin-bottom:.45rem;
+  color:#5f6871;
+  font-size:.9rem;
+}
+.member-meta p{margin:0}
+.member-tile>a{
+  font-size:.88rem;
+  word-break:break-word;
+}
+@media(max-width:650px){
+  .member-tiles{grid-template-columns:1fr}
+}
+
+.member-tile{
+  min-height:112px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:.18rem;
+}
+.member-tile .line{line-height:1.28}
+.member-tile .name-line{
+  font-weight:700;
+  font-size:1.02rem;
+  margin-bottom:.15rem;
+}
+.member-tile .dept-line{
+  color:#4f5963;
+  font-size:.92rem;
+}
+.member-tile .sector-line{
+  color:#5f6871;
+  font-size:.9rem;
+}
+.member-tile .email-line{
+  margin-top:.18rem;
+  font-size:.88rem;
+  word-break:break-word;
+}
+
+.annual-composition{
+  margin-top:1rem;
+  background:#f8f9fa;
+}
+.annual-composition h2{
+  margin:0 0 .35rem;
+  font-size:1.25rem;
+}
+.president-tile{
+  max-width:420px;
+}
+
+.commissions-block{margin-top:1.4rem}
+.small-member-tiles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:.7rem;
+  margin-top:.9rem;
+}
+.small-member-tile{
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  padding:.75rem .8rem;
+  background:#fafbfc;
+}
+.small-member-tile strong{
+  display:block;
+  margin-bottom:.18rem;
+}
+.small-member-tile a{
+  font-size:.88rem;
+  word-break:break-word;
+}
+
+.compact-note{
+  margin-top:.8rem;
+  padding:.75rem .85rem;
+  font-size:.93rem;
+}
+
+.aq-raccordo{
+  margin:.9rem 0 1rem;
+  padding:.9rem 1rem;
+  border:1px solid #dfe3e7;
+  border-radius:10px;
+  background:#f8f9fa;
+}
+.aq-raccordo h3{margin:0 0 .35rem;font-size:1.08rem}
+.aq-raccordo p{margin:.25rem 0;line-height:1.5}
+.aq-external{
+  margin-top:.8rem;
+  padding-top:.8rem;
+  border-top:1px solid #dde1e5;
+}
+.aq-external h4{margin:0 0 .3rem;font-size:1rem}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div>
+<nav class="mainnav">
+<button aria-expanded="false" class="menu-toggle">Menu</button>
+<ul class="menu">
+<li><a href="../index.html">Didattica</a></li>
+<li class="item has-sub"><a href="../laurea-triennale/index.html">Laurea Triennale</a><ul class="submenu"><li><a href="../laurea-triennale/index.html">Panoramica</a></li><li><a href="../laurea-triennale/presentazione.html">Presentazione</a></li><li><a href="../laurea-triennale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-triennale/ofa.html">OFA</a></li><li><a href="../laurea-triennale/precorso.html">Precorso e test di ingresso</a></li><li><a href="../laurea-triennale/piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="../laurea-triennale/presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="../laurea-triennale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/index.html">Panoramica</a></li><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscrizione</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piano di studi</a></li><li><a href="../laurea-magistrale/laurearsi.html">Laurearsi</a></li></ul></li>
+<li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/index.html">Panoramica</a></li><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/programmi-syllabus.html">Programmi e syllabus</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/calendario-esami.html">Calendario esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/strumenti-per-la-didattica.html">Strumenti per la didattica</a></li></ul></li>
+<li class="item has-sub"><a href="index.html">Organizzazione</a><ul class="submenu"><li><a href="index.html">Panoramica</a></li><li><a href="segreterie.html">Segreterie e contatti</a></li><li><a href="consiglio-cds.html">Consiglio dei Corsi di Studio</a></li><li><a href="verbali-consiglio.html">Verbali del Consiglio</a></li><li><a href="genesi.html">Genesi del Corso di Studio</a></li><li><a href="normativa.html">Regolamenti, ordinamenti e normativa</a></li></ul></li>
+<li class="item"><a href="../orientamento.html">Orientamento</a></li>
+<li class="item has-sub"><a href="../info-utili/index.html">Info utili</a></li>
+<li class="item"><a href="../bandi.html">Bandi</a></li>
+<li class="item"><a href="../news.html">News</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> <a href="index.html">Organizzazione</a> <span>›</span> Consiglio dei Corsi di Studio</div>
+<section class="cds-hero">
+<h1>Consiglio dei Corsi di Studio in Matematica</h1>
+<p>La Laurea Triennale e la Laurea Magistrale in Matematica sono gestite da un Consiglio aggregato. La composizione qui riportata è quella prevista per l'anno accademico 2026/27.</p>
+</section><section class="cds-panel">
+<h2>Che cosa fa il Consiglio</h2>
+<p class="intro">Il Consiglio organizza e coordina le attività didattiche dei Corsi di Studio e assume le principali decisioni che riguardano il loro funzionamento.</p>
+<div class="role-grid">
+<div class="role-card">
+<h3>Didattica e programmazione</h3>
+<p>Coordina gli insegnamenti, formula proposte sulla programmazione didattica e sull'impiego delle risorse e propone modifiche di ordinamento e regolamento.</p>
+</div>
+<div class="role-card">
+<h3>Carriere degli studenti</h3>
+<p>Esamina i piani di studio e delibera sui riconoscimenti di studi e titoli e sulle altre pratiche didattiche di propria competenza.</p>
+</div>
+<div class="role-card">
+<h3>Monitoraggio</h3>
+<p>Segue l'andamento delle attività didattiche, dei risultati e dei servizi e partecipa ai processi di assicurazione della qualità.</p>
+</div>
+<div class="role-card">
+<h3>Regole del Corso di Studio</h3>
+<p>Formula e propone i testi che disciplinano il funzionamento didattico dei Corsi di Studio, nei limiti delle competenze previste dallo Statuto e dai regolamenti di Ateneo.</p>
+</div>
+</div>
+</section><section class="cds-panel annual-composition"><h2>Una composizione che cambia ogni anno</h2><p class="intro">La composizione del Consiglio si rinnova con decorrenza dal <strong>15 settembre</strong>, sulla base della programmazione didattica approvata per l'anno accademico. In pratica, tra il 14 e il 15 settembre cambia il Consiglio che risulta dalla programmazione dell'anno precedente e comincia il mandato della nuova composizione.</p><p>Eventuali modifiche della programmazione didattica nel corso dell'anno possono modificare immediatamente anche la composizione del Consiglio.</p></section>
+<section class="term-note current-term"><p><strong>Composizione attuale: dal 15 settembre 2026 al 14 settembre 2027.</strong></p></section><section class="cds-panel">
+<h2>Presidente</h2>
+<div class="member-tile president-tile"><div class="line name-line">Massimo Gobbino</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:massimo.gobbino@unipi.it">massimo.gobbino@unipi.it</a></div></div>
+</section>
+<details class="cds-accordion"><summary>Docenti</summary><div class="accordion-body">
+<p class="intro">I docenti che fanno parte del Consiglio nell'anno accademico 2026/27. Per ciascuno sono indicati Dipartimento di afferenza, settore scientifico-disciplinare nella vecchia e nella nuova nomenclatura ed e-mail.</p>
+<div class="searchbox">
+<label for="memberSearch">Cerca un componente</label>
+<input id="memberSearch" placeholder="Nome, SSD, afferenza o e-mail" type="search"/>
+</div>
+<div class="member-tiles" id="memberTiles"><article class="member-tile" data-search="marco abate dipartimento di matematica mat/03 math-02/b marco.abate@unipi.it"><div class="line name-line">Marco Abate</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:marco.abate@unipi.it">marco.abate@unipi.it</a></div></article><article class="member-tile" data-search="giovanni alberti dipartimento di matematica mat/05 math-03/a giovanni.alberti@unipi.it"><div class="line name-line">Giovanni Alberti</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:giovanni.alberti@unipi.it">giovanni.alberti@unipi.it</a></div></article><article class="member-tile" data-search="adolfo arroyo rabasa dipartimento di matematica mat/05 math-03/a adolfo.rabasa@unipi.it"><div class="line name-line">Adolfo Arroyo Rabasa</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:adolfo.rabasa@unipi.it">adolfo.rabasa@unipi.it</a></div></article><article class="member-tile" data-search="anna ethelwyn baccaglini-frank dipartimento di matematica mat/04 math-01/b anna.baccaglinifrank@unipi.it"><div class="line name-line">Anna Ethelwyn Baccaglini-Frank</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/04 – MATH-01/B</div><div class="line email-line"><a href="mailto:anna.baccaglinifrank@unipi.it">anna.baccaglinifrank@unipi.it</a></div></article><article class="member-tile" data-search="andrea bandini dipartimento di matematica mat/02 math-02/a andrea.bandini@unipi.it"><div class="line name-line">Andrea Bandini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:andrea.bandini@unipi.it">andrea.bandini@unipi.it</a></div></article><article class="member-tile" data-search="giulio baù dipartimento di matematica mat/07 math-04/a giulio.bau@unipi.it"><div class="line name-line">Giulio Baù</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:giulio.bau@unipi.it">giulio.bau@unipi.it</a></div></article><article class="member-tile" data-search="jacopo bellazzini dipartimento di matematica mat/05 math-03/a jacopo.bellazzini@unipi.it"><div class="line name-line">Jacopo Bellazzini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:jacopo.bellazzini@unipi.it">jacopo.bellazzini@unipi.it</a></div></article><article class="member-tile" data-search="alessandro berarducci dipartimento di matematica mat/01 math-01/a alessandro.berarducci@unipi.it"><div class="line name-line">Alessandro Berarducci</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/01 – MATH-01/A</div><div class="line email-line"><a href="mailto:alessandro.berarducci@unipi.it">alessandro.berarducci@unipi.it</a></div></article><article class="member-tile" data-search="luigi carlo berselli dipartimento di matematica mat/05 math-03/a luigi.carlo.berselli@unipi.it"><div class="line name-line">Luigi Carlo Berselli</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:luigi.carlo.berselli@unipi.it">luigi.carlo.berselli@unipi.it</a></div></article><article class="member-tile" data-search="fabrizio bianchi dipartimento di matematica mat/03 math-02/b fabrizio.bianchi@unipi.it"><div class="line name-line">Fabrizio Bianchi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:fabrizio.bianchi@unipi.it">fabrizio.bianchi@unipi.it</a></div></article><article class="member-tile" data-search="paola boito dipartimento di matematica mat/08 math-05/a paola.boito@unipi.it"><div class="line name-line">Paola Boito</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:paola.boito@unipi.it">paola.boito@unipi.it</a></div></article><article class="member-tile" data-search="claudio bonanno dipartimento di matematica mat/07 math-04/a claudio.bonanno@unipi.it"><div class="line name-line">Claudio Bonanno</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:claudio.bonanno@unipi.it">claudio.bonanno@unipi.it</a></div></article><article class="member-tile" data-search="giulio bresciani dipartimento di matematica mat/02 math-02/a giulio.bresciani1@unipi.it"><div class="line name-line">Giulio Bresciani</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:giulio.bresciani1@unipi.it">giulio.bresciani1@unipi.it</a></div></article><article class="member-tile" data-search="filippo gianluca callegaro dipartimento di matematica mat/03 math-02/b filippo.callegaro@unipi.it"><div class="line name-line">Filippo Gianluca Callegaro</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:filippo.callegaro@unipi.it">filippo.callegaro@unipi.it</a></div></article><article class="member-tile" data-search="diego conti dipartimento di matematica mat/03 math-02/b diego.conti@unipi.it"><div class="line name-line">Diego Conti</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:diego.conti@unipi.it">diego.conti@unipi.it</a></div></article><article class="member-tile" data-search="michele d'adderio dipartimento di matematica mat/02 math-02/a michele.dadderio@unipi.it"><div class="line name-line">Michele D'Adderio</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:michele.dadderio@unipi.it">michele.dadderio@unipi.it</a></div></article><article class="member-tile" data-search="ilaria del corso dipartimento di matematica mat/02 math-02/a ilaria.delcorso@unipi.it"><div class="line name-line">Ilaria Del Corso</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:ilaria.delcorso@unipi.it">ilaria.delcorso@unipi.it</a></div></article><article class="member-tile" data-search="gianluigi del magno dipartimento di matematica mat/07 math-04/a gianluigi.delmagno@unipi.it"><div class="line name-line">Gianluigi Del Magno</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:gianluigi.delmagno@unipi.it">gianluigi.delmagno@unipi.it</a></div></article><article class="member-tile" data-search="andrea di lorenzo dipartimento di matematica mat/03 math-02/b andrea.dilorenzo@unipi.it"><div class="line name-line">Andrea Di Lorenzo</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:andrea.dilorenzo@unipi.it">andrea.dilorenzo@unipi.it</a></div></article><article class="member-tile" data-search="pietro di martino dipartimento di matematica mat/04 math-01/b pietro.di.martino@unipi.it"><div class="line name-line">Pietro Di Martino</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/04 – MATH-01/B</div><div class="line email-line"><a href="mailto:pietro.di.martino@unipi.it">pietro.di.martino@unipi.it</a></div></article><article class="member-tile" data-search="mauro di nasso dipartimento di matematica mat/01 math-01/a mauro.di.nasso@unipi.it"><div class="line name-line">Mauro Di Nasso</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/01 – MATH-01/A</div><div class="line email-line"><a href="mailto:mauro.di.nasso@unipi.it">mauro.di.nasso@unipi.it</a></div></article><article class="member-tile" data-search="fabio durastante dipartimento di matematica mat/08 math-05/a fabio.durastante@unipi.it"><div class="line name-line">Fabio Durastante</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:fabio.durastante@unipi.it">fabio.durastante@unipi.it</a></div></article><article class="member-tile" data-search="luis ferroni dipartimento di matematica mat/03 math-02/b luis.ferroni@unipi.it"><div class="line name-line">Luis Ferroni</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:luis.ferroni@unipi.it">luis.ferroni@unipi.it</a></div></article><article class="member-tile" data-search="luigi forcella dipartimento di matematica mat/05 math-03/a luigi.forcella@unipi.it"><div class="line name-line">Luigi Forcella</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:luigi.forcella@unipi.it">luigi.forcella@unipi.it</a></div></article><article class="member-tile" data-search="marco franciosi dipartimento di matematica mat/03 math-02/b marco.franciosi@unipi.it"><div class="line name-line">Marco Franciosi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:marco.franciosi@unipi.it">marco.franciosi@unipi.it</a></div></article><article class="member-tile" data-search="roberto frigerio dipartimento di matematica mat/03 math-02/b roberto.frigerio@unipi.it"><div class="line name-line">Roberto Frigerio</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:roberto.frigerio@unipi.it">roberto.frigerio@unipi.it</a></div></article><article class="member-tile" data-search="giovanni gaiffi dipartimento di matematica mat/02 math-02/a giovanni.gaiffi@unipi.it"><div class="line name-line">Giovanni Gaiffi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:giovanni.gaiffi@unipi.it">giovanni.gaiffi@unipi.it</a></div></article><article class="member-tile" data-search="silvia gazzola dipartimento di matematica mat/08 math-05/a silvia.gazzola@unipi.it"><div class="line name-line">Silvia Gazzola</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:silvia.gazzola@unipi.it">silvia.gazzola@unipi.it</a></div></article><article class="member-tile" data-search="paolo giulietti dipartimento di matematica mat/07 math-04/a paolo.giulietti@unipi.it"><div class="line name-line">Paolo Giulietti</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:paolo.giulietti@unipi.it">paolo.giulietti@unipi.it</a></div></article><article class="member-tile" data-search="giovanni federico gronchi dipartimento di matematica mat/07 math-04/a giovanni.federico.gronchi@unipi.it"><div class="line name-line">Giovanni Federico Gronchi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:giovanni.federico.gronchi@unipi.it">giovanni.federico.gronchi@unipi.it</a></div></article><article class="member-tile" data-search="francesco grotto dipartimento di matematica mat/06 math-03/b francesco.grotto@unipi.it"><div class="line name-line">Francesco Grotto</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/06 – MATH-03/B</div><div class="line email-line"><a href="mailto:francesco.grotto@unipi.it">francesco.grotto@unipi.it</a></div></article><article class="member-tile" data-search="vladimir simeonov gueorguiev dipartimento di matematica mat/05 math-03/a vladimir.simeonov.gueorguiev@unipi.it"><div class="line name-line">Vladimir Simeonov Gueorguiev</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:vladimir.simeonov.gueorguiev@unipi.it">vladimir.simeonov.gueorguiev@unipi.it</a></div></article><article class="member-tile" data-search="luca heltai dipartimento di matematica mat/08 math-05/a luca.heltai@unipi.it"><div class="line name-line">Luca Heltai</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:luca.heltai@unipi.it">luca.heltai@unipi.it</a></div></article><article class="member-tile" data-search="giulia lisarelli dipartimento di matematica mat/04 math-01/b giulia.lisarelli@unipi.it"><div class="line name-line">Giulia Lisarelli</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/04 – MATH-01/B</div><div class="line email-line"><a href="mailto:giulia.lisarelli@unipi.it">giulia.lisarelli@unipi.it</a></div></article><article class="member-tile" data-search="paolo lisca dipartimento di matematica mat/03 math-02/b paolo.lisca@unipi.it"><div class="line name-line">Paolo Lisca</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:paolo.lisca@unipi.it">paolo.lisca@unipi.it</a></div></article><article class="member-tile" data-search="davide lombardo dipartimento di matematica mat/02 math-02/a davide.lombardo@unipi.it"><div class="line name-line">Davide Lombardo</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:davide.lombardo@unipi.it">davide.lombardo@unipi.it</a></div></article><article class="member-tile" data-search="ilaria lucardesi dipartimento di matematica mat/05 math-03/a ilaria.lucardesi@unipi.it"><div class="line name-line">Ilaria Lucardesi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:ilaria.lucardesi@unipi.it">ilaria.lucardesi@unipi.it</a></div></article><article class="member-tile" data-search="andrea maffei dipartimento di matematica mat/02 math-02/a andrea.maffei@unipi.it"><div class="line name-line">Andrea Maffei</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:andrea.maffei@unipi.it">andrea.maffei@unipi.it</a></div></article><article class="member-tile" data-search="valentino magnani dipartimento di matematica mat/05 math-03/a valentino.magnani@unipi.it"><div class="line name-line">Valentino Magnani</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:valentino.magnani@unipi.it">valentino.magnani@unipi.it</a></div></article><article class="member-tile" data-search="pietro majer dipartimento di matematica mat/05 math-03/a pietro.majer@unipi.it"><div class="line name-line">Pietro Majer</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:pietro.majer@unipi.it">pietro.majer@unipi.it</a></div></article><article class="member-tile" data-search="marcello mamino dipartimento di matematica mat/01 math-01/a marcello.mamino@unipi.it"><div class="line name-line">Marcello Mamino</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/01 – MATH-01/A</div><div class="line email-line"><a href="mailto:marcello.mamino@unipi.it">marcello.mamino@unipi.it</a></div></article><article class="member-tile" data-search="sandro manfredini dipartimento di matematica mat/03 math-02/b sandro.manfredini@unipi.it"><div class="line name-line">Sandro Manfredini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:sandro.manfredini@unipi.it">sandro.manfredini@unipi.it</a></div></article><article class="member-tile" data-search="mirko maracci dipartimento di matematica mat/04 math-01/b mirko.maracci@unipi.it"><div class="line name-line">Mirko Maracci</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/04 – MATH-01/B</div><div class="line email-line"><a href="mailto:mirko.maracci@unipi.it">mirko.maracci@unipi.it</a></div></article><article class="member-tile" data-search="bruno martelli dipartimento di matematica mat/03 math-02/b bruno.martelli@unipi.it"><div class="line name-line">Bruno Martelli</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:bruno.martelli@unipi.it">bruno.martelli@unipi.it</a></div></article><article class="member-tile" data-search="stefano massei dipartimento di matematica mat/08 math-05/a stefano.massei@unipi.it"><div class="line name-line">Stefano Massei</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:stefano.massei@unipi.it">stefano.massei@unipi.it</a></div></article><article class="member-tile" data-search="mario maurelli dipartimento di matematica mat/06 math-03/b mario.maurelli@unipi.it"><div class="line name-line">Mario Maurelli</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/06 – MATH-03/B</div><div class="line email-line"><a href="mailto:mario.maurelli@unipi.it">mario.maurelli@unipi.it</a></div></article><article class="member-tile" data-search="beatrice meini dipartimento di matematica mat/08 math-05/a beatrice.meini@unipi.it"><div class="line name-line">Beatrice Meini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:beatrice.meini@unipi.it">beatrice.meini@unipi.it</a></div></article><article class="member-tile" data-search="ettore minguzzi dipartimento di matematica mat/07 math-04/a ettore.minguzzi@unipi.it"><div class="line name-line">Ettore Minguzzi</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:ettore.minguzzi@unipi.it">ettore.minguzzi@unipi.it</a></div></article><article class="member-tile" data-search="francesco morandin dipartimento di matematica mat/06 math-03/b francesco.morandin@unipi.it"><div class="line name-line">Francesco Morandin</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/06 – MATH-03/B</div><div class="line email-line"><a href="mailto:francesco.morandin@unipi.it">francesco.morandin@unipi.it</a></div></article><article class="member-tile" data-search="cyrill muratov dipartimento di matematica mat/05 math-03/a cyrill.muratov@unipi.it"><div class="line name-line">Cyrill Muratov</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:cyrill.muratov@unipi.it">cyrill.muratov@unipi.it</a></div></article><article class="member-tile" data-search="matteo novaga dipartimento di matematica mat/05 math-03/a matteo.novaga@unipi.it"><div class="line name-line">Matteo Novaga</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:matteo.novaga@unipi.it">matteo.novaga@unipi.it</a></div></article><article class="member-tile" data-search="cecilia pagliantini dipartimento di matematica mat/08 math-05/a cecilia.pagliantini@unipi.it"><div class="line name-line">Cecilia Pagliantini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:cecilia.pagliantini@unipi.it">cecilia.pagliantini@unipi.it</a></div></article><article class="member-tile" data-search="emanuele paolini dipartimento di matematica mat/05 math-03/a emanuele.paolini@unipi.it"><div class="line name-line">Emanuele Paolini</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:emanuele.paolini@unipi.it">emanuele.paolini@unipi.it</a></div></article><article class="member-tile" data-search="leonardo patimo dipartimento di matematica mat/02 math-02/a leonardo.patimo@unipi.it"><div class="line name-line">Leonardo Patimo</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:leonardo.patimo@unipi.it">leonardo.patimo@unipi.it</a></div></article><article class="member-tile" data-search="gregory james pearlstein dipartimento di matematica mat/03 math-02/b greg.pearlstein@unipi.it"><div class="line name-line">Gregory James Pearlstein</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:greg.pearlstein@unipi.it">greg.pearlstein@unipi.it</a></div></article><article class="member-tile" data-search="nicola picenni dipartimento di matematica mat/05 math-03/a nicola.picenni@unipi.it"><div class="line name-line">Nicola Picenni</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:nicola.picenni@unipi.it">nicola.picenni@unipi.it</a></div></article><article class="member-tile" data-search="aldo pratelli dipartimento di matematica mat/05 math-03/a aldo.pratelli@unipi.it"><div class="line name-line">Aldo Pratelli</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:aldo.pratelli@unipi.it">aldo.pratelli@unipi.it</a></div></article><article class="member-tile" data-search="leonardo robol dipartimento di matematica mat/08 math-05/a leonardo.robol@unipi.it"><div class="line name-line">Leonardo Robol</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:leonardo.robol@unipi.it">leonardo.robol@unipi.it</a></div></article><article class="member-tile" data-search="marco romito dipartimento di matematica mat/06 math-03/b marco.romito@unipi.it"><div class="line name-line">Marco Romito</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/06 – MATH-03/B</div><div class="line email-line"><a href="mailto:marco.romito@unipi.it">marco.romito@unipi.it</a></div></article><article class="member-tile" data-search="mario salvetti dipartimento di matematica mat/03 math-02/b mario.salvetti@unipi.it"><div class="line name-line">Mario Salvetti</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:mario.salvetti@unipi.it">mario.salvetti@unipi.it</a></div></article><article class="member-tile" data-search="enrico sbarra dipartimento di matematica mat/02 math-02/a enrico.sbarra@unipi.it"><div class="line name-line">Enrico Sbarra</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/02 – MATH-02/A</div><div class="line email-line"><a href="mailto:enrico.sbarra@unipi.it">enrico.sbarra@unipi.it</a></div></article><article class="member-tile" data-search="tamás szamuely dipartimento di matematica mat/03 math-02/b tamas.szamuely@unipi.it"><div class="line name-line">Tamás Szamuely</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:tamas.szamuely@unipi.it">tamas.szamuely@unipi.it</a></div></article><article class="member-tile" data-search="mattia talpo dipartimento di matematica mat/03 math-02/b mattia.talpo@unipi.it"><div class="line name-line">Mattia Talpo</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/03 – MATH-02/B</div><div class="line email-line"><a href="mailto:mattia.talpo@unipi.it">mattia.talpo@unipi.it</a></div></article><article class="member-tile" data-search="giacomo tommei dipartimento di matematica mat/07 math-04/a giacomo.tommei@unipi.it"><div class="line name-line">Giacomo Tommei</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/07 – MATH-04/A</div><div class="line email-line"><a href="mailto:giacomo.tommei@unipi.it">giacomo.tommei@unipi.it</a></div></article><article class="member-tile" data-search="dario trevisan dipartimento di matematica mat/06 math-03/b dario.trevisan@unipi.it"><div class="line name-line">Dario Trevisan</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/06 – MATH-03/B</div><div class="line email-line"><a href="mailto:dario.trevisan@unipi.it">dario.trevisan@unipi.it</a></div></article><article class="member-tile" data-search="bozhidar velichkov dipartimento di matematica mat/05 math-03/a bozhidar.velichkov@unipi.it"><div class="line name-line">Bozhidar Velichkov</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:bozhidar.velichkov@unipi.it">bozhidar.velichkov@unipi.it</a></div></article><article class="member-tile" data-search="nicola visciglia dipartimento di matematica mat/05 math-03/a nicola.visciglia@unipi.it"><div class="line name-line">Nicola Visciglia</div><div class="line dept-line">Dipartimento di Matematica</div><div class="line sector-line">MAT/05 – MATH-03/A</div><div class="line email-line"><a href="mailto:nicola.visciglia@unipi.it">nicola.visciglia@unipi.it</a></div></article><article class="member-tile" data-search="giancarlo bigi dipartimento di informatica mat/09 math-06/a giancarlo.bigi@unipi.it"><div class="line name-line">Giancarlo Bigi</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">MAT/09 – MATH-06/A</div><div class="line email-line"><a href="mailto:giancarlo.bigi@unipi.it">giancarlo.bigi@unipi.it</a></div></article><article class="member-tile" data-search="federico giovanni poloni dipartimento di informatica mat/08 math-05/a federico.poloni@unipi.it"><div class="line name-line">Federico Giovanni Poloni</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:federico.poloni@unipi.it">federico.poloni@unipi.it</a></div></article><article class="member-tile" data-search="fabio gadducci dipartimento di informatica inf/01 info-01/a fabio.gadducci@unipi.it"><div class="line name-line">Fabio Gadducci</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">INF/01 – INFO-01/A</div><div class="line email-line"><a href="mailto:fabio.gadducci@unipi.it">fabio.gadducci@unipi.it</a></div></article><article class="member-tile" data-search="roberto grossi dipartimento di informatica inf/01 info-01/a roberto.grossi@unipi.it"><div class="line name-line">Roberto Grossi</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">INF/01 – INFO-01/A</div><div class="line email-line"><a href="mailto:roberto.grossi@unipi.it">roberto.grossi@unipi.it</a></div></article><article class="member-tile" data-search="paolo maria mancarella dipartimento di informatica inf/01 info-01/a paolo.mancarella@unipi.it"><div class="line name-line">Paolo Maria Mancarella</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">INF/01 – INFO-01/A</div><div class="line email-line"><a href="mailto:paolo.mancarella@unipi.it">paolo.mancarella@unipi.it</a></div></article><article class="member-tile" data-search="massimo pappalardo dipartimento di informatica mat/09 math-06/a massimo.pappalardo@unipi.it"><div class="line name-line">Massimo Pappalardo</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">MAT/09 – MATH-06/A</div><div class="line email-line"><a href="mailto:massimo.pappalardo@unipi.it">massimo.pappalardo@unipi.it</a></div></article><article class="member-tile" data-search="maria grazia scutellà dipartimento di informatica mat/09 math-06/a maria.grazia.scutella@unipi.it"><div class="line name-line">Maria Grazia Scutellà</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">MAT/09 – MATH-06/A</div><div class="line email-line"><a href="mailto:maria.grazia.scutella@unipi.it">maria.grazia.scutella@unipi.it</a></div></article><article class="member-tile" data-search="alice cortinovis dipartimento di informatica mat/08 math-05/a alice.cortinovis@unipi.it"><div class="line name-line">Alice Cortinovis</div><div class="line dept-line">Dipartimento di Informatica</div><div class="line sector-line">MAT/08 – MATH-05/A</div><div class="line email-line"><a href="mailto:alice.cortinovis@unipi.it">alice.cortinovis@unipi.it</a></div></article><article class="member-tile" data-search="ignazio bombaci dipartimento di fisica fis/04 phys-02/a ignazio.bombaci@unipi.it"><div class="line name-line">Ignazio Bombaci</div><div class="line dept-line">Dipartimento di Fisica</div><div class="line sector-line">FIS/04 – PHYS-02/A</div><div class="line email-line"><a href="mailto:ignazio.bombaci@unipi.it">ignazio.bombaci@unipi.it</a></div></article><article class="member-tile" data-search="alberto maria messineo dipartimento di fisica fis/01 phys-01/a alberto.maria.messineo@unipi.it"><div class="line name-line">Alberto Maria Messineo</div><div class="line dept-line">Dipartimento di Fisica</div><div class="line sector-line">FIS/01 – PHYS-01/A</div><div class="line email-line"><a href="mailto:alberto.maria.messineo@unipi.it">alberto.maria.messineo@unipi.it</a></div></article><article class="member-tile" data-search="eugenio paoloni dipartimento di fisica fis/01 phys-01/a eugenio.paoloni@unipi.it"><div class="line name-line">Eugenio Paoloni</div><div class="line dept-line">Dipartimento di Fisica</div><div class="line sector-line">FIS/01 – PHYS-01/A</div><div class="line email-line"><a href="mailto:eugenio.paoloni@unipi.it">eugenio.paoloni@unipi.it</a></div></article><article class="member-tile" data-search="omar zanusso dipartimento di fisica fis/02 phys-02/a omar.zanusso@unipi.it"><div class="line name-line">Omar Zanusso</div><div class="line dept-line">Dipartimento di Fisica</div><div class="line sector-line">FIS/02 – PHYS-02/A</div><div class="line email-line"><a href="mailto:omar.zanusso@unipi.it">omar.zanusso@unipi.it</a></div></article><article class="member-tile" data-search="marco stanislao sozzi dipartimento di fisica fis/01 phys-01/a marco.sozzi@unipi.it"><div class="line name-line">Marco Stanislao Sozzi</div><div class="line dept-line">Dipartimento di Fisica</div><div class="line sector-line">FIS/01 – PHYS-01/A</div><div class="line email-line"><a href="mailto:marco.sozzi@unipi.it">marco.sozzi@unipi.it</a></div></article></div>
+</div></details>
+<details class="cds-accordion"><summary>Rappresentanti degli studenti</summary><div class="accordion-body">
+<p class="intro">I rappresentanti degli studenti fanno parte del Consiglio e rappresentano la componente studentesca nelle sue attività. Per contattare collettivamente tutti i rappresentanti si può scrivere a <a href="mailto:rappstudcds@lists.dm.unipi.it"><strong>rappstudcds@lists.dm.unipi.it</strong></a>.</p>
+<ul class="student-list">
+<li><strong>Angelica Hajrije Berisha</strong><br/><a href="mailto:a.berisha3@studenti.unipi.it">a.berisha3@studenti.unipi.it</a></li>
+<li><strong>Maria Vittoria Buccioli</strong><br/><a href="mailto:m.buccioli1@studenti.unipi.it">m.buccioli1@studenti.unipi.it</a></li>
+<li><strong>Andrea Gioè</strong><br/><a href="mailto:a.gioe2@studenti.unipi.it">a.gioe2@studenti.unipi.it</a></li>
+<li><strong>Isabella Inuso</strong><br/><a href="mailto:i.inuso@studenti.unipi.it">i.inuso@studenti.unipi.it</a></li>
+<li><strong>Dario Giovanni Martinez</strong><br/><a href="mailto:d.martinez1@studenti.unipi.it">d.martinez1@studenti.unipi.it</a></li>
+<li><strong>Giorgio Olivieri</strong><br/><a href="mailto:g.olivieri10@studenti.unipi.it">g.olivieri10@studenti.unipi.it</a></li>
+<li><strong>Luca Pilosio</strong><br/><a href="mailto:l.pilosio@studenti.unipi.it">l.pilosio@studenti.unipi.it</a></li>
+<li><strong>Pietro Carlo Puddu</strong><br/><a href="mailto:p.puddu@studenti.unipi.it">p.puddu@studenti.unipi.it</a></li>
+<li><strong>Elena Tucciello</strong><br/><a href="mailto:e.tucciello@studenti.unipi.it">e.tucciello@studenti.unipi.it</a></li>
+<li><strong>Han Xue</strong><br/><a href="mailto:h.xue1@studenti.unipi.it">h.xue1@studenti.unipi.it</a></li>
+</ul>
+</div></details>
+<details class="cds-accordion"><summary>Coordinamento didattico</summary><div class="accordion-body">
+<div class="role-card">
+<h3>Maria Benvenuti</h3>
+<p><strong>Responsabile del coordinamento didattico</strong><br/>
+<a href="mailto:maria.benvenuti@unipi.it">maria.benvenuti@unipi.it</a></p>
+<p>Partecipa alle sedute del Consiglio senza diritto di voto.</p>
+</div>
+</div></details>
+<section class="cds-panel commissions-block"><h2>Commissioni e gruppi di lavoro</h2><p class="intro">Il Consiglio si avvale di commissioni e gruppi di lavoro per alcune attività specifiche. Le decisioni di competenza dei Corsi di Studio restano comunque in capo al Consiglio.</p><details class="cds-accordion">
+<summary>Commissione Carriere Studenti</summary>
+<div class="accordion-body">
+<p class="intro">Istruisce le pratiche relative alle carriere degli studenti e prepara le proposte da sottoporre al Consiglio per le deliberazioni di competenza.</p>
+<div class="small-member-tiles">
+<div class="small-member-tile"><strong>Paola Boito</strong><a href="mailto:paola.boito@unipi.it">paola.boito@unipi.it</a></div>
+<div class="small-member-tile"><strong>Filippo Gianluca Callegaro</strong><a href="mailto:filippo.callegaro@unipi.it">filippo.callegaro@unipi.it</a></div>
+<div class="small-member-tile"><strong>Ilaria Del Corso</strong><a href="mailto:ilaria.delcorso@unipi.it">ilaria.delcorso@unipi.it</a></div>
+<div class="small-member-tile"><strong>Giovanni Federico Gronchi</strong><a href="mailto:giovanni.federico.gronchi@unipi.it">giovanni.federico.gronchi@unipi.it</a></div>
+<div class="small-member-tile"><strong>Valentino Magnani</strong><a href="mailto:valentino.magnani@unipi.it">valentino.magnani@unipi.it</a></div>
+<div class="small-member-tile"><strong>Stefano Massei</strong><a href="mailto:stefano.massei@unipi.it">stefano.massei@unipi.it</a></div>
+<div class="small-member-tile"><strong>Giacomo Tommei</strong><a href="mailto:giacomo.tommei@unipi.it">giacomo.tommei@unipi.it</a></div>
+</div>
+<aside class="internal-note compact-note"><strong>Nota interna — da verificare.</strong><p>La composizione qui riportata proviene dalla pagina attualmente pubblicata dal Dipartimento e può essere obsoleta. Va sostituita con la composizione effettivamente in carica.</p></aside></div>
+</details><details class="cds-accordion">
+<summary>Gruppo di gestione AQ / Gruppo di Riesame</summary>
+<div class="accordion-body">
+<p class="intro">È il gruppo di gestione dell'Assicurazione della Qualità del Corso di Studio, identificato nella SUA-CdS anche come Gruppo di Riesame. Partecipa alle attività di monitoraggio e riesame e alla predisposizione dei relativi documenti, tra cui la Scheda di Monitoraggio Annuale.</p>
+<div class="small-member-tiles"><div class="small-member-tile"><strong>Maria Benvenuti</strong><a href="mailto:maria.benvenuti@unipi.it">maria.benvenuti@unipi.it</a></div><div class="small-member-tile"><strong>Filippo Gianluca Callegaro</strong><a href="mailto:filippo.callegaro@unipi.it">filippo.callegaro@unipi.it</a></div><div class="small-member-tile"><strong>Massimo Gobbino</strong><a href="mailto:massimo.gobbino@unipi.it">massimo.gobbino@unipi.it</a></div><div class="small-member-tile"><strong>Valentino Magnani</strong><a href="mailto:valentino.magnani@unipi.it">valentino.magnani@unipi.it</a></div><div class="small-member-tile"><strong>Mario Maurelli</strong><a href="mailto:mario.maurelli@unipi.it">mario.maurelli@unipi.it</a></div><div class="small-member-tile"><strong>Leonardo Robol</strong><a href="mailto:leonardo.robol@unipi.it">leonardo.robol@unipi.it</a></div><div class="small-member-tile"><strong>Mattia Buratti</strong></div></div>
+<aside class="internal-note compact-note"><strong>Nota interna — fonte della composizione.</strong><p>Questa composizione è ricavata dalla scheda SUA-CdS 2026/27 relativa al Gruppo di gestione AQ. La stessa scheda precisa che il Gruppo di gestione AQ è identificato anche come Gruppo di Riesame.</p></aside></div>
+</details><details class="cds-accordion">
+<summary>Commissione Paritetica Docenti-Studenti (CPDS)</summary>
+<div class="accordion-body">
+<p class="intro">
+      La Commissione Paritetica Docenti-Studenti non è una commissione del Corso di Studio,
+      ma un organismo del Dipartimento. Svolge attività di monitoraggio dell'offerta formativa
+      e della qualità della didattica e redige una relazione annuale.
+    </p>
+<p>
+      Per composizione, verbali, relazioni e altre informazioni aggiornate si rimanda alla
+      sezione istituzionale del Dipartimento.
+    </p>
+<p>
+<a href="https://www.dm.unipi.it/assicurazione-della-qualita/" rel="noopener" target="_blank">
+        Vai alla sezione Assicurazione della qualità del Dipartimento
+      </a>
+</p>
+</div>
+</details><aside class="internal-note" style="margin-top:1rem"><strong>Nota interna — composizioni da verificare.</strong><p>La composizione della Commissione Carriere Studenti è da aggiornare. Il Gruppo di gestione AQ / Gruppo di Riesame è stato invece aggiornato sulla base della SUA-CdS 2026/27. Per la CPDS non replichiamo la composizione: resta di competenza della sezione del Dipartimento.</p></aside></section><section class="cds-panel archive">
+<h2>Composizioni precedenti</h2>
+<p class="intro">Archivio delle composizioni del Consiglio negli anni accademici precedenti.</p>
+<details>
+<summary>Archivio delle composizioni</summary>
+<p>Qui potranno essere raccolte le composizioni degli anni precedenti, organizzate per anno accademico.</p>
+</details>
+</section>
+</main>
+<footer>Prototipo non ufficiale</footer>
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  const input=document.getElementById('memberSearch');
+  const tiles=[...document.querySelectorAll('#memberTiles .member-tile')];
+  if(!input) return;
+  input.addEventListener('input',()=>{
+    const q=input.value.trim().toLowerCase();
+    tiles.forEach(tile=>tile.hidden=q && !tile.dataset.search.includes(q));
+  });
+})();
+</script>
+</body>
+</html>
