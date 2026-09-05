@@ -1,147 +1,351 @@
 <!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../assets/style.css" rel="stylesheet">
+<title>Laurea Triennale in Matematica</title>
+<style>
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin:0;background:#f7f8fa;color:#222}
+main{max-width:1100px;margin:40px auto;padding:0 20px}
+.lt-hero{max-width:900px;margin-bottom:2rem}
+.lt-kicker{font-size:1.25rem;font-weight:700;letter-spacing:.02em;opacity:.78;margin-bottom:.45rem}
+.lt-hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.08;margin:.1rem 0 .7rem}
+.lt-hero p{font-size:1.1rem;line-height:1.55;color:#555;margin:.25rem 0}
+.lt-facts{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+.lt-fact{border:1px solid #d8dde3;background:#fff;border-radius:999px;padding:.45rem .75rem;font-size:.95rem}
 
-<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Laurea Triennale in Matematica - Prototipo Didattica</title><link href="../assets/style.css" rel="stylesheet"/><style>
-.lt-hero{max-width:850px;margin-bottom:2rem}
-.lt-hero h1{margin-bottom:.45rem}
-.lt-hero p{font-size:1.08rem;color:#555;margin:0}
-.lt-feature{
-  display:block;
-  position:relative;
-  margin:1.4rem 0 2rem;
-  padding:1.35rem 1.4rem 2.2rem;
-  border:1px solid #d6d9dd;
-  border-radius:12px;
-  background:#f3f6f8;
-  color:inherit;
-  text-decoration:none;
+.section{margin-top:2.2rem}
+.section h2{margin:0 0 .35rem;font-size:1.7rem}
+.section-intro{margin:0 0 1rem;color:#666}
+
+.intro-note{margin:0 0 1.2rem;padding:1rem 1.05rem;background:#f8f9fa;border:1px solid #d8dde3;border-radius:12px}
+.intro-note p{margin:.35rem 0;line-height:1.5;color:#444}
+.ssd-legend{margin-top:.7rem!important;padding-top:.7rem;border-top:1px solid #d8dde3}
+
+.area-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.area-card{background:#f8f9fa;border:1px solid #d8dde3;border-radius:12px;padding:1.1rem}
+.area-card h3{margin:0 0 .5rem;font-size:1.2rem}
+.area-card p{margin:.35rem 0;color:#555;line-height:1.5}
+.ssd-list{list-style:none;margin:.65rem 0 0;padding:0}
+.ssd-list li{display:grid;grid-template-columns:5.2rem 6.8rem 1fr;column-gap:.55rem;align-items:baseline;margin:.3rem 0}
+.ssd-old,.ssd-new{font-variant-numeric:tabular-nums;white-space:nowrap}
+.ssd-name{font-weight:700}
+
+
+.study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.study-card{background:#fff;border:1px solid #d8dde3;border-radius:14px;padding:1.1rem}
+.study-card h3{margin:0 0 .4rem;font-size:1.15rem}
+.study-card p{margin:0;color:#555;line-height:1.5}
+
+
+.timeline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.timeline-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+.timeline-grid.single{grid-template-columns:minmax(0,1fr)}
+.rules-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nav-card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid #d8dde3;border-radius:14px;padding:1.15rem}
+.nav-card:hover,.nav-card:focus{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
+.nav-card h3{margin:0 0 .35rem;font-size:1.2rem}
+.nav-card p{margin:0;color:#555;line-height:1.5}
+.final-card{max-width:720px}
+.rules-section{padding-top:1rem;border-top:1px solid #d8dde3}
+
+
+.lt-panel{margin-top:2rem;background:#fff;border:1px solid #d8dde3;border-radius:16px;padding:1.35rem}
+.lt-panel-head{margin-bottom:1.2rem}
+.lt-panel-head h2{margin:0 0 .25rem;font-size:1.65rem}
+.lt-panel-head p{margin:0;color:#666}
+.lt-panel .area-grid,.lt-panel .study-grid{margin-top:1rem}
+.career-timeline{display:grid;gap:1.2rem}
+.career-phase{position:relative;padding-left:3.3rem}
+.career-phase:not(:last-child)::before{content:"";position:absolute;left:1.15rem;top:2.55rem;bottom:-1.25rem;width:1px;background:#d8dde3}
+.career-step{position:relative;min-height:2.35rem;display:flex;align-items:center;margin-bottom:.8rem}
+.career-step-number{position:absolute;left:-3.3rem;width:2.35rem;height:2.35rem;display:grid;place-items:center;border-radius:50%;border:1px solid #d8dde3;background:#f7f8fa;font-weight:700}
+.career-step h3{margin:0;font-size:1.25rem}
+.career-phase .timeline-grid{margin-top:.2rem}
+.official-docs{margin-top:2rem;padding-top:1.6rem;border-top:1px solid #d8dde3}
+.official-docs-head h2{margin:0 0 .3rem;font-size:1.45rem}
+.official-docs-head p{margin:0 0 1rem;color:#666}
+.official-docs .rules-grid{margin-top:.8rem}
+
+@media(max-width:900px){
+  .career-phase{padding-left:2.8rem}
+  .career-step-number{left:-2.8rem}
+  .area-grid,.study-grid,.timeline-grid,.timeline-grid-4,.rules-grid{grid-template-columns:1fr}
+  .ssd-list li{grid-template-columns:5rem 6.5rem 1fr}
 }
-.lt-feature h2{margin:.05rem 0 .35rem}
-.lt-feature p{margin:0;max-width:850px;color:#444}.lt-feature:hover,.lt-feature:focus,.lt-card:hover,.lt-card:focus{
-  transform:translateY(-2px);
-  box-shadow:0 6px 18px rgba(0,0,0,.07);
-  outline:none;
-}.lt-section{margin-top:2rem}
-.lt-section h2{margin-bottom:.2rem}
-.lt-section-intro{margin-top:0;color:#555}
-.lt-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.lt-card{
-  display:block;
-  position:relative;
-  min-height:150px;
-  padding:1.05rem 1.1rem 2.1rem;
-  border:1px solid #d6d9dd;
-  border-radius:9px;
-  background:#fff;
-  color:inherit;
-  text-decoration:none;
-}
-.lt-card strong{display:block;font-size:1.06rem;margin-bottom:.35rem}
-.lt-card span{display:block;color:#555}
-.lt-end{max-width:520px}
-.official-docs{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid #d6d9dd}
-.official-docs-links{display:flex;gap:.7rem;flex-wrap:wrap}
-.official-docs-links a{
-  display:block;padding:.65rem .85rem;border:1px solid #d6d9dd;border-radius:8px;
-  background:#fff;text-decoration:none;color:inherit
-}
-.internal-note{
-  margin-top:1.8rem;padding:.9rem 1rem;border:1px dashed #8a5a9b;border-radius:7px;
-  background:#faf6fc;color:#6a3f78;font-size:.94rem
-}
-@media(max-width:760px){.lt-grid{grid-template-columns:1fr}}
-</style></head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav"><button aria-expanded="false" class="menu-toggle">Menu</button><ul class="menu"><li><a href="../index.html">Didattica</a></li><li class="item has-sub"><a href="index.html">Laurea Triennale</a><ul class="submenu"><li><a href="presentazione.html">Presentazione</a></li><li><a href="iscrizione.html">Iscrizione</a></li><li><a href="ofa.html">OFA</a></li><li><a href="precorso.html">Precorso e prova iniziale</a></li><li><a href="piano-di-studi.html">Costruire il piano di studi</a></li><li><a href="presentare-piano-di-studi.html">Presentare il piano di studi</a></li><li><a href="conseguimento-del-titolo.html">Laurearsi</a></li></ul></li><li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a><ul class="submenu"><li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li><li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li><li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li><li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li><li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li><li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li></ul></li><li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a><ul class="submenu"><li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li><li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li><li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li><li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li><li><a href="../lezioni-esami/esami.html">Esami</a></li><li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li><li><a href="../lezioni-esami/e-learning.html">E-learning</a></li></ul></li><li class="item has-sub"><span>Organizzazione</span><ul class="submenu"><li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li><li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li><li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li><li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li></ul></li><li class="item"><a href="../orientamento.html">Orientamento</a></li><li class="item has-sub"><a href="../info-utili/index.html">Info utili</a><ul class="submenu"><li><a href="../info-utili/borse.html">Borse di studio</a></li><li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li><li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li><li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li></ul></li><li class="item"><a href="../bandi.html">Bandi</a></li><li class="item"><a href="../news.html">News</a></li></ul></nav></header>
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="seal">UNIPI</div>
+    <div>
+      <div class="site-name">Didattica</div>
+      <div class="dept">Dipartimento di Matematica</div>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <button aria-expanded="false" class="menu-toggle">Menu</button>
+    <ul class="menu">
+      <li><a href="../index.html">Didattica</a></li>
+      <li class="item has-sub"><a href="index.html">Laurea Triennale</a>
+        <ul class="submenu">
+          <li><a href="presentazione.html">Presentazione</a></li>
+          <li><a href="iscrizione.html">Iscrizione</a></li>
+          <li><a href="ofa.html">OFA</a></li>
+          <li><a href="precorso.html">Precorso e test di ingresso</a></li>
+          <li><a href="piano-di-studi.html">Costruire il piano di studi</a></li>
+          <li><a href="presentare-piano-di-studi.html">Presentare il piano di studi</a></li>
+          <li><a href="laurearsi.html">Laurearsi</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><a href="../laurea-magistrale/index.html">Laurea Magistrale</a>
+        <ul class="submenu">
+          <li><a href="../laurea-magistrale/presentazione.html">Presentazione</a></li>
+          <li><a href="../laurea-magistrale/iscrizione.html">Iscriversi</a></li>
+          <li><a href="../laurea-magistrale/piano-di-studi.html">Piani di studio</a></li>
+          <li><a href="../laurea-magistrale/conseguimento-del-titolo.html">Conseguimento del titolo</a></li>
+          <li><a href="../laurea-magistrale/regolamento.html">Regolamento</a></li>
+          <li><a href="../laurea-magistrale/ordinamento.html">Ordinamento</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><a href="../lezioni-esami/index.html">Lezioni &amp; Esami</a>
+        <ul class="submenu">
+          <li><a href="../lezioni-esami/calendario.html">Calendario delle attività didattiche</a></li>
+          <li><a href="../lezioni-esami/insegnamenti-attivati.html">Insegnamenti attivati</a></li>
+          <li><a href="../lezioni-esami/presentazione-corsi.html">Presentazione degli insegnamenti</a></li>
+          <li><a href="../lezioni-esami/orario.html">Orario delle lezioni</a></li>
+          <li><a href="../lezioni-esami/esami.html">Esami</a></li>
+          <li><a href="../lezioni-esami/appelli-laurea.html">Appelli di laurea</a></li>
+          <li><a href="../lezioni-esami/e-learning.html">E-learning</a></li>
+        </ul>
+      </li>
+      <li class="item has-sub"><span>Organizzazione</span>
+        <ul class="submenu">
+          <li><a href="../organizzazione/segreteria.html">Segreteria Didattica</a></li>
+          <li><a href="../organizzazione/rappresentanti.html">Rappresentanti degli studenti</a></li>
+          <li><a href="../organizzazione/organi.html">Organi collegiali e verbali</a></li>
+          <li><a href="../organizzazione/qualita.html">Assicurazione della qualità – Didattica</a></li>
+        </ul>
+      </li>
+      <li class="item"><a href="../orientamento.html">Orientamento</a></li>
+      <li class="item has-sub"><a href="../info-utili/index.html">Info utili</a>
+        <ul class="submenu">
+          <li><a href="../info-utili/borse.html">Borse di studio</a></li>
+          <li><a href="../info-utili/tutorato.html">Servizi di tutorato</a></li>
+          <li><a href="../info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
+          <li><a href="../info-utili/tirocini.html">Tirocini e stage</a></li>
+        </ul>
+      </li>
+      <li class="item"><a href="../bandi.html">Bandi</a></li>
+      <li class="item"><a href="../news.html">News</a></li>
+    </ul>
+  </nav>
+</header>
 <main>
   <div class="breadcrumb"><a href="../index.html">Home Didattica</a> <span>›</span> Laurea Triennale</div>
 
-  <section class="lt-hero">
-    <h1>Laurea Triennale in Matematica</h1>
-    <p>
-      Questa pagina è il punto di partenza per orientarsi nel percorso triennale:
-      capire com’è fatto il corso, iniziare il primo anno, organizzare gli studi
-      e arrivare alla laurea.
-    </p>
-  </section>
+<section class="lt-hero">
+  <h1>Laurea Triennale in Matematica</h1>
+  <p>Tre anni per costruire una formazione matematica di base ampia, con un percorso comune e una progressiva possibilità di scelta.</p>
 
-  <a class="lt-feature" href="presentazione.html">
-    <h2>Il percorso triennale</h2>
-    <p>
-      Che cosa si studia, come cambia la matematica rispetto alla scuola,
-      come si sviluppa il percorso nei tre anni e quali possibilità si aprono dopo.
-    </p>
-  </a>
+  <div class="lt-facts" aria-label="Dati essenziali del corso">
+    <span class="lt-fact">3 anni</span>
+    <span class="lt-fact">180 CFU</span>
+    <span class="lt-fact">Accesso libero con verifica delle conoscenze in ingresso</span>
+    <span class="lt-fact">Due curricula</span>
+  </div>
+</section>
 
-  <section class="lt-section">
-    <h2>Prima di iniziare</h2>
-    <p class="lt-section-intro">Le informazioni utili per entrare nel corso e partire con il piede giusto.</p>
 
-    <div class="lt-grid">
-      <a class="lt-card" href="iscrizione.html">
-        <strong>Iscrizione</strong>
-        <span>Come immatricolarsi, passare da un altro corso o trasferirsi da un altro Ateneo.</span>
-      </a>
-
-      <a class="lt-card" href="ofa.html">
-        <strong>OFA</strong>
-        <span>Che cosa sono gli Obblighi Formativi Aggiuntivi, cosa comportano e come si assolvono.</span>
-      </a>
-
-      <a class="lt-card" href="precorso.html">
-        <strong>Precorso e prova iniziale</strong>
-        <span>Per riprendere gli strumenti di base, capire il proprio livello e prepararsi al primo anno.</span>
-      </a>
+<section class="lt-panel" aria-labelledby="section-course">
+  <div class="lt-panel-head">
+    <div>
+      <h2 id="section-course">Conosci il corso</h2>
+      <p>Che cosa troverai dentro una Laurea in Matematica.</p>
     </div>
-  </section>
+  </div>
 
-  <section class="lt-section">
-    <h2>Durante il percorso</h2>
-    <p class="lt-section-intro">Per organizzare gli studi e scegliere consapevolmente gli insegnamenti.</p>
-
-    <div class="lt-grid">
-      <a class="lt-card" href="piano-di-studi.html">
-        <strong>Costruire il piano di studi</strong>
-        <span>Quali insegnamenti inserire, quali regole rispettare e come comporre un percorso valido per conseguire la laurea.</span>
-      </a>
-
-      <a class="lt-card" href="presentare-piano-di-studi.html">
-        <strong>Presentare il piano di studi</strong>
-        <span>Come usare CAPS, quando presentare il piano, come funzionano le finestre di approvazione e come seguirne l’iter.</span>
-      </a>
-
-      <a class="lt-card" href="../lezioni-esami/index.html">
-        <strong>Lezioni &amp; Esami</strong>
-        <span>Calendario, orari, insegnamenti attivati, appelli d’esame e informazioni sulla vita didattica.</span>
-      </a>
-
-      <a class="lt-card" href="../lezioni-esami/presentazione-corsi.html">
-        <strong>Presentazione degli insegnamenti</strong>
-        <span>Una guida ai corsi non obbligatori, alle aree disciplinari e ai possibili percorsi di scelta.</span>
-      </a>
+  <div class="intro-note">
+      <p>Durante il percorso inizierai a familiarizzare con nomi che all'inizio possono sembrare un po' misteriosi.</p>
+      <p><strong>Algebra, Geometria, Analisi, Logica, Probabilità…</strong> all'università indicano aree della matematica molto più ampie di quanto possano suggerire le parole usate a scuola.</p>
+      <p>Non preoccuparti se oggi non sai ancora bene che cosa significhino: uno degli obiettivi dei primi anni è proprio cominciare a orientarsi fra queste grandi aree della disciplina.</p>
+      <p>Per capirci: la <strong>Geometria</strong> non è soltanto triangoli, l'<strong>Algebra</strong> non è soltanto espressioni e l'<strong>Analisi</strong>, fortunatamente, non richiede un lettino.</p>
+      <p class="ssd-legend">Per ogni settore indichiamo sia la <strong>vecchia sigla MAT/…</strong>, ancora molto usata, sia la <strong>nuova sigla MATH-…</strong>.</p>
     </div>
-  </section>
 
-  <section class="lt-section">
-    <h2>Alla fine</h2>
-    <p class="lt-section-intro">Quando gli esami sono quasi finiti e arriva il momento di preparare la laurea.</p>
+  <div class="area-grid">
+      <article class="area-card">
+        <h3>Matematica più teorica</h3>
+        <p>Qui compaiono alcuni dei settori che studiano strutture, relazioni e proprietà matematiche in modo astratto e rigoroso.</p>
+        <ul class="ssd-list">
+          <li><span class="ssd-old">MAT/01</span><span class="ssd-new">MATH-01/A</span><span class="ssd-name">Logica matematica</span></li>
+          <li><span class="ssd-old">MAT/02</span><span class="ssd-new">MATH-02/A</span><span class="ssd-name">Algebra</span></li>
+          <li><span class="ssd-old">MAT/03</span><span class="ssd-new">MATH-02/B</span><span class="ssd-name">Geometria</span></li>
+          <li><span class="ssd-old">MAT/05</span><span class="ssd-new">MATH-03/A</span><span class="ssd-name">Analisi matematica</span></li>
+        </ul>
+      </article>
 
-    <a class="lt-card lt-end" href="laurearsi.html">
-      <strong>Laurearsi</strong>
-      <span>Domanda di laurea, scadenze, commissione, prova finale e calcolo del voto.</span>
+      <article class="area-card">
+        <h3>Matematica più vicina alle applicazioni</h3>
+        <p>Qui rientrano i settori più legati a modelli, metodi quantitativi, calcolo e problemi che possono nascere anche fuori dalla matematica.</p>
+        <ul class="ssd-list">
+          <li><span class="ssd-old">MAT/06</span><span class="ssd-new">MATH-03/B</span><span class="ssd-name">Probabilità e statistica matematica</span></li>
+          <li><span class="ssd-old">MAT/07</span><span class="ssd-new">MATH-04/A</span><span class="ssd-name">Fisica matematica</span></li>
+          <li><span class="ssd-old">MAT/08</span><span class="ssd-new">MATH-05/A</span><span class="ssd-name">Analisi numerica</span></li>
+          <li><span class="ssd-old">MAT/09</span><span class="ssd-new">MATH-06/A</span><span class="ssd-name">Ricerca operativa</span></li>
+        </ul>
+      </article>
+
+      <article class="area-card">
+        <h3>Storia e didattica della matematica</h3>
+        <p>La matematica si può studiare anche dal punto di vista della sua storia, dei suoi fondamenti e del modo in cui viene insegnata e appresa.</p>
+        <ul class="ssd-list">
+          <li><span class="ssd-old">MAT/04</span><span class="ssd-new">MATH-01/B</span><span class="ssd-name">Didattica e storia della matematica</span></li>
+        </ul>
+      </article>
+
+      <article class="area-card">
+        <h3>Discipline vicine</h3>
+        <p><strong>Fisica</strong> e <strong>Informatica</strong> fanno parte della formazione triennale e interagiscono naturalmente con molti strumenti e problemi matematici.</p>
+      </article>
+    </div>
+</section>
+
+<section class="lt-panel" aria-labelledby="section-study">
+  <div class="lt-panel-head">
+    <div>
+      <h2 id="section-study">Come si studia</h2>
+      <p>La matematica universitaria non si impara soltanto ascoltando una lezione.</p>
+    </div>
+  </div>
+
+  <div class="study-grid">
+    <article class="study-card">
+      <h3>Lezioni ed esercitazioni</h3>
+      <p>Le lezioni introducono idee, definizioni e teoremi; le esercitazioni servono a imparare a usarli davvero sui problemi.</p>
+    </article>
+
+    <article class="study-card">
+      <h3>Studio individuale</h3>
+      <p>Una parte importante del percorso consiste nel rielaborare gli argomenti, fare esercizi, ricostruire dimostrazioni e capire dove un ragionamento si inceppa.</p>
+    </article>
+
+    <article class="study-card">
+      <h3>Dimostrare</h3>
+      <p>Progressivamente impari non solo a seguire una dimostrazione, ma a costruirne una: scegliere le idee giuste, organizzare gli argomenti e spiegare perché funzionano.</p>
+    </article>
+
+    <article class="study-card">
+      <h3>Calcolare e sperimentare</h3>
+      <p>In alcuni insegnamenti il computer è uno strumento di lavoro: si programma, si implementano algoritmi e si fanno esperimenti numerici.</p>
+    </article>
+
+    <article class="study-card">
+      <h3>Confrontarsi</h3>
+      <p>Compagni, docenti, tutor e ricevimenti fanno parte del percorso. Molti problemi diventano più chiari quando si prova a spiegarli a qualcun altro.</p>
+    </article>
+  </div>
+</section>
+
+<section class="lt-panel" aria-labelledby="section-path">
+  <div class="lt-panel-head">
+    <div>
+      <h2 id="section-path">Il percorso, passo dopo passo</h2>
+      <p>Dall'immatricolazione alla laurea: una piccola timeline per trovare subito la pagina che ti serve.</p>
+    </div>
+  </div>
+
+  <div class="career-timeline">
+    <section class="career-phase">
+      <div class="career-step">
+        <span class="career-step-number">1</span>
+        <h3>Prima di iniziare</h3>
+      </div>
+        <div class="timeline-grid">
+    <a class="nav-card" href="iscrizione.html">
+      <h3>Iscrizione</h3>
+      <p>Come funziona l'immatricolazione e quali passaggi servono per iniziare.</p>
     </a>
-  </section>
 
-  <section class="official-docs">
-    <h2>Documenti ufficiali</h2>
-    <p class="lt-section-intro">Le regole formali del Corso di Laurea.</p>
-    <div class="official-docs-links">
-      <a href="regolamento.html">Regolamento didattico</a>
-      <a href="ordinamento.html">Ordinamento</a>
-    </div>
-  </section>
+    <a class="nav-card" href="ofa.html">
+      <h3>OFA</h3>
+      <p>Quando vengono attribuiti gli Obblighi Formativi Aggiuntivi e come si assolvono.</p>
+    </a>
 
-  <aside class="internal-note">
-    <strong>Nota interna — da decidere.</strong>
-    Valutare se rinominare la voce visibile <em>Presentazione</em> in <em>Il percorso triennale</em>
-    anche nel menu, mantenendo eventualmente invariato l’URL <code>presentazione.html</code>.
-  </aside>
+    <a class="nav-card" href="precorso.html">
+      <h3>Precorso e test di ingresso</h3>
+      <p>Come prepararsi all'inizio e come funziona la Prova di Verifica delle Conoscenze in Ingresso.</p>
+    </a>
+  </div>
+    </section>
+
+    <section class="career-phase">
+      <div class="career-step">
+        <span class="career-step-number">2</span>
+        <h3>Durante il percorso</h3>
+      </div>
+        <div class="timeline-grid timeline-grid-4">
+    <a class="nav-card" href="piano-di-studi.html">
+      <h3>Costruire il piano di studi</h3>
+      <p>Che cosa deve contenere il piano, come funzionano curricula, gruppi di scelta e attività sovrannumerarie.</p>
+    </a>
+
+    <a class="nav-card" href="presentare-piano-di-studi.html">
+      <h3>Presentare il piano di studi</h3>
+      <p>CAPS, tempi di valutazione, approvazione, modifiche e casi particolari.</p>
+    </a>
+
+    <a class="nav-card" href="../lezioni-esami/index.html">
+      <h3>Lezioni &amp; Esami</h3>
+      <p>Calendario, insegnamenti attivati, orari, appelli ed esami.</p>
+    </a>
+
+    <a class="nav-card" href="../lezioni-esami/presentazione-corsi.html">
+      <h3>Presentazione degli insegnamenti</h3>
+      <p>Uno strumento per orientarsi fra gli insegnamenti non obbligatori e le diverse aree della matematica.</p>
+    </a>
+  </div>
+    </section>
+
+    <section class="career-phase">
+      <div class="career-step">
+        <span class="career-step-number">3</span>
+        <h3>Alla fine</h3>
+      </div>
+      <div class="timeline-grid single">
+    <a class="nav-card final-card" href="laurearsi.html">
+      <h3>Laurearsi</h3>
+      <p>Relatore, domanda di laurea, scadenze, discussione e voto finale.</p>
+    </a>
+  </div>
+    </section>
+  </div>
+</section>
+
+<section class="official-docs" aria-labelledby="section-docs">
+  <div class="official-docs-head">
+    <h2 id="section-docs">Documenti ufficiali</h2>
+    <p>Le pagine precedenti cercano di spiegare le cose in modo pratico. Qui trovi i documenti ufficiali che fanno fede.</p>
+  </div>
+    <div class="timeline-grid rules-grid">
+    <a class="nav-card" href="regolamento.html">
+      <h3>Regolamento</h3>
+      <p>Le regole del Corso di Laurea per la tua coorte.</p>
+    </a>
+
+    <a class="nav-card" href="ordinamento.html">
+      <h3>Ordinamento</h3>
+      <p>La struttura ufficiale del Corso di Laurea.</p>
+    </a>
+  </div>
+</section>
+
+
+
 </main>
-<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer><script src="../assets/site.js"></script></body></html>
+<footer>Prototipo non ufficiale · fotografia strutturale del 5 agosto 2026</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
