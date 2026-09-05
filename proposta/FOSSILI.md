@@ -10,6 +10,9 @@ Questa cartella non è stata modificata automaticamente. Il rapporto distingue t
 - `laurea-triennale/conseguimento-del-titolo.html` — sostituita dalla pagina canonica `laurearsi.html`. Consiglio: redirect.
 - `laurea-triennale/test-ingresso.html` — vecchio nome/redirect; la pagina canonica è `precorso.html`. Consiglio: mantenere come redirect per compatibilità con vecchi link.
 
+- `laurea-triennale/presentazione.html` — la vecchia Presentazione è stata assorbita dalla nuova `laurea-triennale/index.html`, che svolge ora la funzione di Panoramica. Consiglio: redirect alla Panoramica.
+- `laurea-magistrale/presentazione.html` — la Presentazione separata viene abbandonata: anche per la LM la funzione introduttiva sarà svolta dalla Panoramica `laurea-magistrale/index.html`. Consiglio: redirect alla Panoramica.
+
 ## Candidato, ma NON da toccare ancora
 
 - `laurea-magistrale/conseguimento-del-titolo.html` — esiste anche `laurea-magistrale/laurearsi.html`, ma la LM non è ancora stata riprogettata sistematicamente. Per ora lo considero solo un candidato fossile: non eliminerei nulla finché non lavoriamo sulla LM.
