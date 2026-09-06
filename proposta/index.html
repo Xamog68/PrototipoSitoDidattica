@@ -48,6 +48,24 @@
 
 @media(max-width:900px){
   .mission-grid,.home-primary-grid,.home-secondary-grid,.home-guidance-grid,}
+
+.home-guidance-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.home-guidance-block{
+  border:1px solid #d8dde3;
+  border-radius:12px;
+  padding:1rem 1.1rem;
+  background:#fafbfc;
+}
+.home-guidance-block h3{margin-top:0}
+.home-guidance-block ul{margin-bottom:0}
+@media(max-width:760px){
+  .home-guidance-grid{grid-template-columns:1fr}
+}
 </style>
 </head><body><header><div class="brand"><div class="seal">UNIPI</div><div><div class="site-name">Didattica</div><div class="dept">Dipartimento di Matematica</div></div></div><nav class="mainnav">
 <button aria-expanded="false" class="menu-toggle">Menu</button>
@@ -64,7 +82,6 @@
 <li><a href="info-utili/studenti-lavoratori.html">Studenti lavoratori</a></li>
 <li><a href="info-utili/tirocini.html">Tirocini e stage</a></li>
 </ul></li>
-
 <li class="item"><a href="news.html">News</a></li>
 </ul>
 </nav></header>
@@ -85,7 +102,7 @@
 <div class="mission-number">1</div>
 <h3>Ancorati nel passato</h3>
 <p class="mission-subtitle">Il nostro nome è sempre lo stesso: Matematica.</p>
-<p>È un nome antico, che viene dal greco <strong>μάθημα</strong> (<em>máthēma</em>): ciò che si impara, ciò che si conosce. Non abbiamo sentito il bisogno di aggiungergli aggettivi, sigle o parole più alla moda.</p>
+<p>È un nome antico, che viene dal greco <em>μάθημα</em> (<em>máthēma</em>): ciò che si impara, ciò che si conosce. Non abbiamo sentito il bisogno di aggiungergli aggettivi, sigle o parole più alla moda.</p>
 <p>Ci riconosciamo in una disciplina con una storia di millenni e in una tradizione che continua a interrogarsi sulle stesse domande di fondo: che cosa significa capire, dimostrare, generalizzare, trovare strutture.</p>
 <div class="mission-close">Se esiste da millenni, ci sarà un perché.</div>
 </article>
@@ -109,24 +126,20 @@
 </section>
 <section aria-label="Orientarsi nella scelta" class="home-guidance">
 <article class="home-guidance-card">
-<h2>È il corso giusto per te?</h2>
-<h3>Potrebbe esserlo se…</h3>
-<ul>
+<h2>È il corso giusto per te?</h2><div class="home-guidance-grid"><div class="home-guidance-block"><h3>Potrebbe esserlo se…</h3><ul>
 <li>ti piace capire <strong>perché</strong> qualcosa è vero, non solo saperlo usare;</li>
 <li>davanti a un problema difficile hai voglia di insistere;</li>
 <li>trovi soddisfazione nel mettere ordine in idee complesse;</li>
 <li>ti piace passare dal concreto all'astratto e viceversa;</li>
 <li>sei disposto a cambiare metodo di studio rispetto alla scuola.</li>
-</ul>
-<h3>Non serve…</h3>
-<ul>
+</ul></div><div class="home-guidance-block"><h3>Non serve…</h3><ul>
 <li>essere un “genio”;</li>
 <li><strong>saper fare calcoli velocemente</strong>;</li>
-<li>aver partecipato alle Olimpiadi o ad altre gare matematiche;</li>
+<li>aver ottenuto risultati di rilievo alle Olimpiadi o ad altre gare matematiche;</li>
 <li>provenire da un liceo scientifico;</li>
 <li>aver già studiato argomenti universitari;</li>
 <li>sapere già quale lavoro vorrai fare dopo.</li>
-</ul>
+</ul></div></div>
 </article>
 <div class="home-section-heading" style="margin-top:2rem">
 <h2>E dopo?</h2>
@@ -135,15 +148,15 @@
 <div class="home-after-grid">
 <article class="home-after-card">
 <h3>Accademia</h3>
-<p>Laurea Magistrale, dottorato, ricerca: il percorso che può portare a diventare ricercatori e docenti in università ed enti di ricerca.</p>
+<p>Laurea Magistrale, dottorato, ricerca: è il percorso che può portare a lavorare nelle università e negli enti di ricerca. Ma non è soltanto una prosecuzione degli studi: è una scelta di vita professionale, fatta di problemi difficili, conoscenza nuova, insegnamento e confronto continuo dentro una comunità scientifica internazionale.</p>
 </article>
 <article class="home-after-card">
 <h3>Scuola</h3>
-<p>L'insegnamento è uno degli sbocchi storici della formazione matematica. Richiede i successivi percorsi previsti per l'accesso alla professione docente.</p>
+<p>L'insegnamento è uno degli sbocchi storici della formazione matematica e richiede i successivi percorsi previsti per l'accesso alla professione docente. Ma non è soltanto uno sbocco professionale: è una scelta di grande responsabilità, perché significa contribuire a formare il modo di ragionare delle generazioni che verranno e trasmettere strumenti destinati a durare.</p>
 </article>
 <article class="home-after-card">
 <h3>E tutto il resto</h3>
-<p>Industria, informatica, analisi dei dati, finanza, consulenza, pubblica amministrazione, modellistica e molti altri contesti nei quali una formazione matematica può essere utile.</p>
+<p>Non c’è che l’imbarazzo della scelta: industria, informatica, analisi dei dati, finanza, consulenza, pubblica amministrazione, modellistica e molti altri contesti nei quali una formazione matematica è apprezzata. Non si tratta di allontanarsi dalla matematica, ma di portarne metodi, linguaggio e capacità di affrontare problemi complessi nei luoghi più diversi.</p>
 </article>
 </div>
 <div class="home-stats-grid">
